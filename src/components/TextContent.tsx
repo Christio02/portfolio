@@ -12,14 +12,15 @@ const TextContent = ({ name, text, direction = 'right' }: TextProps) => {
 	const controls = useAnimation();
 	const [ref, inView] = useInView({
 		triggerOnce: true,
-		threshold: 0.3
+		threshold: 0.1
 	});
 
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
 		const checkMobile = () => {
-			setIsMobile(window.innerWidth < 640);
+			const mobile = window.innerWidth <= 768;
+			setIsMobile(mobile);
 		};
 		checkMobile();
 		window.addEventListener('resize', checkMobile);
@@ -49,10 +50,10 @@ const TextContent = ({ name, text, direction = 'right' }: TextProps) => {
 				initial="hidden"
 				variants={variants}
 				transition={{ duration: 0.8, ease: 'easeInOut' }}
-				className="flex w-full flex-col gap-y-8 rounded-2xl border-4 p-6 text-center shadow-xl tablet:w-6/12"
+				className="flex w-full flex-col justify-center gap-y-4 rounded-2xl border-2 p-4 text-center shadow-md tablet:w-10/12 tablet:gap-y-6 tablet:border-4 tablet:p-6 laptop:min-h-[300px] laptop:p-8 desktop:min-h-[400px]"
 			>
-				<h4 className="text-2xl font-extrabold">{name}</h4>
-				<p className="text-lg">{text}</p>
+				<h4 className="text-xl font-bold tablet:text-4xl">{name}</h4>
+				<p className="text-sm tablet:text-2xl">{text}</p>
 			</motion.section>
 		</>
 	);
