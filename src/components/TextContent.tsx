@@ -34,7 +34,7 @@ const TextContent = ({ name, text, direction = 'right' }: TextProps) => {
 				initial="hidden"
 				variants={variants}
 				transition={{ duration: 0.8 }}
-				className="shadow-black-400 flex w-6/12 flex-col gap-y-8 overflow-x-hidden rounded-2xl border-4 p-6 text-center shadow-xl"
+				className="shadow-black-400 tablet:w-6/12 flex w-10/12 flex-col gap-y-8 overflow-x-hidden rounded-2xl border-4 p-6 text-center shadow-xl"
 			>
 				<h4 className="text-2xl font-extrabold">{name}</h4>
 				<p className="text-lg">{text}</p>
