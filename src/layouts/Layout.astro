@@ -9,10 +9,10 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="Christopher's portfolio" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,11 +24,15 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<Nav name="Christopher Høe" />
-	<body>
-		<slot />
+	<Nav />
+	<body
+		class="bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-50"
+	>
+		<main class="sm:px-6 lg:px-8 mx-auto max-w-7xl px-4 py-12">
+			<slot />
+		</main>
+		<Footer />
 	</body>
-	<Footer />
 
 	<style is:global>
 		:root {
@@ -36,7 +40,21 @@ const { title } = Astro.props;
 			line-height: 1.5;
 			font-weight: 400;
 		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		.fade-in {
+			animation: fadeIn 0.5s ease-in-out;
+		}
 	</style>
 
+	<script></script>
 
 </html>

@@ -1,61 +1,24 @@
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect, useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
-export interface TextProps {
+interface TextContentProps {
 	name: string;
 	text: string;
-	direction?: 'left' | 'right';
+	direction: 'left' | 'right';
 }
 
-const TextContent = ({ name, text, direction = 'right' }: TextProps) => {
-	const controls = useAnimation();
-	const [ref, inView] = useInView({
-		triggerOnce: true,
-		threshold: 0.1
-	});
-
-	const [isMobile, setIsMobile] = useState(false);
-
-	useEffect(() => {
-		const checkMobile = () => {
-			const mobile = window.innerWidth <= 768;
-			setIsMobile(mobile);
-		};
-		checkMobile();
-		window.addEventListener('resize', checkMobile);
-
-		return () => window.removeEventListener('resize', checkMobile);
-	}, []);
-
-	useEffect(() => {
-		if (inView) {
-			controls.start('visible');
-		}
-	}, [controls, inView]);
-
-	const variants = {
-		hidden: {
-			opacity: 0,
-			x: isMobile ? (direction === 'right' ? 50 : -50) : direction === 'right' ? 300 : -300
-		},
-		visible: { opacity: 1, x: 0 }
-	};
-
+const TextContent = ({ name, text, direction }: TextContentProps) => {
 	return (
-		<>
-			<motion.section
-				ref={ref}
-				animate={controls}
-				initial="hidden"
-				variants={variants}
-				transition={{ duration: 0.8, ease: 'easeInOut' }}
-				className="flex w-full flex-col justify-center gap-y-4 rounded-2xl border-2 p-4 text-center shadow-md tablet:w-10/12 tablet:gap-y-6 tablet:border-4 tablet:p-6 laptop:min-h-[300px] laptop:p-8 desktop:min-h-[400px]"
-			>
-				<h4 className="text-xl font-bold tablet:text-4xl">{name}</h4>
-				<p className="text-sm tablet:text-2xl">{text}</p>
-			</motion.section>
-		</>
+		<motion.div
+			initial={{ opacity: 0, x: direction === 'left' ? -50 : 50 }}
+			animate={{ opacity: 1, x: 0 }}
+			transition={{ duration: 0.5 }}
+			className="mx-auto max-w-3xl"
+		>
+			<h2 className="mb-4 text-2xl font-bold">{name}</h2>
+			<p className="text-gray-600 dark:text-gray-300">{text}</p>
+		</motion.div>
 	);
 };
+
 export default TextContent;

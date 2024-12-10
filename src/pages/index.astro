@@ -1,15 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import HorizontalLine from '../components/HorizontalLine.astro';
-
-import Content from '../components/Content.astro';
+import Hero from '../components/Hero';
+import Projects from '../components/Projects';
+import TextContent from '../components/TextContent';
+import Contact from '../components/Contact';
 ---
 
-<Layout title="Christopher Høe">
-	<main class="flex min-h-screen w-full flex-col items-center gap-4 bg-gray-50">
-		<Header position={'Student & Software Developer'} />
-		<HorizontalLine />
-		<Content />
-	</main>
+<Layout title="Christopher Høe - Portfolio">
+	<Hero client:load />
+	<Projects client:visible />
+	<TextContent
+		client:visible
+		name="About Me"
+		text="I am currently in my third year pursuing a Bachelor's degree in Informatics at NTNU, Trondheim. I am passionate about creating innovative and sustainable solutions using cutting-edge tools and technologies. I am always eager to find ways to streamline development processes while maintaining a focus on creativity and enjoyment in my work."
+		direction="right"
+	/>
+	<TextContent
+		client:visible
+		name="Skills & Technologies"
+		text="Through my studies at NTNU and hands-on experience at Studentmediene in Trondheim, I have developed a strong foundation in various programming languages and technologies. I have worked extensively with React and TypeScript, building responsive and interactive web applications. My experience also includes working with Java to develop REST applications, collaborating with fellow students on complex projects. Additionally, I have gained proficiency in version control systems like Git, and I'm comfortable working in Agile development environments."
+		direction="right"
+	/>
+	<Contact client:visible />
 </Layout>
