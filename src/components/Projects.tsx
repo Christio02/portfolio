@@ -26,14 +26,14 @@ const Projects = () => {
 	return (
 		<div className="py-12">
 			<h2 className="mb-8 text-center text-3xl font-bold">My Projects</h2>
-			<div className="md:grid-cols-2 lg:grid-cols-3 grid grid-cols-1 gap-8">
+			<div className="grid grid-cols-1 justify-center gap-8 md:grid-cols-2 lg:grid-cols-2">
 				{projects.map((project, index) => (
 					<motion.div
 						key={index}
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: index * 0.1 }}
-						className="overflow-hidden rounded-lg bg-white shadow-lg dark:bg-gray-800"
+						className="flex flex-col overflow-hidden rounded-lg bg-white shadow-lg dark:bg-gray-800"
 					>
 						<img src={project.image} alt={project.title} className="h-48 w-full object-cover" />
 						<div className="p-6">
