@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface TextContentProps {
@@ -13,9 +12,9 @@ const TextContent = ({ name, text, direction }: TextContentProps) => {
 			initial={{ opacity: 0, x: direction === 'left' ? -50 : 50 }}
 			animate={{ opacity: 1, x: 0 }}
 			transition={{ duration: 0.5 }}
-			className="mx-auto max-w-3xl"
+			className="mx-auto max-w-3xl rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800"
 		>
-			<h2 className="mb-4 text-2xl font-bold">{name}</h2>
+			<h2 className="text-gradient-2 mb-4 text-2xl font-bold">{name}</h2>
 			<p className="text-gray-600 dark:text-gray-300">{text}</p>
 		</motion.div>
 	);
