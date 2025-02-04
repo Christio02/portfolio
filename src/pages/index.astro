@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
 import TextContent from '../components/TextContent';
-import Contact from '../components/Contact';
+import '../styles/global.css';
 ---
 
 <Layout title="Christopher Høe - Portfolio">
@@ -21,5 +21,4 @@ import Contact from '../components/Contact';
 		text="Through my studies at NTNU and hands-on experience at Studentmediene in Trondheim, I have developed a strong foundation in various programming languages and technologies. I have worked extensively with React and TypeScript, building responsive and interactive web applications. My experience also includes working with Java to develop REST applications, collaborating with fellow students on complex projects. Additionally, I have gained proficiency in version control systems like Git, and I'm comfortable working in Agile development environments."
 		direction="right"
 	/>
-	<Contact client:visible />
 </Layout>
