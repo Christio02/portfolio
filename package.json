@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.0.0",
-    "@astrojs/tailwind": "^5.1.3",
+    "@astrojs/tailwind": "^6.0.0",
     "astro": "^5.1.8",
     "astro-cv": "file:",
     "astro-icon": "^1.1.4",
