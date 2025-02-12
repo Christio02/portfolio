@@ -12,10 +12,13 @@ const TextContent = ({ name, text, direction }: TextContentProps) => {
 			initial={{ opacity: 0, x: direction === 'left' ? -50 : 50 }}
 			animate={{ opacity: 1, x: 0 }}
 			transition={{ duration: 0.5 }}
-			className="mx-auto max-w-3xl rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800"
+			className="bg-card mx-auto max-w-3xl overflow-hidden rounded-lg shadow-lg"
 		>
-			<h2 className="text-gradient-2 mb-4 text-2xl font-bold">{name}</h2>
-			<p className="text-gray-600 dark:text-gray-300">{text}</p>
+			<div className="bg-gradient-2 h-2" />
+			<div className="p-6">
+				<h2 className="text-gradient-2 mb-4 text-3xl font-bold">{name}</h2>
+				<p className="text-foreground/80 text-lg leading-relaxed">{text}</p>
+			</div>
 		</motion.div>
 	);
 };
