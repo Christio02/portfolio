@@ -1,5 +1,5 @@
 ---
-import Nav from '../components/Nav.astro';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
@@ -11,7 +11,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Christopher's portfolio" />
@@ -27,7 +27,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-background text-foreground">
-		<Nav />
+		<Navbar client:load />
 		<main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
 			<slot />
 		</main>
