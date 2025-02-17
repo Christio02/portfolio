@@ -1,7 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
+
 import Logo from './Logo';
+
+const PDF = 'cv_english.pdf';
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -80,7 +83,12 @@ const Navbar = () => {
 					<div className="hidden md:flex">
 						<ul className="flex items-center space-x-4">
 							<motion.li variants={navItemVariants} whileHover="hover">
-								<a href="/cv" className="relative rounded-md px-3 py-2 text-2xl font-medium">
+								<a
+									href={PDF}
+									target="_blank"
+									className="relative rounded-md px-3 py-2 text-2xl font-medium"
+									rel="noopener noreferrer"
+								>
 									CV
 									<motion.div
 										className="absolute bottom-0 left-0 h-0.5 w-0 bg-current"
@@ -139,7 +147,9 @@ const Navbar = () => {
 								transition={{ delay: 0.2 }}
 							>
 								<a
-									href="/cv"
+									href={PDF}
+									target="_blank"
+									rel="noopener noreferrer"
 									className="block rounded-md px-3 py-2 text-2xl font-medium transition-all duration-300 hover:bg-gray-100/10"
 								>
 									CV
