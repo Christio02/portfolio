@@ -1,15 +1,4 @@
 {
-	"extends": ["config:base"],
-	"packageRules": [
-		{
-			"matchManagers": ["pnpm"],
-			"enabled": true,
-			"matchUpdateTypes": ["minor", "patch"],
-			"automerge": true
-		}
-	],
-	"automerge": true,
-	"automergeType": "pr",
-	"schedule": ["at 02:00 on Monday"],
-	"rangeStrategy": "auto"
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended"]
 }
