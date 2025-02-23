@@ -49,7 +49,7 @@ const ProjectCard = ({
 				</div>
 				<div className="flex items-center justify-between">
 					<span className="text-muted-foreground text-sm">Click to view project</span>
-					<ArrowUpRight className="text-primary h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+					<ArrowUpRight className="text-primary h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
 				</div>
 			</div>
 		</motion.div>

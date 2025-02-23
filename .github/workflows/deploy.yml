@@ -38,13 +38,7 @@ jobs:
         run: pnpm run lint
 
       - name: Run Prettier Check
-        run: pnpm exec prettier --check .
-
-      - name: Run Prettier Fix
-        run: pnpm exec prettier --write .
-
-      - name: Run ESLint Fix
-        run: pnpm run lint -- --fix
+        run: pnpm run format:check
 
       - name: Build Project
         run: pnpm run build
