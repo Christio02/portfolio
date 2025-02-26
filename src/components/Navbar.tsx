@@ -1,15 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, Moon, Sun } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Menu } from 'lucide-react';
+import { useState } from 'react';
 
 import Logo from './Logo';
-import { Button } from './ui/button';
+import ThemeToggle from './ThemeToggle';
 
 const PDF = 'cv_english.pdf';
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [isDark, setIsDark] = useState(false);
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
@@ -32,12 +31,6 @@ const Navbar = () => {
 			scale: 1.02,
 			transition: { duration: 0.2 }
 		}
-	};
-
-	const iconVariants = {
-		initial: { opacity: 0, scale: 0.8 },
-		animate: { opacity: 1, scale: 1 },
-		exit: { opacity: 0, scale: 0.8 }
 	};
 
 	const mobileMenuVariants = {
@@ -67,28 +60,6 @@ const Navbar = () => {
 			}
 		}
 	};
-
-	useEffect(() => {
-		const theme = localStorage.getItem('dark');
-		if (theme === 'true') {
-			setIsDark(true);
-		}
-
-		if (theme === 'false') {
-			setIsDark(false);
-		}
-	});
-
-	useEffect(() => {
-		// If you want to apply dark mode to the document
-		if (isDark) {
-			document.documentElement.classList.add('dark');
-			localStorage.setItem('dark', 'true');
-		} else {
-			document.documentElement.classList.remove('dark');
-			localStorage.setItem('dark', 'false');
-		}
-	}, [isDark]); // Add isDark to the dependency array
 
 	return (
 		<nav className="bg-secondary-foreground relative shadow-md" aria-label="Main Navigation">
@@ -141,57 +112,7 @@ const Navbar = () => {
 								</a>
 							</motion.li>
 							<motion.li>
-								<motion.div
-									className={`relative flex h-10 w-20 cursor-pointer items-center justify-start rounded-full p-1 transition-all duration-300 ${
-										isDark ? 'bg-blue-800' : 'bg-amber-400'
-									}`}
-									onClick={() => setIsDark(!isDark)}
-									whileHover={{ scale: 1.05 }}
-									whileTap={{ scale: 0.95 }}
-									role="button"
-									tabIndex={0}
-									aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-								>
-									<motion.div
-										className={`absolute h-8 w-8 rounded-full ${isDark ? 'bg-white' : 'bg-black'} shadow-md`}
-										layout
-										transition={{
-											type: 'spring',
-											stiffness: 500,
-											damping: 30
-										}}
-										style={{
-											left: isDark ? 'calc(100% - 2rem - 0.25rem)' : '0.25rem'
-										}}
-									/>
-									<AnimatePresence mode="wait" initial={false}>
-										{isDark ? (
-											<motion.div
-												key="moon"
-												className="absolute left-2"
-												custom={isDark}
-												variants={iconVariants}
-												initial="initial"
-												animate="animate"
-												exit="exit"
-											>
-												<Moon size={18} className="text-white" />
-											</motion.div>
-										) : (
-											<motion.div
-												key="sun"
-												className="absolute right-2"
-												custom={isDark}
-												variants={iconVariants}
-												initial="initial"
-												animate="animate"
-												exit="exit"
-											>
-												<Sun size={18} className="text-black" />
-											</motion.div>
-										)}
-									</AnimatePresence>
-								</motion.div>
+								<ThemeToggle isMobile={false} />
 							</motion.li>
 						</ul>
 					</div>
@@ -249,6 +170,9 @@ const Navbar = () => {
 								>
 									Contact
 								</a>
+							</motion.li>
+							<motion.li>
+								<ThemeToggle isMobile={true} />
 							</motion.li>
 						</ul>
 					</motion.div>
