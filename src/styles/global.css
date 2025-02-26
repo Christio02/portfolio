@@ -1,56 +1,7 @@
-/*
-
-	This stylesheet defines global styles and custom theme variables for the application.
-
-	Imports:
-	- Tailwind CSS
-
-	Custom Theme Variables:
-	- --background: Background color in HSL format.
-	- --foreground: Foreground color in HSL format.
-	- --card: Card background color in HSL format.
-	- --card-foreground: Card foreground color in HSL format.
-	- --popover: Popover background color in HSL format.
-	- --popover-foreground: Popover foreground color in HSL format.
-	- --primary: Primary color in HSL format.
-	- --primary-foreground: Primary foreground color in HSL format.
-	- --secondary: Secondary color in HSL format.
-	- --secondary-foreground: Secondary foreground color in HSL format.
-	- --muted: Muted color in HSL format.
-	- --muted-foreground: Muted foreground color in HSL format.
-	- --accent: Accent color in HSL format.
-	- --accent-foreground: Accent foreground color in HSL format.
-	- --destructive: Destructive color in HSL format.
-	- --destructive-foreground: Destructive foreground color in HSL format.
-	- --border: Border color in HSL format.
-	- --input: Input color in HSL format.
-	- --ring: Ring color in HSL format.
-	- --radius: Border radius.
-	- --gradient-1: Linear gradient from primary to secondary color.
-	- --gradient-2: Linear gradient from accent to primary color.
-	- --gradient-3: Linear gradient from secondary to accent color.
-
-	Base Layer:
-	- Sets the background color and text color for the body element.
-
-	Utilities Layer:
-	- .bg-gradient-1: Background gradient using --gradient-1.
-	- .bg-gradient-2: Background gradient using --gradient-2.
-	- .bg-gradient-3: Background gradient using --gradient-3.
-	- .text-gradient-1: Text gradient using --gradient-1.
-	- .text-gradient-2: Text gradient using --gradient-2.
-	- .text-gradient-3: Text gradient using --gradient-3.
-
-	Global Keyframes:
-	- fadeIn: Keyframe animation for fading in elements.
-
-	Utility Classes:
-	- .fade-in: Applies the fadeIn animation with a duration of 0.5s and ease-in-out timing function.
-*/
 @import 'tailwindcss';
 
-@theme {
-	/* Custom theme variables */
+/* Light mode (default) */
+:root {
 	--background: 220 20% 97%;
 	--foreground: 220 20% 10%;
 	--card: 0 0% 100%;
@@ -74,6 +25,44 @@
 	--gradient-1: linear-gradient(135deg, hsl(220, 80%, 50%), hsl(200, 80%, 60%));
 	--gradient-2: linear-gradient(135deg, hsl(280, 80%, 60%), hsl(220, 80%, 50%));
 	--gradient-3: linear-gradient(135deg, hsl(200, 80%, 60%), hsl(280, 80%, 60%));
+}
+
+/* Dark mode */
+.dark {
+	--background: 220 20% 10%;
+	--foreground: 220 20% 97%;
+	--card: 220 20% 15%;
+	--card-foreground: 220 20% 97%;
+	--popover: 220 20% 15%;
+	--popover-foreground: 220 20% 97%;
+	--primary: 220 80% 60%;
+	--primary-foreground: 220 20% 10%;
+	--secondary: 200 80% 70%;
+	--secondary-foreground: 220 20% 10%;
+	--muted: 220 20% 20%;
+	--muted-foreground: 220 20% 70%;
+	--accent: 280 80% 70%;
+	--accent-foreground: 220 20% 10%;
+	--destructive: 0 80% 60%;
+	--destructive-foreground: 220 20% 10%;
+	--border: 220 20% 30%;
+	--input: 220 20% 30%;
+	--ring: 220 80% 60%;
+	--gradient-1: linear-gradient(135deg, hsl(220, 80%, 60%), hsl(200, 80%, 70%));
+	--gradient-2: linear-gradient(135deg, hsl(280, 80%, 70%), hsl(220, 80%, 60%));
+	--gradient-3: linear-gradient(135deg, hsl(200, 80%, 70%), hsl(280, 80%, 70%));
+}
+
+@theme {
+	/* You can put theme-specific @keyframes here */
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
 }
 
 @layer base {
@@ -110,16 +99,6 @@
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
-	}
-}
-
-/* Global Keyframes */
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
 	}
 }
 
