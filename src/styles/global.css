@@ -79,23 +79,25 @@
 	.bg-gradient-3 {
 		background-image: var(--gradient-3);
 	}
-	.text-gradient-1 {
-		background-image: var(--gradient-1);
+	.text-gradient-1,
+	.text-gradient-2,
+	.text-gradient-3 {
+		padding-bottom: 0.3rem;
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
+		-webkit-text-fill-color: transparent;
+		display: inline-block;
+	}
+
+	.text-gradient-1 {
+		background-image: var(--gradient-1);
 	}
 	.text-gradient-2 {
 		background-image: var(--gradient-2);
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
 	}
 	.text-gradient-3 {
 		background-image: var(--gradient-3);
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
 	}
 }
 

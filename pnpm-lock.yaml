@@ -4643,6 +4643,7 @@ snapshots:
     dependencies:
       '@astrojs/check': 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.5.2)(typescript@5.7.3)
       '@astrojs/react': 4.2.0(@types/node@22.13.5)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(yaml@2.7.0)
+      '@nanostores/react': 0.8.4(nanostores@0.11.4)(react@19.0.0)
       '@radix-ui/react-label': 2.1.2(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-slot': 1.1.2(@types/react@19.0.10)(react@19.0.0)
       '@tailwindcss/vite': 4.0.8(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(yaml@2.7.0))
@@ -4654,6 +4655,7 @@ snapshots:
       esbuild: 0.25.0
       framer-motion: 12.4.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       lucide-react: 0.476.0(react@19.0.0)
+      nanostores: 0.11.4
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       react-intersection-observer: 9.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
