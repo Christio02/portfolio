@@ -3,6 +3,7 @@ import { Menu } from 'lucide-react';
 import { useState } from 'react';
 
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 
 const PDF = 'cv_english.pdf';
 
@@ -110,6 +111,9 @@ const Navbar = () => {
 									/>
 								</a>
 							</motion.li>
+							<motion.li>
+								<ThemeToggle isMobile={false} />
+							</motion.li>
 						</ul>
 					</div>
 
@@ -166,6 +170,9 @@ const Navbar = () => {
 								>
 									Contact
 								</a>
+							</motion.li>
+							<motion.li>
+								<ThemeToggle isMobile={true} />
 							</motion.li>
 						</ul>
 					</motion.div>
