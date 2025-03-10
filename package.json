@@ -19,15 +19,15 @@
 		"@radix-ui/react-label": "^2.1.2",
 		"@radix-ui/react-slot": "^1.1.2",
 		"@tailwindcss/vite": "^4.0.6",
-		"astro": "5.4.1",
+		"astro": "5.4.2",
 		"astro-icon": "^1.1.5",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"cookie": "^1.0.2",
 		"esbuild": "^0.25.0",
 		"framer-motion": "^12.4.3",
-		"lucide-astro": "^0.477.0",
-		"lucide-react": "^0.476.0",
+		"lucide-astro": "^0.479.0",
+		"lucide-react": "^0.479.0",
 		"nanostores": "^0.11.4",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
@@ -49,5 +49,5 @@
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"vite-tsconfig-paths": "^5.1.4"
 	},
-	"packageManager": "pnpm@10.5.0+sha512.11106a5916c7406fe4b8cb8e3067974b8728f47308a4f5ac5e850304afa6f57e2847d7950dfe78877d8d36bfb401d381c4215db3a4c3547ffa63c14333a6fa51"
+	"packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b"
 }
