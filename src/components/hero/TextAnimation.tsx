@@ -9,6 +9,7 @@ export interface TextAnimationProps {
 
 const TextAnimation = ({ delay }: TextAnimationProps) => {
 	const [done, setDone] = useState(false);
+	const [text, setText] = useState('');
 
 	const helloText = 'Hi, I am Christopher Høe';
 	const count = useMotionValue(0);
@@ -18,6 +19,8 @@ const TextAnimation = ({ delay }: TextAnimationProps) => {
 	const displayedText = useTransform(roundedLetter, (latest) => helloText.slice(0, latest));
 
 	useEffect(() => {
+		const unsubscribe = displayedText.on('change', (v) => setText(v));
+
 		const controls = animate(count, helloText.length, {
 			type: 'tween',
 			delay: delay,
@@ -27,20 +30,25 @@ const TextAnimation = ({ delay }: TextAnimationProps) => {
 				setDone(true);
 			}
 		});
-		return controls.stop;
+		return () => {
+			controls.stop;
+			unsubscribe;
+		};
 	}, []);
 
 	return (
-		<span className="">
-			<motion.span className="text-gradient-2 text-4xl">{displayedText}</motion.span>
-
-			<>
-				<br /> <br />
-			</>
-
-			<RedoText delay={delay + 1} />
-			<CursorBlinker />
-		</span>
+		<div style={{ height: '6rem', overflow: 'hidden' }}>
+			<div style={{ height: '3rem' }}>
+				<motion.span className="text-gradient-2 block text-4xl">
+					{text}
+					{!done && <CursorBlinker />}
+				</motion.span>
+			</div>
+			<div>
+				<RedoText delay={delay + 1} />
+				<CursorBlinker />
+			</div>
+		</div>
 	);
 };
 export default TextAnimation;
