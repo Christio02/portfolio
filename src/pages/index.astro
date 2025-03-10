@@ -1,14 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero';
+import Hero from '../components/hero/Hero';
 import Projects from '../components/project/Projects';
 import TextContent from '../components/TextContent';
 import '../styles/global.css';
 ---
 
 <Layout title="Christopher Høe - Portfolio">
-	<Hero client:load />
-	<Projects client:visible />
+	<section class="m-b-0 min-h-[50vh]">
+		<Hero client:load />
+		<Projects client:visible />
+	</section>
+
 	<TextContent
 		client:visible
 		name="About Me"

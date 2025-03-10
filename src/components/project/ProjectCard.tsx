@@ -24,7 +24,7 @@ const ProjectCard = ({
 			animate={{ opacity: 1, scale: 1, y: 0 }}
 			transition={{ duration: 0.3, ease: 'easeInOut' }}
 			whileHover={{ scale: 1.03, transition: { duration: 0.1 } }}
-			className="group from-secondary to-card dark:from-secondary/50 dark:to-card/50 relative flex h-full flex-col overflow-hidden rounded-xl bg-gradient-to-br p-1 shadow-lg transition-all duration-300 hover:shadow-2xl"
+			className="group from-secondary to-card dark:from-secondary/50 dark:to-card/50 relative flex h-full cursor-pointer flex-col overflow-hidden rounded-xl bg-gradient-to-br p-1 shadow-lg transition-all duration-300 hover:shadow-2xl"
 		>
 			<div className="bg-card flex h-full flex-col overflow-hidden rounded-lg p-6">
 				<div className="relative mb-4 overflow-hidden rounded-lg">
