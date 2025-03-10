@@ -31,10 +31,10 @@ const TextAnimation = ({ delay }: TextAnimationProps) => {
 			}
 		});
 		return () => {
-			controls.stop;
-			unsubscribe;
+			controls.stop();
+			unsubscribe();
 		};
-	}, []);
+	}, [delay]);
 
 	return (
 		<div style={{ height: '6rem', overflow: 'hidden' }}>
