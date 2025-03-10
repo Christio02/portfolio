@@ -1,4 +1,4 @@
-import { animate, delay, motion, useMotionValue, useTransform } from 'framer-motion';
+import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect } from 'react';
 
 export interface RedoTextProps {
