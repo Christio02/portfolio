@@ -37,15 +37,16 @@ const TextAnimation = ({ delay }: TextAnimationProps) => {
 	}, [delay]);
 
 	return (
-		<div style={{ height: '6rem', overflow: 'hidden' }}>
+		<div className="h-10rem sm:h-[6rem]">
 			<div style={{ height: '3rem' }}>
-				<motion.span className="text-gradient-2 block text-4xl">
+				<motion.span className="text-gradient-2 block text-3xl sm:text-4xl">
 					{text}
 					{!done && <CursorBlinker />}
 				</motion.span>
 			</div>
 			<div>
 				<RedoText delay={delay + 1} />
+				{/* Only show the second cursor when RedoText is active */}
 				<CursorBlinker />
 			</div>
 		</div>
