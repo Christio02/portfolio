@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 import Logo from './Logo';
@@ -14,6 +14,13 @@ const Navbar = () => {
 		setIsOpen(!isOpen);
 	};
 
+	const logoVariants = {
+		hover: {
+			scale: 1.05,
+			transition: { duration: 0.3, ease: 'easeOut' }
+		}
+	};
+
 	const navItemVariants = {
 		hover: {
 			scale: 1.05,
@@ -22,65 +29,79 @@ const Navbar = () => {
 	};
 
 	const menuButtonVariants = {
-		hover: { rotate: 180, scale: 1.1 },
+		hover: { scale: 1.1 },
 		tap: { scale: 0.95 }
 	};
 
-	const logoVariants = {
-		hover: {
-			scale: 1.02,
-			transition: { duration: 0.2 }
+	const mobileMenuVariant = {
+		open: {
+			y: '0%',
+			transition: {
+				duration: 0.6,
+				ease: [0.74, 0, 0.19, 1.02]
+			}
+		},
+		closed: {
+			y: '-100%',
+			transition: {
+				duration: 0.5,
+				ease: [0.74, 0, 0.19, 1.02]
+			}
 		}
 	};
 
-	const mobileMenuVariants = {
-		initial: {
-			height: 0,
-			opacity: 0,
-			y: -10
+	const ulVariant = {
+		open: {
+			transition: {
+				delayChildren: 0.1,
+				staggerChildren: 0.1
+			}
 		},
-		animate: {
-			height: 'auto',
+		closed: {
+			transition: {
+				staggerChildren: 0.05,
+				staggerDirection: -1
+			}
+		}
+	};
+
+	const liVariant = {
+		open: {
 			opacity: 1,
 			y: 0,
 			transition: {
-				height: { duration: 0.3 },
-				opacity: { duration: 0.2, delay: 0.1 },
-				y: { duration: 0.2, delay: 0.1 }
+				duration: 0.4,
+				ease: 'easeOut'
 			}
 		},
-		exit: {
-			height: 0,
+		closed: {
 			opacity: 0,
-			y: -10,
+			y: 20,
 			transition: {
-				height: { duration: 0.3 },
-				opacity: { duration: 0.2 },
-				y: { duration: 0.2 }
+				duration: 0.2,
+				ease: 'easeIn'
 			}
 		}
 	};
 
 	return (
-		<nav className="bg-secondary-foreground relative shadow-md" aria-label="Main Navigation">
+		<nav
+			className={
+				isOpen
+					? 'bg-secondary-foreground relative shadow-none'
+					: 'bg-secondary-foreground relative shadow-md'
+			}
+			aria-label="Main Navigation"
+		>
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div className="flex h-16 items-center justify-between">
 					<motion.div className="flex items-center" variants={logoVariants} whileHover="hover">
 						<a href="/" className="flex shrink-0 items-center">
 							<Logo className="h-10 w-10" />
-							<motion.span
-								className="text-gradient-2 ml-2 text-4xl font-bold"
-								initial={{ backgroundPosition: '0%' }}
-								whileHover={{
-									backgroundPosition: '100%',
-									transition: { duration: 1 }
-								}}
-							>
-								Christopher Høe
-							</motion.span>
 						</a>
 					</motion.div>
 
+					{/* Desktop menu */}
 					<div className="hidden md:flex">
 						<ul className="flex items-center space-x-4">
 							<motion.li variants={navItemVariants} whileHover="hover">
@@ -101,7 +122,7 @@ const Navbar = () => {
 							<motion.li variants={navItemVariants} whileHover="hover">
 								<a
 									href="/contact"
-									className="hover:text-primary text-muted-foreground relative rounded-md px-3 py-2 text-2xl font-medium"
+									className="text-muted-foreground hover:text-primary relative rounded-md px-3 py-2 text-2xl font-medium"
 								>
 									Contact
 									<motion.div
@@ -117,6 +138,7 @@ const Navbar = () => {
 						</ul>
 					</div>
 
+					{/* Mobile menu button */}
 					<motion.button
 						type="button"
 						onClick={toggleMenu}
@@ -124,57 +146,66 @@ const Navbar = () => {
 						variants={menuButtonVariants}
 						whileHover="hover"
 						whileTap="tap"
-						aria-label="Toggle Menu"
+						aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
 						aria-expanded={isOpen}
 						aria-controls="mobile-menu"
 					>
-						<Menu className="h-8 w-8" />
+						{isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
 					</motion.button>
 				</div>
 			</div>
 
+			{/* Mobile menu */}
 			<AnimatePresence>
 				{isOpen && (
 					<motion.div
 						key="mobile-menu"
-						variants={mobileMenuVariants}
-						initial="initial"
-						animate="animate"
-						exit="exit"
-						className="bg-secondary-foreground absolute w-full shadow-lg md:hidden"
+						className="bg-secondary-foreground absolute z-50 w-full"
 						id="mobile-menu"
+						initial="closed"
+						animate="open"
+						exit="closed"
+						variants={mobileMenuVariant}
+						style={{
+							boxShadow: isOpen
+								? '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+								: 'none'
+						}}
+						onAnimationComplete={(definition) => {
+							if (definition === 'closed') {
+								// Remove shadow after exit animation completes
+								const mobileMenu = document.getElementById('mobile-menu');
+								if (mobileMenu) {
+									mobileMenu.style.boxShadow = 'none';
+								}
+							}
+						}}
 					>
-						<ul className="space-y-1 px-2 py-3">
-							<motion.li
-								initial={{ opacity: 0, x: -10 }}
-								animate={{ opacity: 1, x: 0 }}
-								transition={{ delay: 0.2 }}
-							>
+						<motion.ul className="space-y-6 px-2 py-6" variants={ulVariant}>
+							<motion.li className="px-1" variants={liVariant}>
 								<a
 									href={PDF}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="block rounded-md px-3 py-2 text-2xl font-medium transition-all duration-300 hover:bg-gray-100/10"
+									className="block rounded-md px-3 py-2 text-2xl font-medium transition-colors duration-200 hover:bg-gray-100/10"
 								>
 									CV
 								</a>
 							</motion.li>
-							<motion.li
-								initial={{ opacity: 0, x: -10 }}
-								animate={{ opacity: 1, x: 0 }}
-								transition={{ delay: 0.3 }}
-							>
+							<motion.li className="px-1" variants={liVariant}>
 								<a
 									href="/contact"
-									className="hover:text-primary block rounded-md px-3 py-2 text-2xl font-medium transition-all duration-300 hover:bg-gray-100/10"
+									className="hover:text-primary block rounded-md px-3 py-2 text-2xl font-medium transition-colors duration-200 hover:bg-gray-100/10"
 								>
 									Contact
 								</a>
 							</motion.li>
-							<motion.li>
-								<ThemeToggle isMobile={true} />
+							<motion.li className="flex px-4 py-2" variants={liVariant}>
+								<div className="flex items-center">
+									<ThemeToggle isMobile={true} />
+								</div>
 							</motion.li>
-						</ul>
+						</motion.ul>
 					</motion.div>
 				)}
 			</AnimatePresence>

@@ -16,11 +16,9 @@ const ThemeToggle = ({ isMobile }: ThemeToggleProps) => {
 	const [mounted, setMounted] = useState(false);
 	const [isDark, setIsDark] = useState(false);
 
-	// Initialize theme based on localStorage or system preference when component mounts
 	useEffect(() => {
 		setMounted(true);
 
-		// Check localStorage first
 		const savedTheme = localStorage.getItem('theme');
 
 		if (savedTheme === 'dark') {
@@ -28,7 +26,6 @@ const ThemeToggle = ({ isMobile }: ThemeToggleProps) => {
 		} else if (savedTheme === 'light') {
 			setIsDark(false);
 		} else {
-			// If no saved preference, use system preference
 			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 			setIsDark(prefersDark.matches);
 		}
@@ -123,7 +120,7 @@ const ThemeToggle = ({ isMobile }: ThemeToggleProps) => {
 				</motion.div>
 			) : (
 				<motion.div
-					className={`relative flex h-5 w-10 cursor-pointer flex-col items-center justify-start rounded-full p-0 transition-all duration-300 ${
+					className={`relative flex h-8 w-14 cursor-pointer items-center justify-start rounded-full p-1 transition-all duration-300 ${
 						isDark ? 'bg-blue-800' : 'bg-amber-400'
 					}`}
 					onClick={toggleTheme}
@@ -134,7 +131,7 @@ const ThemeToggle = ({ isMobile }: ThemeToggleProps) => {
 					aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
 				>
 					<motion.div
-						className={`absolute h-4 w-4 rounded-full ${isDark ? 'bg-white' : 'bg-black'} shadow-md`}
+						className={`absolute h-6 w-6 rounded-full ${isDark ? 'bg-white' : 'bg-black'} shadow-md`}
 						layout
 						transition={{
 							type: 'spring',
@@ -142,31 +139,34 @@ const ThemeToggle = ({ isMobile }: ThemeToggleProps) => {
 							damping: 30
 						}}
 						style={{
-							left: isDark ? 'calc(100% - 1rem - 0.25rem)' : '0.25rem'
+							left: isDark ? 'calc(100% - 1.75rem)' : '0.25rem',
+							top: '0.25rem'
 						}}
 					/>
 					<AnimatePresence mode="wait" initial={false}>
 						{isDark ? (
 							<motion.div
 								key="moon"
-								className="absolute top-0.5 left-1"
+								className="absolute top-1/2 left-1.5 -translate-y-1/2"
 								variants={iconVariants}
 								initial="initial"
 								animate="animate"
 								exit="exit"
+								layout
 							>
-								<Moon size={12} className="text-white" />
+								<Moon size={16} className="text-white" />
 							</motion.div>
 						) : (
 							<motion.div
 								key="sun"
-								className="absolute top-0.5 right-1"
+								className="absolute top-1/2 right-1.5 -translate-y-1/2"
 								variants={iconVariants}
 								initial="initial"
 								animate="animate"
 								exit="exit"
+								layout
 							>
-								<Sun size={12} className="text-black" />
+								<Sun size={16} className="text-black" />
 							</motion.div>
 						)}
 					</AnimatePresence>
