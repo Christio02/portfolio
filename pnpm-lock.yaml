@@ -48,11 +48,11 @@ importers:
         specifier: ^12.4.3
         version: 12.6.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       lucide-astro:
-        specifier: ^0.484.0
-        version: 0.484.0(astro@5.5.5(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.7.0))
+        specifier: ^0.485.0
+        version: 0.485.0(astro@5.5.5(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.7.0))
       lucide-react:
-        specifier: ^0.484.0
-        version: 0.484.0(react@19.1.0)
+        specifier: ^0.485.0
+        version: 0.485.0(react@19.1.0)
       nanostores:
         specifier: ^0.11.4
         version: 0.11.4
@@ -2138,13 +2138,13 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-astro@0.484.0:
-    resolution: {integrity: sha512-80TVoiYfYhwVgCBxu3nGBWlpUUYA3bSptYGmX8koZy6RHqMqRKwwClFLK7IZ5ws3UzGrO3ZFHkWZN0GbXaKzSQ==}
+  lucide-astro@0.485.0:
+    resolution: {integrity: sha512-xOOhZ6UDMqK9dnufCjye6evTqR/PXT2zkxvQX3ddBwU7tzKYwhJ8UZ1njUK/yCuJHQ8tWeNtf5IWZGkqqsMN7A==}
     peerDependencies:
       astro: '>=2.7.1'
 
-  lucide-react@0.484.0:
-    resolution: {integrity: sha512-oZy8coK9kZzvqhSgfbGkPtTgyjpBvs3ukLgDPv14dSOZtBtboryWF5o8i3qen7QbGg7JhiJBz5mK1p8YoMZTLQ==}
+  lucide-react@0.485.0:
+    resolution: {integrity: sha512-NvyQJ0LKyyCxL23nPKESlr/jmz8r7fJO1bkuptSNYSy0s8VVj4ojhX0YAgmE1e0ewfxUZjIlZpvH+otfTnla8Q==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -5669,11 +5669,11 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-astro@0.484.0(astro@5.5.5(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.7.0)):
+  lucide-astro@0.485.0(astro@5.5.5(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.7.0)):
     dependencies:
       astro: 5.5.5(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.34.8)(typescript@5.8.2)(yaml@2.7.0)
 
-  lucide-react@0.484.0(react@19.1.0):
+  lucide-react@0.485.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 
