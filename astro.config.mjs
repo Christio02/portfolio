@@ -11,9 +11,6 @@ export default defineConfig({
 	integrations: [icon(), react()],
 	vite: {
 		plugins: [tailwindcss(), tsconfigPaths()],
-		optimizeDeps: {
-			include: ['debug']
-		},
 		ssr: {
 			noExternal: ['framer-motion', 'debug']
 		}
