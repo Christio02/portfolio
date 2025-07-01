@@ -6,7 +6,7 @@ lastUpdated: 2025-07-01
 
 I have just finished my Bachelor's degree in [**Informatics at NTNU, Trondheim**](https://www.ntnu.no/studier/bit). I am passionate about creating innovative and sustainable solutions using cutting-edge tools and technologies.
 
-My journey in software development started with curiosity about how applications works and how computers functions. It has evolved into a deep appreciation for clean code, user experience, and collaborative development.
+My journey in software development started with curiosity about how applications work and how computers function. It has evolved into a deep appreciation for clean code, user experience, and collaborative development.
 
 ## What Drives Me
 

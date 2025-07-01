@@ -4,7 +4,7 @@ description: 'Overview of my technical skills and professional experience'
 lastUpdated: 2025-07-01
 ---
 
-Through my studies at **NTNU**, hands-on experience at the newly founded start-up **Hoggorm Design A/S** and my involvment in **Studentmediene in Trondheim**, I have developed a strong foundation in various programming languages and technologies.
+Through my studies at **NTNU**, hands-on experience at the newly founded start-up **Hoggorm Design A/S** and my involvement in **Studentmediene in Trondheim**, I have developed a strong foundation in various programming languages and technologies.
 
 ## Professional Experience
 
