@@ -1,8 +1,11 @@
 ---
-import ContactForm from '../components/ContactForm.tsx';
-import Layout from '../layouts/Layout.astro';
+import ContactForm from '@/components/ContactForm';
+import Layout from '@/layouts/Layout.astro';
 ---
 
-<Layout title="Christopher Høe - Portfolio">
+<Layout
+	title="Contact | Christopher Høe - Web Developer"
+	description="Get in touch with Christopher Høe for web development projects, collaborations, or inquiries. I'd love to hear from you!"
+>
 	<ContactForm client:load />
 </Layout>

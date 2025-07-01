@@ -125,3 +125,88 @@
 .fade-in {
 	animation: fadeIn 0.5s ease-in-out;
 }
+
+/* Custom prose styling to match theme */
+@layer components {
+	.prose {
+		color: hsl(var(--foreground) / 0.8);
+		font-size: 1rem;
+		line-height: 1.7;
+	}
+
+	.prose.prose-lg {
+		font-size: 1.125rem;
+	}
+
+	.prose h1,
+	.prose h2,
+	.prose h3,
+	.prose h4,
+	.prose h5,
+	.prose h6 {
+		color: hsl(var(--foreground));
+		font-weight: 600;
+		margin-top: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.prose h2 {
+		font-size: 1.5rem;
+		border-bottom: 2px solid hsl(var(--border));
+		padding-bottom: 0.5rem;
+	}
+
+	.prose h3 {
+		font-size: 1.25rem;
+		color: hsl(var(--primary));
+	}
+
+	.prose strong {
+		color: hsl(var(--primary));
+		font-weight: 600;
+	}
+
+	.prose code {
+		color: hsl(var(--primary));
+		background-color: hsl(var(--muted));
+		padding: 0.125rem 0.25rem;
+		border-radius: 0.25rem;
+		font-size: 0.875em;
+	}
+
+	.prose ul,
+	.prose ol {
+		margin: 1rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.prose li {
+		margin: 0.5rem 0;
+	}
+
+	.prose li strong {
+		color: hsl(var(--foreground));
+	}
+
+	.prose p {
+		margin: 1rem 0;
+		line-height: 1.7;
+	}
+
+	.prose p:first-child {
+		margin-top: 0;
+	}
+
+	.prose p:last-child {
+		margin-bottom: 0;
+	}
+
+	.prose a {
+		color: hsl(var(--primary));
+		text-decoration: none;
+	}
+
+	.prose a:hover {
+		text-decoration: underline;
+	}
+}

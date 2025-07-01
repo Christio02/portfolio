@@ -1,0 +1,11 @@
+/game/*.js.br
+  Content-Type: application/javascript
+  Content-Encoding: br
+
+/game/*.wasm.br
+  Content-Type: application/wasm
+  Content-Encoding: br
+
+/game/*.data.br
+  Content-Type: application/octet-stream
+  Content-Encoding: br

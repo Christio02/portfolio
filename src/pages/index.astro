@@ -1,27 +1,24 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/hero/Hero';
-import Projects from '../components/project/Projects';
-import TextContent from '../components/TextContent';
-import '../styles/global.css';
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/hero/Hero';
+import Projects from '@/components/project/Projects.astro';
+import '@/styles/global.css';
+import AboutSection from '@/components/AboutSection.astro';
 ---
 
 <Layout title="Christopher Høe - Portfolio">
-	<section class="m-b-0 min-h-[50vh]">
+	<section class="m-b-0 flex min-h-[50vh] flex-col">
 		<Hero client:load />
-		<Projects client:visible />
+		<AboutSection />
+		<Projects />
 	</section>
-
-	<TextContent
-		client:visible
-		name="About Me"
-		text="I am currently in my third year pursuing a Bachelor's degree in Informatics at NTNU, Trondheim. I am passionate about creating innovative and sustainable solutions using cutting-edge tools and technologies. I am always eager to find ways to streamline development processes while maintaining a focus on creativity and enjoyment in my work."
-		direction="right"
-	/>
-	<TextContent
-		client:visible
-		name="Skills & Technologies"
-		text="Through my studies at NTNU and hands-on experience at Studentmediene in Trondheim, I have developed a strong foundation in various programming languages and technologies. I have worked extensively with React and TypeScript, building responsive and interactive web applications. My experience also includes working with Java to develop REST applications, collaborating with fellow students on complex projects. Additionally, I have gained proficiency in version control systems like Git, and I'm comfortable working in Agile development environments."
-		direction="right"
-	/>
 </Layout>
+<script is:inline>
+	document.addEventListener('astro:load', () => {
+		const savedPosition = sessionStorage.getItem('scrollPosition');
+		if (savedPosition) {
+			window.scrollTo(0, parseInt(savedPosition, 10));
+			sessionStorage.removeItem('scrollPosition');
+		}
+	});
+</script>

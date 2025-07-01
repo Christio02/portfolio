@@ -1,0 +1,162 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { getProjectImage } from '@/lib/images';
+import { Image } from 'astro:assets';
+import { Code2 } from 'lucide-astro';
+import { slugifyLink } from '@/lib/slugifyLink';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+	return projects.map((project) => ({
+		params: { slug: slugifyLink(project.data.title) },
+		props: { project }
+	}));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+const imageName = project.data.imageUrl ? project.data.imageUrl.split('/').pop() || '' : '';
+const resolvedImageUrl = getProjectImage(imageName);
+console.log('Resolved image:', resolvedImageUrl);
+
+const siteUrl = 'https://choe.netlify.app';
+const projectImageUrl = project.data.imageUrl
+	? resolvedImageUrl.src.startsWith('http')
+		? resolvedImageUrl.src
+		: `${siteUrl}${resolvedImageUrl.src}`
+	: undefined;
+const canonicalUrl = `${siteUrl}/projects/${slugifyLink(project.data.title)}`;
+---
+
+<Layout
+	title={`${project.data.title} | Christopher's Portfolio`}
+	description={project.data.description}
+	image={projectImageUrl}
+	type="article"
+>
+	<div class="mx-auto max-w-4xl">
+		<!-- Back button -->
+		<a
+			href="/"
+			class="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 transition-colors"
+		>
+			<ArrowLeft className="h-4 w-4" />
+			Back to Home
+		</a>
+
+		<!-- Project header -->
+		<header class="mb-8">
+			<h1 class="text-gradient-2 mb-4 text-4xl font-bold">{project.data.title}</h1>
+			<p class="text-muted-foreground mb-6 text-xl">{project.data.description}</p>
+
+			<!-- Status badge -->
+			<div class="mb-6">
+				<span
+					class={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+						project.data.status === 'completed'
+							? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+							: project.data.status === 'in-progress'
+								? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+								: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
+					}`}
+				>
+					{
+						project.data.status.charAt(0).toUpperCase() +
+							project.data.status.slice(1).replace('-', ' ')
+					}
+				</span>
+			</div>
+
+			<!-- Tech stack -->
+			<div class="mb-6">
+				<h3 class="mb-3 text-lg font-semibold">Tech Stack</h3>
+				<div class="flex flex-wrap gap-2">
+					{
+						project.data.techStack.map((tech: string) => (
+							<span class="bg-accent text-accent-foreground rounded-full px-3 py-1 text-sm font-medium">
+								{tech}
+							</span>
+						))
+					}
+				</div>
+			</div>
+
+			<!-- Project links -->
+			<div class="mb-8 flex gap-4">
+				{
+					project.data.projectLink && (
+						<a
+							href={project.data.projectLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-lg px-4 py-2 transition-colors"
+						>
+							<ExternalLink className="h-4 w-4" />
+							View Project
+						</a>
+					)
+				}
+				{
+					project.data.githubLink && (
+						<a
+							href={project.data.githubLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="bg-secondary text-secondary-foreground hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-4 py-2 transition-colors"
+						>
+							<Code2 className="h-4 w-4" />
+							View Code
+						</a>
+					)
+				}
+			</div>
+		</header>
+
+		{
+			project.data.imageUrl && (
+				<div class="mb-8">
+					<Image
+						src={resolvedImageUrl}
+						alt={`${project.data.title} project screenshot`}
+						class="h-full w-full rounded-lg object-cover shadow-lg"
+					/>
+				</div>
+			)
+		}
+
+		<article class="prose prose-lg dark:prose-invert max-w-none">
+			<Content />
+		</article>
+	</div>
+</Layout>
+
+<style>
+	.text-gradient-2 {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+</style>
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'CreativeWork',
+		name: project.data.title,
+		description: project.data.description,
+		author: {
+			'@type': 'Person',
+			name: 'Christopher'
+		},
+		image: projectImageUrl,
+		programmingLanguage: project.data.techStack,
+		url: `${siteUrl}/projects/${slugifyLink(project.data.title)},
+	
+		
+		`
+	})}
+/>
