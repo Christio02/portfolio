@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { getProjectImage } from '@/lib/images';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
 	const projects = await getCollection('projects');
@@ -13,6 +15,9 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await project.render();
+
+const imageName = project.data.imageUrl ? project.data.imageUrl.split('/').pop() || '' : '';
+const resolvedImageUrl = getProjectImage(imageName);
 ---
 
 <Layout title={project.data.title}>
@@ -97,10 +102,10 @@ const { Content } = await project.render();
 		{
 			project.data.imageUrl && (
 				<div class="mb-8">
-					<img
-						src={project.data.imageUrl}
+					<Image
+						src={resolvedImageUrl}
 						alt={project.data.title}
-						class="h-64 w-full rounded-lg object-cover shadow-lg"
+						class="h-full w-full rounded-lg object-cover shadow-lg"
 					/>
 				</div>
 			)

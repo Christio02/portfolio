@@ -16,6 +16,7 @@ techStack:
   ]
 featured: true
 publishDate: 2025-05-09
+imageUrl: "ompa_project_image.png"
 status: 'in-progress'
 ---
 

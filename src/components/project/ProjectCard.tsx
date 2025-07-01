@@ -1,3 +1,5 @@
+import { getProjectImage } from '@/lib/images';
+import { Image } from 'astro:assets';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import Placeholder from '../../assets/images/placeholder.webp';
@@ -28,6 +30,9 @@ const ProjectCard = ({
 		});
 	};
 
+	const imageName = imageUrl ? imageUrl.split('/').pop() || '' : '';
+	const resolvedImageUrl = getProjectImage(imageName);
+
 	return (
 		<motion.div
 			onClick={handleCardClick}
@@ -40,8 +45,10 @@ const ProjectCard = ({
 			<div className="bg-card flex h-full flex-col overflow-hidden rounded-lg p-6">
 				<div className="relative mb-4 overflow-hidden rounded-lg">
 					<img
-						src={imageUrl}
-						alt={title}
+						src={resolvedImageUrl.src}
+						alt={title ?? 'Project image'}
+						width={resolvedImageUrl.width}
+						height={resolvedImageUrl.height}
 						className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-110"
 					/>
 					<div className="bg-gradient-1 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-30"></div>
