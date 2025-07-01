@@ -1,11 +1,13 @@
+import Header from '@/components/ui/header';
 import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface RedoTextProps {
 	delay: number;
 }
 
 const RedoText = ({ delay }: RedoTextProps) => {
+	const [text, setText] = useState('');
 	const textIndex = useMotionValue(0);
 	const texts = [
 		'I am a computer science student and a software developer',
@@ -19,6 +21,9 @@ const RedoText = ({ delay }: RedoTextProps) => {
 	const updatedThisRound = useMotionValue(true);
 
 	useEffect(() => {
+		// Subscribe to displayText changes and update the text state
+		const unsubscribe = displayText.on('change', (v) => setText(v));
+
 		animate(count, 60, {
 			type: 'tween',
 			delay: delay,
@@ -33,7 +38,6 @@ const RedoText = ({ delay }: RedoTextProps) => {
 				// The next time we hit 0, we will increment.
 				if (updatedThisRound.get() === true && latest > 0) {
 					updatedThisRound.set(false);
-
 					// If we haven't updated yet and we're at 0,
 					// increment and set updatedThisRound to true.
 				} else if (updatedThisRound.get() === false && latest === 0) {
@@ -48,9 +52,27 @@ const RedoText = ({ delay }: RedoTextProps) => {
 				}
 			}
 		});
-	}, []);
 
-	return <motion.span className="text-gradient-2 inline text-2xl">{displayText}</motion.span>;
+		return () => {
+			unsubscribe();
+		};
+	}, [delay]);
+
+	return (
+		<motion.div className="inline">
+			<Header
+				level={3}
+				size="small"
+				gradient="gradient-2"
+				weight="medium"
+				marginBottom="none"
+				className="inline"
+				animated={false}
+			>
+				{text}
+			</Header>
+		</motion.div>
+	);
 };
 
 export default RedoText;

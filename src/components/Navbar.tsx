@@ -1,8 +1,8 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, type Easing } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
-import Logo from './Logo';
+import Logo from './ui/Logo';
 import ThemeToggle from './ThemeToggle';
 
 const PDF = 'cv_english.pdf';
@@ -17,7 +17,7 @@ const Navbar = () => {
 	const logoVariants = {
 		hover: {
 			scale: 1.05,
-			transition: { duration: 0.3, ease: 'easeOut' }
+			transition: { duration: 0.3, ease: 'easeOut' as Easing }
 		}
 	};
 
@@ -38,14 +38,14 @@ const Navbar = () => {
 			y: '0%',
 			transition: {
 				duration: 0.6,
-				ease: [0.74, 0, 0.19, 1.02]
+				ease: 'circOut' as Easing
 			}
 		},
 		closed: {
 			y: '-100%',
 			transition: {
 				duration: 0.5,
-				ease: [0.74, 0, 0.19, 1.02]
+				ease: 'circOut' as Easing
 			}
 		}
 	};
@@ -71,7 +71,7 @@ const Navbar = () => {
 			y: 0,
 			transition: {
 				duration: 0.4,
-				ease: 'easeOut'
+				ease: 'easeOut' as Easing
 			}
 		},
 		closed: {
@@ -79,7 +79,7 @@ const Navbar = () => {
 			y: 20,
 			transition: {
 				duration: 0.2,
-				ease: 'easeIn'
+				ease: 'easeIn' as Easing
 			}
 		}
 	};
@@ -108,7 +108,7 @@ const Navbar = () => {
 								<a
 									href={PDF}
 									target="_blank"
-									className="relative rounded-md px-3 py-2 text-2xl font-medium"
+									className="text-muted-foreground hover:text-primary relative rounded-md px-3 py-2 text-2xl font-medium"
 									rel="noopener noreferrer"
 								>
 									CV
@@ -173,7 +173,6 @@ const Navbar = () => {
 						}}
 						onAnimationComplete={(definition) => {
 							if (definition === 'closed') {
-								// Remove shadow after exit animation completes
 								const mobileMenu = document.getElementById('mobile-menu');
 								if (mobileMenu) {
 									mobileMenu.style.boxShadow = 'none';

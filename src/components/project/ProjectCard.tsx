@@ -7,7 +7,10 @@ export interface ProjectCardProps {
 	desc: string;
 	imageUrl?: string;
 	techStack: string[];
-	projectLink: string;
+	projectLink?: string;
+	githubLink?: string;
+	delay?: number;
+	slug: string;
 }
 
 const ProjectCard = ({
@@ -15,14 +18,22 @@ const ProjectCard = ({
 	desc,
 	imageUrl = Placeholder.src,
 	techStack,
-	projectLink
+	projectLink,
+	delay = 0,
+	slug
 }: ProjectCardProps) => {
+	const handleCardClick = () => {
+		import('astro:transitions/client').then(({ navigate }) => {
+			navigate(`/projects/${slug}`);
+		});
+	};
+
 	return (
 		<motion.div
-			onClick={() => window.open(projectLink, '_blank')}
+			onClick={handleCardClick}
 			initial={{ opacity: 0, scale: 0.95, y: 20 }}
 			animate={{ opacity: 1, scale: 1, y: 0 }}
-			transition={{ duration: 0.3, ease: 'easeInOut' }}
+			transition={{ duration: 0.3, ease: 'easeInOut', delay }}
 			whileHover={{ scale: 1.03, transition: { duration: 0.1 } }}
 			className="group from-secondary to-card dark:from-secondary/50 dark:to-card/50 relative flex h-full cursor-pointer flex-col overflow-hidden rounded-xl bg-gradient-to-br p-1 shadow-lg transition-all duration-300 hover:shadow-2xl"
 		>

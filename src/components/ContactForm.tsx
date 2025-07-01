@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import Header from '@/components/ui/header';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,8 +12,7 @@ const ContactForm = () => {
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		setIsSubmitting(true);
-		// Add your form submission logic here
-		await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulating API call
+		await new Promise((resolve) => setTimeout(resolve, 2000));
 		setIsSubmitting(false);
 	};
 
@@ -24,7 +24,9 @@ const ContactForm = () => {
 			className="from-background to-secondary/20 bg-gradient-to-b px-4 py-12 sm:px-6 lg:px-8"
 		>
 			<div className="mx-auto max-w-3xl">
-				<h2 className="mb-8 text-center text-3xl font-bold">Contact Me</h2>
+				<Header size="large" gradient="none" center marginBottom="large">
+					Contact Me
+				</Header>
 				<form onSubmit={handleSubmit} className="space-y-6">
 					<div className="space-y-2">
 						<Label htmlFor="name">Name</Label>
