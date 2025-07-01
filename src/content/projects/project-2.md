@@ -25,7 +25,7 @@ status: 'completed'
 
 ## Project Overview
 
-**Dungeons and Developers** is a web app inspired by classic dungeon crawlers — but built as a fun way for users to track and review monsters they encounter in their code adventures. It helps helps DnD fans to explore the different monsters, classes, items and abilities of the game, while also providing a platform to create and manage their own characters. The web app is meant to be used as a resource when playing DnD, by reviewing how difficult the different monsters are.
+**Dungeons and Developers** is a web app inspired by classic dungeon crawlers — but built as a fun way for users to track and review monsters they encounter in their code adventures. It helps DnD fans to explore the different monsters, classes, items and abilities of the game, while also providing a platform to create and manage their own characters. The web app is meant to be used as a resource when playing DnD, by reviewing how difficult the different monsters are.
 The project was developed together with my good friends in the course IT2810 at NTNU, giving us the chance to experiment with a modern full-stack setup and best practices for accessibility, maintainability, and developer experience.
 
 ## Key Features
