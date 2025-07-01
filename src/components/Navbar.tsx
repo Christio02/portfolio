@@ -133,6 +133,19 @@ const Navbar = () => {
 								</a>
 							</motion.li>
 							<motion.li>
+								<a
+									href="/game"
+									className="text-muted-foreground hover:text-primary relative rounded-md px-3 py-2 text-2xl font-medium"
+								>
+									Game
+									<motion.div
+										className="absolute bottom-0 left-0 h-0.5 w-0 bg-current"
+										whileHover={{ width: '100%' }}
+										transition={{ duration: 0.2 }}
+									/>
+								</a>
+							</motion.li>
+							<motion.li>
 								<ThemeToggle isMobile={false} />
 							</motion.li>
 						</ul>
