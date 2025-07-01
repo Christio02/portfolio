@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Unity, useUnityContext } from 'react-unity-webgl';
 
-const UnityGame: React.FC = () => {
+const UnityGame = () => {
 	const [loadingPercentage, setLoadingPercentage] = useState(0);
 
 	const { unityProvider, loadingProgression, isLoaded, addEventListener, removeEventListener } =
