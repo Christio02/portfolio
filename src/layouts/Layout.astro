@@ -5,17 +5,40 @@ import '@/styles/global.css';
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
+	type?: 'website' | 'article';
+	canonical?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "Christopher's portfolio showcasing web development projects and skills",
+	image = '/og-default.jpg',
+	type = 'website',
+	canonical
+} = Astro.props;
+
+const siteUrl = 'https://choe.netlify.app';
+const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Christopher's portfolio" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="canonical" href={canonicalUrl} />
+		<!-- Open Graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={fullImageUrl} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:type" content={type} />
+		<meta property="og:site_name" content="Christopher's Portfolio" />
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

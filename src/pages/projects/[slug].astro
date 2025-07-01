@@ -4,11 +4,13 @@ import Layout from '@/layouts/Layout.astro';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { getProjectImage } from '@/lib/images';
 import { Image } from 'astro:assets';
+import { Code2 } from 'lucide-astro';
+import { slugifyLink } from '@/lib/slugifyLink';
 
 export async function getStaticPaths() {
 	const projects = await getCollection('projects');
 	return projects.map((project) => ({
-		params: { slug: project.slug },
+		params: { slug: slugifyLink(project.data.title) },
 		props: { project }
 	}));
 }
@@ -18,13 +20,26 @@ const { Content } = await project.render();
 
 const imageName = project.data.imageUrl ? project.data.imageUrl.split('/').pop() || '' : '';
 const resolvedImageUrl = getProjectImage(imageName);
+
+const siteUrl = 'https://choe.netlify.app';
+const projectImageUrl = project.data.imageUrl
+	? resolvedImageUrl.src.startsWith('http')
+		? resolvedImageUrl.src
+		: `${siteUrl}${resolvedImageUrl.src}`
+	: undefined;
+const canonicalUrl = `${siteUrl}/projects/${slugifyLink(project.data.title)}`;
 ---
 
-<Layout title={project.data.title}>
+<Layout
+	title={`${project.data.title} | Christopher's Portfolio`}
+	description={project.data.description}
+	image={projectImageUrl}
+	type="article"
+>
 	<div class="mx-auto max-w-4xl">
 		<!-- Back button -->
 		<a
-			href="/#projects"
+			href="/projects"
 			class="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 transition-colors"
 		>
 			<ArrowLeft className="h-4 w-4" />
@@ -91,7 +106,7 @@ const resolvedImageUrl = getProjectImage(imageName);
 							rel="noopener noreferrer"
 							class="bg-secondary text-secondary-foreground hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-4 py-2 transition-colors"
 						>
-							<Github className="h-4 w-4" />
+							<Code2 className="h-4 w-4" />
 							View Code
 						</a>
 					)
@@ -104,7 +119,7 @@ const resolvedImageUrl = getProjectImage(imageName);
 				<div class="mb-8">
 					<Image
 						src={resolvedImageUrl}
-						alt={project.data.title}
+						alt={`${project.data.title} project screenshot`}
 						class="h-full w-full rounded-lg object-cover shadow-lg"
 					/>
 				</div>
@@ -125,3 +140,19 @@ const resolvedImageUrl = getProjectImage(imageName);
 		background-clip: text;
 	}
 </style>
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'CreativeWork',
+		name: project.data.title,
+		description: project.data.description,
+		author: {
+			'@type': 'Person',
+			name: 'Christopher'
+		},
+		image: projectImageUrl,
+		programmingLanguage: project.data.techStack,
+		url: `${siteUrl}/projects/${slugifyLink(project.data.title)}`
+	})}
+/>

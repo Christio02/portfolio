@@ -1,4 +1,4 @@
-import Header from '@/components/ui/header';
+import Header from '@/components/ui/Header';
 import { motion } from 'framer-motion';
 
 interface TextContentProps {

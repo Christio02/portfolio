@@ -1,5 +1,5 @@
 import { getProjectImage } from '@/lib/images';
-import { Image } from 'astro:assets';
+import { slugifyLink } from '@/lib/slugifyLink';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import Placeholder from '../../assets/images/placeholder.webp';
@@ -20,13 +20,11 @@ const ProjectCard = ({
 	desc,
 	imageUrl = Placeholder.src,
 	techStack,
-	projectLink,
-	delay = 0,
-	slug
+	delay = 0
 }: ProjectCardProps) => {
 	const handleCardClick = () => {
 		import('astro:transitions/client').then(({ navigate }) => {
-			navigate(`/projects/${slug}`);
+			navigate(`/projects/${slugifyLink(title)}`);
 		});
 	};
 
@@ -42,11 +40,12 @@ const ProjectCard = ({
 			whileHover={{ scale: 1.03, transition: { duration: 0.1 } }}
 			className="group from-secondary to-card dark:from-secondary/50 dark:to-card/50 relative flex h-full cursor-pointer flex-col overflow-hidden rounded-xl bg-gradient-to-br p-1 shadow-lg transition-all duration-300 hover:shadow-2xl"
 		>
+			<a href={`/projects/${slugifyLink(title)}`} className="block h-full no-underline"></a>
 			<div className="bg-card flex h-full flex-col overflow-hidden rounded-lg p-6">
 				<div className="relative mb-4 overflow-hidden rounded-lg">
 					<img
 						src={resolvedImageUrl.src}
-						alt={title ?? 'Project image'}
+						alt={`${title} project screenshot`}
 						width={resolvedImageUrl.width}
 						height={resolvedImageUrl.height}
 						className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-110"

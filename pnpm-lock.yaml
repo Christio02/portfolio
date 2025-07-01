@@ -14,6 +14,9 @@ importers:
       '@astrojs/react':
         specifier: ^4.3.0
         version: 4.3.0(@types/node@24.0.8)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(yaml@2.8.0)
+      '@lucide/astro':
+        specifier: ^0.525.0
+        version: 0.525.0(astro@5.10.2(@types/node@24.0.8)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(typescript@5.8.3)(yaml@2.8.0))
       '@nanostores/react':
         specifier: ^1.0.0
         version: 1.0.0(nanostores@1.0.1)(react@19.1.0)
@@ -619,6 +622,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.28':
     resolution: {integrity: sha512-KNNHHwW3EIp4EDYOvYFGyIFfx36R2dNJYH4knnZlF8T5jdbD5Wx8xmSaQ2gP9URkJ04LGEtlcCtwArKcmFcwKw==}
+
+  '@lucide/astro@0.525.0':
+    resolution: {integrity: sha512-CjX9aJlmHg5/Io6mRSrSi3TbwRXtrV/6kwsRjv6eVhBymAA8ogq3j8YrV1PsXn1EHK9HFyzeJOhaXGm00acVLg==}
+    peerDependencies:
+      astro: ^4 || ^5
 
   '@nanostores/react@1.0.0':
     resolution: {integrity: sha512-eDduyNy+lbQJMg6XxZ/YssQqF6b4OXMFEZMYKPJCCmBevp1lg0g+4ZRi94qGHirMtsNfAWKNwsjOhC+q1gvC+A==}
@@ -4044,6 +4052,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.3
+
+  '@lucide/astro@0.525.0(astro@5.10.2(@types/node@24.0.8)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(typescript@5.8.3)(yaml@2.8.0))':
+    dependencies:
+      astro: 5.10.2(@types/node@24.0.8)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(typescript@5.8.3)(yaml@2.8.0)
 
   '@nanostores/react@1.0.0(nanostores@1.0.1)(react@19.1.0)':
     dependencies:

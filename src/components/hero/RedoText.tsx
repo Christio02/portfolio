@@ -1,4 +1,4 @@
-import Header from '@/components/ui/header';
+import Header from '@/components/ui/Header';
 import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
