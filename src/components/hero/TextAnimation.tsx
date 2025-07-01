@@ -33,15 +33,13 @@ const TextAnimation = ({ delay }: TextAnimationProps) => {
 	return (
 		<div className="h-auto sm:h-[8rem] md:h-[10rem] lg:h-[12rem]">
 			<div className="mb-4">
-				<motion.div
-					className="block"
-				>
+				<motion.div className="block">
 					<Header
 						size="xlarge"
 						gradient="gradient-2"
 						marginBottom="none"
 						className="block"
-						animated={false} 
+						animated={false}
 					>
 						{text}
 						{!done && <CursorBlinker />}
