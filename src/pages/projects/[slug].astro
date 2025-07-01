@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getProjectImage } from '@/lib/images';
 import { Image } from 'astro:assets';
 import { Code2 } from 'lucide-astro';
@@ -20,6 +20,7 @@ const { Content } = await project.render();
 
 const imageName = project.data.imageUrl ? project.data.imageUrl.split('/').pop() || '' : '';
 const resolvedImageUrl = getProjectImage(imageName);
+console.log('Resolved image:', resolvedImageUrl);
 
 const siteUrl = 'https://choe.netlify.app';
 const projectImageUrl = project.data.imageUrl
@@ -39,11 +40,11 @@ const canonicalUrl = `${siteUrl}/projects/${slugifyLink(project.data.title)}`;
 	<div class="mx-auto max-w-4xl">
 		<!-- Back button -->
 		<a
-			href="/projects"
+			href="/"
 			class="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 transition-colors"
 		>
 			<ArrowLeft className="h-4 w-4" />
-			Back to Projects
+			Back to Home
 		</a>
 
 		<!-- Project header -->
@@ -153,6 +154,9 @@ const canonicalUrl = `${siteUrl}/projects/${slugifyLink(project.data.title)}`;
 		},
 		image: projectImageUrl,
 		programmingLanguage: project.data.techStack,
-		url: `${siteUrl}/projects/${slugifyLink(project.data.title)}`
+		url: `${siteUrl}/projects/${slugifyLink(project.data.title)},
+	
+		
+		`
 	})}
 />

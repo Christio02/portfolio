@@ -13,3 +13,12 @@ import AboutSection from '@/components/AboutSection.astro';
 		<Projects />
 	</section>
 </Layout>
+<script is:inline>
+	document.addEventListener('astro:load', () => {
+		const savedPosition = sessionStorage.getItem('scrollPosition');
+		if (savedPosition) {
+			window.scrollTo(0, parseInt(savedPosition, 10));
+			sessionStorage.removeItem('scrollPosition');
+		}
+	});
+</script>
