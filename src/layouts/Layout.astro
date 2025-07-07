@@ -39,7 +39,18 @@ const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 		<meta property="og:type" content={type} />
 		<meta property="og:site_name" content="Christopher's Portfolio" />
 
+
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Christopher's Portfolio" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<!-- favicon color -->
+		<meta name="theme-color" content="#4F46E5" />
+		<meta name="msapplication-TileColor" content="#4F46E5" />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link

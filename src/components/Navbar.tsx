@@ -1,11 +1,12 @@
 import { AnimatePresence, motion, type Easing } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-
-import Logo from './ui/Logo';
+import Logo from '@/components/ui/Logo';
 import ThemeToggle from './ThemeToggle';
+import PDFLink from "@/components/PDFLink.tsx"
 
-const PDF = 'cv_english.pdf';
+const PDF = 'cv_norsk.pdf';
+const PDF_SIZE = '257 KB';
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -105,19 +106,12 @@ const Navbar = () => {
 					<div className="hidden md:flex">
 						<ul className="flex items-center space-x-4">
 							<motion.li variants={navItemVariants} whileHover="hover">
-								<a
-									href={PDF}
-									target="_blank"
+								<PDFLink
 									className="text-muted-foreground hover:text-primary relative rounded-md px-3 py-2 text-2xl font-medium"
-									rel="noopener noreferrer"
-								>
-									CV
-									<motion.div
-										className="absolute bottom-0 left-0 h-0.5 w-0 bg-current"
-										whileHover={{ width: '100%' }}
-										transition={{ duration: 0.2 }}
-									/>
-								</a>
+									isMobile={false}
+									pdfLink={PDF}
+									pdfSize={PDF_SIZE}
+								/>
 							</motion.li>
 							<motion.li variants={navItemVariants} whileHover="hover">
 								<a
@@ -195,14 +189,12 @@ const Navbar = () => {
 					>
 						<motion.ul className="space-y-6 px-2 py-6" variants={ulVariant}>
 							<motion.li className="px-1" variants={liVariant}>
-								<a
-									href={PDF}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="block rounded-md px-3 py-2 text-2xl font-medium transition-colors duration-200 hover:bg-gray-100/10"
-								>
-									CV
-								</a>
+								<PDFLink
+									className="text-muted-foreground hover:text-primary relative rounded-md px-3 py-2 text-2xl font-medium"
+									isMobile={true}
+									pdfLink={PDF}
+									pdfSize={PDF_SIZE}
+								/>
 							</motion.li>
 							<motion.li className="px-1" variants={liVariant}>
 								<a

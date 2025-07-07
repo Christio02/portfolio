@@ -1,5 +1,5 @@
 ---
-title: 'Online Sheet Music Management System'
+title: 'Online Sheet Music Management'
 description: 'A web-based system to simplify how bands manage, organize, and distribute sheet music. Developed for Heimdal Storband in collaboration with Bouvet ASA.'
 techStack:
   [
