@@ -128,7 +128,7 @@ const Navbar = () => {
 							</motion.li>
 							<motion.li>
 								<a
-									href="/game"
+									href="/unity-game"
 									className="text-muted-foreground hover:text-primary relative rounded-md px-3 py-2 text-2xl font-medium"
 								>
 									Game

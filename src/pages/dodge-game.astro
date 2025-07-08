@@ -1,0 +1,22 @@
+---
+import Header from '@/components/ui/Header';
+import Godot from '../components/Godot';
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Christopher Høe - Godot game">
+	<section class="flex flex-col items-center">
+		<Header level={1} size="xlarge" gradient="gradient-2" center={true} weight="bold"
+			>My first Godot game</Header
+		>
+		<Godot />
+		<article class="mt-5">
+			<ul class="text-lg">
+				<li>Use WASD to steer</li>
+				<li>Use mouse to aim</li>
+				<li>Use SpaceBar or Left-mouse to shoot!</li>
+				<li>Good luck!</li>
+			</ul>
+		</article>
+	</section>
+</Layout>
