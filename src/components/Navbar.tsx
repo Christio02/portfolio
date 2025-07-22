@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Logo from '@/components/ui/Logo';
 import ThemeToggle from './ThemeToggle';
-import PDFLink from "@/components/PDFLink.tsx"
+import PDFLink from '@/components/PDFLink.tsx';
 
 const PDF = 'cv_norsk.pdf';
 const PDF_SIZE = '257 KB';
