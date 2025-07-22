@@ -3,3 +3,4 @@ pnpm-lock.yaml
 dist
 build
 src/content/**
+public
