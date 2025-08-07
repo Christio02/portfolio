@@ -1,6 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
-import Header from '@/components/ui/Header';
+import AnimatedTextContent from '@/components/AnimatedTextContent';
 
 const aboutMe = await getEntry('pages', 'about-me');
 const skills = await getEntry('pages', 'skills');
@@ -10,64 +10,11 @@ const { Content: SkillsContent } = await skills!.render();
 ---
 
 <section class="flex w-full flex-col items-center justify-center gap-16 sm:gap-32">
-	<div
-		class="bg-card mx-auto max-w-3xl overflow-hidden rounded-lg shadow-lg"
-		data-animate="fade-right"
-	>
-		<div class="bg-gradient-2 h-2"></div>
-		<div class="p-6">
-			<Header size="medium" gradient="gradient-2" marginBottom="medium">
-				{aboutMe?.data.title}
-			</Header>
-			<div class="prose prose-lg text-foreground/80 max-w-none leading-relaxed">
-				<AboutContent />
-			</div>
-		</div>
-	</div>
+	<AnimatedTextContent title={aboutMe?.data.title || 'About Me'} direction="right" delay={0.2} client:load>
+		<AboutContent />
+	</AnimatedTextContent>
 
-	<div
-		class="bg-card mx-auto max-w-3xl overflow-hidden rounded-lg shadow-lg"
-		data-animate="fade-left"
-	>
-		<div class="bg-gradient-2 h-2"></div>
-		<div class="p-6">
-			<Header size="medium" gradient="gradient-2" marginBottom="medium">
-				{skills?.data.title}
-			</Header>
-			<div class="prose prose-lg text-foreground/80 max-w-none leading-relaxed">
-				<SkillsContent />
-			</div>
-		</div>
-	</div>
+	<AnimatedTextContent title={skills?.data.title || 'Skills'} direction="left" delay={0.5} client:load>
+		<SkillsContent />
+	</AnimatedTextContent>
 </section>
-
-<script>
-	// Client-side animations to match the original TextContent behavior
-	document.addEventListener('DOMContentLoaded', () => {
-		const animatedElements = document.querySelectorAll('[data-animate]');
-
-		animatedElements.forEach((element, index) => {
-			const htmlElement = element as HTMLElement;
-			const animationType = element.getAttribute('data-animate');
-
-			// Set initial state
-			htmlElement.style.opacity = '0';
-			htmlElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-
-			if (animationType === 'fade-right') {
-				htmlElement.style.transform = 'translateX(50px)';
-			} else if (animationType === 'fade-left') {
-				htmlElement.style.transform = 'translateX(-50px)';
-			}
-
-			// Animate in with staggered delay
-			setTimeout(
-				() => {
-					htmlElement.style.opacity = '1';
-					htmlElement.style.transform = 'translateX(0)';
-				},
-				200 + index * 300
-			);
-		});
-	});
-</script>
