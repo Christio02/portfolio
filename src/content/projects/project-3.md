@@ -1,46 +1,57 @@
 ---
-title: 'Dodge the creeps-First Godot Game'
-description: 'A fast-paced 2D action game built with Godot and GDScript where players dodge enemy mobs while shooting projectiles to survive as long as possible.'
+title: 'Flappy Bird Reinvented: Flight & Firepower'
+description: 'An experimental twist on the Flappy Bird concept where players not only dodge pipes but also blast them apart to carve their own path forward.'
 techStack:
   [
-    'Godot',
-    'GDScript',
+    'Unity',
+    'C#',
     '2D Graphics',
     'Game Physics',
     'Audio System'
   ]
 featured: true
-publishDate: 2025-07-08
-imageUrl: "dodge_game_image.png"
+publishDate: 2025-09-08
+imageUrl: "flappy.png"
 status: 'completed'
 ---
 
 ## Project Overview
 
-This project marks my first venture into game development using the Godot engine. The game is a classic arcade-style experience where players control a character that must dodge incoming enemy mobs while shooting projectiles to defend themselves. The goal is simple: survive as long as possible while the difficulty progressively increases.
+This project reimagines the familiar **Flappy Bird** formula into something more experimental. Instead of simply squeezing through narrow gaps between pipes, the player controls a bird that can **shoot projectiles** to destroy obstacles outright. The game becomes less about pure reaction time and more about deciding whether to dodge, shoot, or combine both strategies to survive.
 
-Built entirely with GDScript, Godot's native scripting language, this project served as a comprehensive introduction to game development concepts including physics, collision detection, sprite animation, and game state management. I based the game on the Godot 2D tutorial, but expanded it by adding projectiles and better score system.
+I built the project in Unity with **C#**, starting from my [Flappy repository](https://github.com/Christio02/flappy). The focus was on exploring how a small mechanic change—giving the player agency to alter the environment—completely transforms the flow and feel of a well-known game.
 
 ## Key Features
 
-- **Dynamic Enemy Spawning:** Mobs spawn at random intervals and positions, keeping gameplay unpredictable and challenging.
-- **Projectile System:** Players can shoot projectiles to destroy approaching enemies, adding a strategic element to survival.
-- **Score System:** Track your survival time and enemies defeated with a persistent high score system.
+- **Destructible Pipes:** Instead of being passive obstacles, pipes can be blasted apart, turning a purely avoidance-based game into one with offensive strategy.  
+- **Risk–Reward Shooting Mechanic:** Shooting costs time and precision; mistimed shots leave the player vulnerable.  
 
 ## Technical Highlights
 
-The game architecture leverages Godot's scene system with separate nodes for the player, enemies, projectiles, and UI elements. **GDScript** handles all game logic, from input processing to collision detection and game state management.
+The architecture uses **Unity’s component system** to keep systems modular: pipes, projectiles, and the player all operate as separate GameObjects.
+
+- **Projectile Physics:** I implemented simple physics for projectiles, ensuring they arc realistically and interact with pipes using collision detection.
+
+- **Ragdoll Bird Collision:** When the bird hits a pipe, it triggers a ragdoll effect for visual feedback, enhancing the impact of failure.
 
 ## What I Learned
 
-This project was an invaluable introduction to game development fundamentals. I learned how to think in terms of **game loops**, **frame-rate independent movement**, and **event-driven programming**. Understanding Godot's node system and scene architecture gave me insight into how modern game engines organize complex interactive systems. I also learned how to use Godot's signal system for event handling, allowing for clean communication between different game components.
+By layering a new mechanic onto a classic game, I learned:  
+
+- How small changes in player agency can drastically alter game dynamics and player engagement.
+- How to create a game from the ground up in Unity, managing assets, physics, and user input.
+-
 
 ## Challenges & Solutions
 
-The signal system was the biggest obstacle I faced. I struggled with understanding how to connect signals between different nodes. I spent time reading the Godot documentation and experimenting by myself, which helped me grasp the concept of signals and how they can be used to decouple game logic.
+The biggest challenge, and still is making sure the pipes stretch to cover the vertical space. I tried several approaches, but ultimately I could not get it to work as intended. I had to settle for a fixed height, which is not ideal but works for now.
+
+Another challenge, was handling the middle pipe for shooting logic. I had to create a separate collider for the middle pipe, which was tricky to get right. I also had to make sure the projectile would only destroy the pipe it hit, and not all pipes.
 
 ## Future Enhancements
 
-- Better enemy AI with different movement patterns
-- Power-ups that spawn randomly to aid the player
-- Larger scene
+- Fix the pipe stretching issue to allow for dynamic heights.
+- Make game faster as time goes on.
+- Rename the game, as "Flappy Reverse" does not really fit the game
+
+[View Live Game](/flappy-game)

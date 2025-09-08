@@ -1,9 +1,12 @@
+import exoWorldsImage from '../assets/images/exo-worlds.png';
+import flappyImage from '../assets/images/flappy.png';
 import ompaProjectImage from '../assets/images/ompa_project_image.png';
 import placeholder from '../assets/images/placeholder.webp';
-// ... import other project images
 
 export const projectImages = {
 	'ompa_project_image.png': ompaProjectImage,
+	'flappy.png': flappyImage,
+	'exo-worlds.png': exoWorldsImage,
 	'placeholder.webp': placeholder
 } as const;
 
