@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { createElement, type JSX } from 'react';
+import React, { createElement, type JSX } from 'react';
 
 interface HeaderProps {
 	children: React.ReactNode;

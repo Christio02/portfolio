@@ -36,6 +36,7 @@ const TextAnimation = ({ delay }: TextAnimationProps) => {
 				<motion.div className="block">
 					<Header
 						size="xlarge"
+						level={1}
 						gradient="gradient-2"
 						marginBottom="none"
 						className="block"

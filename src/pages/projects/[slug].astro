@@ -20,7 +20,6 @@ const { Content } = await project.render();
 
 const imageName = project.data.imageUrl ? project.data.imageUrl.split('/').pop() || '' : '';
 const resolvedImageUrl = getProjectImage(imageName);
-console.log('Resolved image:', resolvedImageUrl);
 
 const siteUrl = 'https://choe.netlify.app';
 const projectImageUrl = project.data.imageUrl

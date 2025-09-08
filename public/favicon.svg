@@ -1,22 +1,15 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4F46E5" />
-            <stop offset="100%" stop-color="#7C3AED" />
+        <linearGradient id="SvgjsLinearGradient1237" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4F46E5"></stop>
+            <stop offset="100%" stop-color="#7C3AED"></stop>
         </linearGradient>
     </defs>
-    <rect width="100" height="100" rx="20" fill="url(#logoGradient)" />
-    <text
-        x="50"
-        y="50"
-        dominant-baseline="middle"
-        text-anchor="middle"
-        fill="white"
-        font-family="Arial, sans-serif"
-        font-size="45"
-        font-weight="bold"
-    >
+    <rect width="100" height="100" rx="20" fill="url(#logoGradient)"></rect>
+    <text x="50" y="50" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="45" font-weight="bold">
         CH
     </text>
-    <path d="M20 80 L80 80" stroke="white" stroke-width="4" stroke-linecap="round" />
-</svg>
+    <path d="M20 80 L80 80" stroke="white" stroke-width="4" stroke-linecap="round"></path>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

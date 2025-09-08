@@ -1,11 +1,23 @@
-/game/*.js.br
+/unity-game/*.js.br
   Content-Type: application/javascript
   Content-Encoding: br
 
-/game/*.wasm.br
+/unity-game/*.wasm.br
   Content-Type: application/wasm
   Content-Encoding: br
 
-/game/*.data.br
+/unity-game/*.data.br
+  Content-Type: application/octet-stream
+  Content-Encoding: br
+
+/godot-game/*.js.br
+  Content-Type: application/javascript
+  Content-Encoding: br
+
+/godot-game/*.wasm.br
+  Content-Type: application/wasm
+  Content-Encoding: br
+
+/godot-game/*.pck.br
   Content-Type: application/octet-stream
   Content-Encoding: br

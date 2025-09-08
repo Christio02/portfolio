@@ -32,7 +32,7 @@ const ContactForm = () => {
 	const email = useStore(form.store, (state) => state.values.email);
 	const message = useStore(form.store, (state) => state.values.message);
 
-	// track errrors
+	// track errors
 	const errors = useStore(form.store, (state) => state.errorMap);
 
 	const validateName = (name: string) => {

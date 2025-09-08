@@ -20,7 +20,6 @@ const UnityGame = () => {
 		if (isLoaded) {
 			const handleScoreChange = (...parameters: any[]) => {
 				const score = parameters[0];
-				console.log('Score changed:', score);
 			};
 
 			addEventListener('ScoreChanged', handleScoreChange);
