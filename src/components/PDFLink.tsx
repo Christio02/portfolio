@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import React from 'react';
 import { ExternalLink, FileText } from 'lucide-react';
+import React from 'react';
 
 interface PDFLinkProps {
 	className: string;
@@ -30,17 +30,14 @@ export default function PDFLink({ className, isMobile = false, pdfLink, pdfSize 
 		>
 			<span className="flex items-center gap-2">
 				<FileText className="h-4 w-4" aria-hidden="true" />
-				CV
-				<span className="text-xs opacity-70">(PDF)</span>
+				Resume
 				<ExternalLink className="h-3 w-3" aria-hidden="true" />
 			</span>
 
-			{/* Hidden description for screen readers */}
 			<span id="cv-description" className="sr-only">
 				PDF document, {pdfSize}. This link will open in a new tab.
 			</span>
 
-			{/* Visual underline animation */}
 			<motion.div
 				className="absolute bottom-0 left-0 h-0.5 w-0 bg-current"
 				whileHover={{ width: '100%' }}

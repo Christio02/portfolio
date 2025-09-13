@@ -12,15 +12,21 @@ const TextContent = ({ name, text, direction }: TextContentProps) => {
 		<motion.div
 			initial={{ opacity: 0, x: direction === 'left' ? -50 : 50 }}
 			animate={{ opacity: 1, x: 0 }}
+			whileHover={{
+				y: -8,
+				scale: 1.02,
+				transition: { duration: 0.3 }
+			}}
 			transition={{ duration: 0.5 }}
-			className="bg-card mx-auto h-1/2 max-w-3xl overflow-hidden rounded-lg shadow-lg"
+			className="bg-card/50 border-foreground/10 hover:border-primary/30 mx-auto max-w-3xl rounded-2xl border shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-2xl"
 		>
-			<div className="bg-gradient-2 h-2" />
-			<div className="p-6">
+			<div className="from-primary via-secondary to-accent h-0.5 bg-gradient-to-r" />
+
+			<div className="p-8">
 				<Header size="medium" gradient="gradient-2" marginBottom="medium">
 					{name}
 				</Header>
-				<p className="text-foreground/80 text-sm leading-relaxed lg:text-lg">{text}</p>
+				<p className="text-foreground/70 text-base leading-relaxed lg:text-lg">{text}</p>
 			</div>
 		</motion.div>
 	);

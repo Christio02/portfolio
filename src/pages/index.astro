@@ -8,7 +8,7 @@ import AboutSection from '@/components/AboutSection.astro';
 
 <Layout title="Christopher Høe - Portfolio">
 	<section class="m-b-0 flex min-h-[50vh] flex-col">
-		<Hero client:load />
+		<Hero client:only />
 		<AboutSection />
 		<Projects />
 	</section>

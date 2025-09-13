@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 
-const PDF = 'cv_norsk.pdf';
+const PDF = 'cv_norsk_kort.pdf';
 const PDF_SIZE = '257 KB';
 
 const Navbar = () => {
@@ -18,7 +18,11 @@ const Navbar = () => {
 	const logoVariants = {
 		hover: {
 			scale: 1.05,
-			transition: { duration: 0.3, ease: 'easeOut' as Easing }
+			transition: { duration: 0.2, ease: 'easeOut' as Easing }
+		},
+		tap: {
+			scale: 0.98,
+			transition: { duration: 0.1 }
 		}
 	};
 
@@ -96,11 +100,17 @@ const Navbar = () => {
 		>
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div className="flex h-16 items-center justify-between">
-					<motion.div className="flex items-center" variants={logoVariants} whileHover="hover">
-						<a href="/" className="flex shrink-0 items-center">
+					<div className="flex items-center">
+						<motion.a
+							href="/"
+							className="flex shrink-0 items-center"
+							variants={logoVariants}
+							whileHover="hover"
+							whileTap="tap"
+						>
 							<Logo className="h-10 w-10" />
-						</a>
-					</motion.div>
+						</motion.a>
+					</div>
 
 					{/* Desktop menu */}
 					<div className="hidden md:flex">
@@ -113,21 +123,6 @@ const Navbar = () => {
 									pdfSize={PDF_SIZE}
 								/>
 							</motion.li>
-							{/* 
-							<motion.li variants={navItemVariants} whileHover="hover">
-								<a
-									href="/contact"
-									className="text-muted-foreground hover:text-primary relative rounded-md px-3 py-2 text-2xl font-medium"
-								>
-									Contact
-									<motion.div
-										className="absolute bottom-0 left-0 h-0.5 w-0 bg-current"
-										whileHover={{ width: '100%' }}
-										transition={{ duration: 0.2 }}
-									/>
-								</a>
-							</motion.li>
-							*/}
 
 							<motion.li>
 								<ThemeToggle isMobile={false} />
@@ -186,16 +181,6 @@ const Navbar = () => {
 									pdfSize={PDF_SIZE}
 								/>
 							</motion.li>
-							{/* 
-							<motion.li className="px-1" variants={liVariant}>
-								<a
-									href="/contact"
-									className="hover:text-primary block rounded-md px-3 py-2 text-2xl font-medium transition-colors duration-200 hover:bg-gray-100/10"
-								>
-									Contact
-								</a>
-							</motion.li>
-							*/}
 							<motion.li className="flex px-4 py-2" variants={liVariant}>
 								<div className="flex items-center">
 									<ThemeToggle isMobile={true} />
