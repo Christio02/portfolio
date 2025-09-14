@@ -1,0 +1,95 @@
+---
+import { motion } from 'framer-motion';
+---
+
+<section
+	class="hero-skeleton relative flex min-h-[70vh] items-center justify-center overflow-hidden py-20 text-center"
+>
+	<!-- Simple background pattern that loads immediately -->
+	<div class="pointer-events-none absolute inset-0">
+		<div
+			class="absolute inset-0 opacity-2"
+			style={{
+				backgroundImage: `
+					linear-gradient(hsl(var(--foreground) / 0.03) 1px, transparent 1px),
+					linear-gradient(90deg, hsl(var(--foreground) / 0.03) 1px, transparent 1px)
+				`,
+				backgroundSize: '80px 80px'
+			}}
+		>
+		</div>
+	</div>
+
+	<div class="relative z-10 mx-auto w-full max-w-4xl px-6">
+		<div
+			class="relative rounded-3xl border border-transparent p-8 sm:p-12"
+			style={{
+				background: 'linear-gradient(135deg, hsl(var(--card) / 0.02), hsl(var(--card) / 0.01))',
+				backdropFilter: 'blur(4px)'
+			}}
+		>
+			<!-- Top accent line -->
+			<div
+				class="via-primary/20 absolute top-0 left-1/2 h-px w-24 -translate-x-1/2 transform bg-gradient-to-r from-transparent to-transparent opacity-30"
+			>
+			</div>
+
+			<!-- Skeleton content -->
+			<div class="mb-4 h-auto sm:h-[8rem] md:h-[10rem] lg:h-[12rem]">
+				<!-- Main heading skeleton -->
+				<div class="mb-4">
+					<div
+						class="from-foreground/5 via-foreground/10 to-foreground/5 mx-auto h-12 w-full max-w-md animate-pulse rounded-lg bg-gradient-to-r"
+					>
+					</div>
+				</div>
+				<!-- Subtitle skeleton -->
+				<div
+					class="from-foreground/3 via-foreground/6 to-foreground/3 mx-auto mt-2 h-6 w-full max-w-sm animate-pulse rounded bg-gradient-to-r"
+					style="animation-delay: 0.2s"
+				>
+				</div>
+			</div>
+
+			<!-- Scroll indicator skeleton -->
+			<div class="absolute bottom-8 left-1/2 -translate-x-1/2 transform">
+				<div
+					class="border-foreground/10 bg-foreground/2 flex h-10 w-6 justify-center rounded-full border-2"
+				>
+					<div class="bg-foreground/10 mt-2 h-3 w-1 rounded-full"></div>
+				</div>
+				<div class="text-foreground/20 mt-2 text-xs font-light tracking-wider">LOADING</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero-skeleton {
+		animation: skeleton-fade 0.8s ease-out;
+	}
+
+	@keyframes skeleton-fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	/* Pulse animation for skeleton elements */
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.5;
+		}
+	}
+
+	.animate-pulse {
+		animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+</style>

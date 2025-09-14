@@ -8,12 +8,14 @@ import AboutSection from '@/components/AboutSection.astro';
 
 <Layout title="Christopher Høe - Portfolio">
 	<section class="m-b-0 flex min-h-[50vh] flex-col">
-		<Hero client:only />
+		<!-- Simplified Hero loading -->
+		<Hero client:load />
 		<AboutSection />
 		<Projects />
 	</section>
 </Layout>
-<script is:inline>
+
+<script>
 	document.addEventListener('astro:load', () => {
 		const savedPosition = sessionStorage.getItem('scrollPosition');
 		if (savedPosition) {

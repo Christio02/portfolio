@@ -6,10 +6,10 @@ const UnityGame = () => {
 
 	const { unityProvider, loadingProgression, isLoaded, addEventListener, removeEventListener } =
 		useUnityContext({
-			loaderUrl: '/game/flappy-build.loader.js',
-			dataUrl: '/game/flappy-build.data.br',
-			frameworkUrl: '/game/flappy-build.framework.js.br',
-			codeUrl: '/game/flappy-build.wasm.br'
+			loaderUrl: '/unity-game/flappy-build.loader.js',
+			dataUrl: '/unity-game/flappy-build.data.br',
+			frameworkUrl: '/unity-game/flappy-build.framework.js.br',
+			codeUrl: '/unity-game/flappy-build.wasm.br'
 		});
 
 	useEffect(() => {

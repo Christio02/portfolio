@@ -27,12 +27,11 @@ const ProjectCard = ({ title, desc, imageUrl, techStack, delay = 0 }: ProjectCar
 			whileHover={{
 				scale: 1.05,
 				y: -10,
-				transition: { duration: 0.3, ease: 'easeOut' }
+				transition: { duration: 0.2, ease: 'easeOut' }
 			}}
 			whileTap={{ scale: 0.98 }}
 			className="group from-secondary to-card dark:from-secondary/50 dark:to-card/50 relative block h-full overflow-hidden rounded-xl bg-gradient-to-br p-1 text-inherit no-underline shadow-lg transition-all duration-500 hover:shadow-2xl"
 		>
-			{/* Animated border gradient */}
 			<motion.div
 				className="absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
 				style={{
@@ -70,7 +69,6 @@ const ProjectCard = ({ title, desc, imageUrl, techStack, delay = 0 }: ProjectCar
 						whileHover={{ opacity: 0.4 }}
 					/>
 
-					{/* Floating action indicator */}
 					<motion.div
 						className="absolute top-2 right-2 rounded-full bg-white/20 p-2 opacity-0 backdrop-blur-sm group-hover:opacity-100"
 						initial={{ opacity: 0, scale: 0 }}

@@ -1,53 +1,41 @@
 ---
 title: 'Skills & Technologies'
-description: 'Overview of my technical skills and professional experience'
+description: 'Technical skills and professional experience overview'
 lastUpdated: 2025-07-01
 ---
 
-Through my studies at **NTNU**, hands-on experience at the newly founded start-up **Hoggorm Design A/S** and my involvement in **Studentmediene in Trondheim**, I have developed a strong foundation in various programming languages and technologies.
+Through my studies at **NTNU**, work at start-up **Hoggorm Design A/S**, and involvement with **Studentmediene in Trondheim**, I've built expertise across modern web technologies and development practices.
 
 ## Professional Experience
 
-### Developer at Studentmediene
+### Software Engineer - Hoggorm Design A/S
 
-During my time as a Developer at Studentmediene, I gained significant experience in:
+Developing scalable web applications using **React, Next.js, TypeScript**, and **Sanity CMS** with **Tailwind CSS** for responsive design.
 
-- **React & TypeScript**: Building dynamic user interfaces
-- **Team Collaboration**: Working in agile development teams
-- **Code Review**: Participating in peer code reviews
-- **Version Control**: Advanced Git workflows and branch management
+**Key Achievements:**
+
+- Improved SEO scores and site traffic through performance optimization
+- Reduced bandwidth usage by 80% via image optimization and lazy loading
+- Implemented secure deployment pipelines and performance monitoring
+
+### Developer - Studentmediene
+
+Built dynamic applications with **React & TypeScript** in an agile team environment, focusing on code quality and user experience.
+
+**Notable Projects:**
+
+- Course review system with positive user feedback
+- GDPR-compliant privacy consent system with full-stack implementation
+- Advanced Git workflows and peer code review processes
 
 ### Academic Projects
 
-I have worked on building **REST applications in Java** and **Advanced Web-development applications** through my coursework and bachelor's thesis. These projects have allowed me to apply theoretical knowledge in practical scenarios, enhancing my problem-solving skills and technical expertise.
-
-- **Backend Development**: API design and implementation
-- **Frontend Development**: Creating responsive and accessible web applications
-- **Database Design**: Relational database modeling
-- **Testing**: Unit and integration testing practices
-- **Documentation**: Technical documentation and API specs
+Developed **REST APIs in Java/C#** and advanced web applications through coursework and bachelor's thesis, covering API design, database modeling, and testing practices.
 
 ## Technical Skills
 
-### Frontend Development
+**Frontend:** React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, State Management (Context API, Apollo Client, Tanstack Query)
 
-- React, TypeScript, JavaScript
-- HTML5, CSS3, Tailwind CSS
-- Responsive Design, Mobile-first approach
-- State Management (Context API, Apollo Client, Tanstack Query)
+**Backend:** Node.js, Express.js, Java Spring Boot, C# ASP.NET Core, RESTful APIs, GraphQL
 
-### Backend Development
-
-- Node.js, Express.js
-- Java, Spring Boot
-- C#, ASP.NET Core
-- RESTful API design
-- GraphQL with Apollo
-
-### Databases & Tools
-
-- MongoDB, PostgreSQL
-- Git, GitHub, GitLab
-- Docker, CI/CD pipelines
-- Azure
-- Testing frameworks (Jest, JUnit)
+**Tools & Databases:** MongoDB, PostgreSQL, Git, Docker, CI/CD, Azure, Jest, JUnit

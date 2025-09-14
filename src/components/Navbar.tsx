@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 
-const PDF = 'cv_norsk_kort.pdf';
+const PDF = 'cv_norsk.pdf';
 const PDF_SIZE = '257 KB';
 
 const Navbar = () => {
