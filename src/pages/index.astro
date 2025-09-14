@@ -3,14 +3,14 @@ import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/hero/Hero';
 import Projects from '@/components/project/Projects.astro';
 import '@/styles/global.css';
-import AboutSection from '@/components/AboutSection.astro';
+import AboutSection from '@/components/AboutSection';
 ---
 
 <Layout title="Christopher Høe - Portfolio">
 	<section class="m-b-0 flex min-h-[50vh] flex-col">
 		<!-- Simplified Hero loading -->
 		<Hero client:load />
-		<AboutSection />
+		<AboutSection client:load />
 		<Projects />
 	</section>
 </Layout>

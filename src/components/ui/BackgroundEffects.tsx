@@ -15,8 +15,22 @@ const BackgroundEffects = () => {
 	const [particles, setParticles] = useState<Particle[]>([]);
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 	const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+	const [isScrolling, setIsScrolling] = useState(false);
 
-	// Initialize particles with better distribution
+	useEffect(() => {
+		let timeout: NodeJS.Timeout;
+		const handleScroll = () => {
+			setIsScrolling(true);
+			clearTimeout(timeout);
+			timeout = setTimeout(() => setIsScrolling(false), 150);
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
+	const particleCount = isScrolling ? 6 : 12;
+
 	useEffect(() => {
 		const updateDimensions = () => {
 			setDimensions({
@@ -43,7 +57,6 @@ const BackgroundEffects = () => {
 		return () => window.removeEventListener('resize', updateDimensions);
 	}, []);
 
-	// Smooth mouse tracking
 	const handleMouseMove = useCallback((e: MouseEvent) => {
 		setMousePosition((prev) => ({
 			x: prev.x + (e.clientX - prev.x) * 0.1,

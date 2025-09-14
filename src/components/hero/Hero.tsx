@@ -7,7 +7,6 @@ const Hero = () => {
 	const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
 	const [scrollY, setScrollY] = useState(0);
 
-	// Optimize mouse movement handler with useCallback
 	const handleMouseMove = useCallback((e: MouseEvent) => {
 		setMousePosition({
 			x: (e.clientX / window.innerWidth) * 100,
@@ -15,30 +14,25 @@ const Hero = () => {
 		});
 	}, []);
 
-	// Optimize scroll handler with useCallback
 	const handleScroll = useCallback(() => {
 		setScrollY(window.scrollY);
 	}, []);
 
 	useEffect(() => {
-		// Set loaded state immediately to prevent layout shift
 		setIsLoaded(true);
 
-		// Throttle mouse movement for better performance
 		let mouseTimeout: NodeJS.Timeout;
 		const throttledMouseMove = (e: MouseEvent) => {
 			clearTimeout(mouseTimeout);
 			mouseTimeout = setTimeout(() => handleMouseMove(e), 16); // ~60fps
 		};
 
-		// Throttle scroll for better performance
 		let scrollTimeout: NodeJS.Timeout;
 		const throttledScroll = () => {
 			clearTimeout(scrollTimeout);
 			scrollTimeout = setTimeout(handleScroll, 16); // ~60fps
 		};
 
-		// Delay adding event listeners to improve initial load
 		const timeoutId = setTimeout(() => {
 			window.addEventListener('mousemove', throttledMouseMove, { passive: true });
 			window.addEventListener('scroll', throttledScroll, { passive: true });
@@ -53,7 +47,6 @@ const Hero = () => {
 		};
 	}, [handleMouseMove, handleScroll]);
 
-	// Memoize gradient style to prevent unnecessary re-renders
 	const gradientStyle = useMemo(
 		() => ({
 			background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
@@ -64,7 +57,6 @@ const Hero = () => {
 		[mousePosition.x, mousePosition.y]
 	);
 
-	// Memoize transform style
 	const transformStyle = useMemo(
 		() => ({
 			transform: `translateY(${scrollY * 0.2}px)`
@@ -80,9 +72,7 @@ const Hero = () => {
 			className="relative flex min-h-[70vh] items-center justify-center overflow-hidden py-20 text-center"
 			style={transformStyle}
 		>
-			{/* Simplified background effects */}
 			<div className="pointer-events-none absolute inset-0">
-				{/* Only show complex effects after component is loaded */}
 				{isLoaded && (
 					<>
 						<motion.div
@@ -98,7 +88,6 @@ const Hero = () => {
 							}}
 						/>
 
-						{/* Simplified floating shapes */}
 						<motion.div
 							className="absolute top-1/4 left-1/4 opacity-2"
 							style={{
@@ -141,7 +130,6 @@ const Hero = () => {
 					</>
 				)}
 
-				{/* Simplified grid pattern - always visible for immediate structure */}
 				<div
 					className="absolute inset-0 opacity-2"
 					style={{
