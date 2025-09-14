@@ -1,6 +1,7 @@
 ---
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer.astro';
+import BackgroundEffects from '@/components/ui/BackgroundEffects';
 import '@/styles/global.css';
 
 interface Props {
@@ -75,11 +76,14 @@ const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 			}
 		</script>
 	</head>
-	<body class="bg-background text-foreground">
-		<Navbar client:only="react" />
-		<main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-			<slot />
-		</main>
-		<Footer />
+	<body class="bg-background text-foreground relative overflow-x-hidden">
+		<BackgroundEffects client:only="react" />
+		<div class="relative z-10">
+			<Navbar client:only="react" />
+			<main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+				<slot />
+			</main>
+			<Footer />
+		</div>
 	</body>
 </html>
