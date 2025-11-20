@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
 		"@astrojs/react": "^4.4.0",
-		"@lucide/astro": "^0.544.0",
+		"@lucide/astro": "^0.554.0",
 		"@nanostores/react": "^1.0.0",
 		"@radix-ui/react-label": "^2.1.7",
 		"@radix-ui/react-slot": "^1.2.3",
@@ -26,10 +26,10 @@
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"cookie": "^1.0.2",
-		"esbuild": "^0.25.10",
+		"esbuild": "^0.27.0",
 		"framer-motion": "^12.23.22",
-		"lucide-astro": "^0.544.0",
-		"lucide-react": "^0.544.0",
+		"lucide-astro": "^0.554.0",
+		"lucide-react": "^0.554.0",
 		"nanostores": "^1.0.1",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
@@ -53,8 +53,8 @@
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"prettier": "^3.6.2",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.6.14",
+		"prettier-plugin-tailwindcss": "^0.7.0",
 		"vite-tsconfig-paths": "^5.1.4"
 	},
-	"packageManager": "pnpm@10.17.1+sha512.17c560fca4867ae9473a3899ad84a88334914f379be46d455cbf92e5cf4b39d34985d452d2583baf19967fa76cb5c17bc9e245529d0b98745721aa7200ecaf7a"
+	"packageManager": "pnpm@10.22.0+sha512.bf049efe995b28f527fd2b41ae0474ce29186f7edcb3bf545087bd61fbbebb2bf75362d1307fda09c2d288e1e499787ac12d4fcb617a974718a6051f2eee741c"
 }
