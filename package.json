@@ -20,7 +20,7 @@
 		"@radix-ui/react-label": "^2.1.8",
 		"@radix-ui/react-slot": "^1.2.4",
 		"@tailwindcss/vite": "^4.1.17",
-		"@tanstack/react-form": "^1.27.0",
+		"@tanstack/react-form": "^1.27.1",
 		"astro": "5.16.4",
 		"astro-icon": "^1.1.5",
 		"class-variance-authority": "^0.7.1",
