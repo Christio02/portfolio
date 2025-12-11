@@ -15,13 +15,13 @@
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
 		"@astrojs/react": "^4.4.2",
-		"@lucide/astro": "^0.556.0",
+		"@lucide/astro": "^0.560.0",
 		"@nanostores/react": "^1.0.0",
 		"@radix-ui/react-label": "^2.1.8",
 		"@radix-ui/react-slot": "^1.2.4",
 		"@tailwindcss/vite": "^4.1.17",
 		"@tanstack/react-form": "^1.27.1",
-		"astro": "5.16.4",
+		"astro": "5.16.5",
 		"astro-icon": "^1.1.5",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
@@ -29,7 +29,7 @@
 		"esbuild": "^0.27.1",
 		"framer-motion": "^12.23.25",
 		"lucide-astro": "^0.556.0",
-		"lucide-react": "^0.556.0",
+		"lucide-react": "^0.560.0",
 		"nanostores": "^1.1.0",
 		"react": "^19.2.1",
 		"react-dom": "^19.2.1",
@@ -56,5 +56,5 @@
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"vite-tsconfig-paths": "^5.1.4"
 	},
-	"packageManager": "pnpm@10.24.0"
+	"packageManager": "pnpm@10.25.0"
 }
