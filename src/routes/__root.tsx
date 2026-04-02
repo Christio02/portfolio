@@ -10,7 +10,6 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import type { ReactNode } from "react";
 import { DefaultCatchBoundary } from "@/components/DefaultCatchBoundary";
 import { NotFound } from "@/components/NotFound";
-import TanStackQueryProvider from "@/integrations/tanstack-query/root-provider";
 import appCss from "@/styles/app.css?url";
 import { seo } from "@/utils/seo";
 
@@ -50,6 +49,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 					sizes: "16x16",
 					href: "/favicon-16x16.png",
 				},
+				{
+					rel: "preconnect",
+					href: "https://fonts.googleapis.com",
+				},
+				{
+					rel: "preconnect",
+					href: "https://fonts.gstatic.com",
+					crossOrigin: "anonymous",
+				},
+				{
+					rel: "stylesheet",
+					href: "https://fonts.googleapis.com/css2?family=Syne:wght@800&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@400;500&display=swap",
+				},
+
 				{ rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
 				{ rel: "icon", href: "/favicon.ico" },
 			],
@@ -69,9 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootComponent() {
 	return (
 		<RootDocument>
-			<TanStackQueryProvider>
-				<Outlet />
-			</TanStackQueryProvider>
+			<Outlet />
 		</RootDocument>
 	);
 }
