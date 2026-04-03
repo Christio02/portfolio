@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import type { SkillGroupsProps } from "#/interfaces/DataProps";
 import { skillGroups } from "@/data/data";
+import type { SkillGroupsProps } from "@/interfaces/DataProps";
 import { FadeInView, SectionLabel } from "./Homepage";
 
 const Skills = () => {

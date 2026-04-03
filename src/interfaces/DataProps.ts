@@ -12,10 +12,15 @@ export interface SkillGroupsProps {
 	accent: string;
 }
 
-export interface ProjectsProps {
+export interface ProjectProps {
 	title: string;
 	description: string;
 	tags: string[];
 	featured: boolean;
-	status: string;
+	status: "STABLE" | "PRODUCTION" | "EXPERIMENTAL";
+}
+
+export interface SocialLinksProps {
+	name: string;
+	url: string;
 }

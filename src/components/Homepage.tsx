@@ -1,7 +1,11 @@
 import { motion } from "motion/react";
 import About from "@/components/About";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Projects from "@/components/projects/Projects";
 import Skills from "@/components/Skills";
+import { projects } from "@/data/data";
 
 interface FadeInViewProps {
 	children: React.ReactNode;
@@ -59,11 +63,16 @@ export const SectionLabel = ({ index, label }: SectionLabelProps) => {
 
 const Homepage = () => {
 	return (
-		<main>
-			<Hero />
-			<About />
-			<Skills />
-		</main>
+		<>
+			<Header />
+			<main>
+				<Hero />
+				<About />
+				<Skills />
+				<Projects projects={projects} />
+			</main>
+			<Footer />
+		</>
 	);
 };
 

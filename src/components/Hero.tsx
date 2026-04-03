@@ -140,6 +140,8 @@ const Hero = () => {
 					</a>
 					<a
 						href="https://github.com/Christio02"
+						target="_blank"
+						rel="noopener noreferer"
 						className="border border-border text-text-primary font-mono text-sm px-7 py-3 flex gap-2"
 					>
 						Github

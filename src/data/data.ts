@@ -1,8 +1,9 @@
 import type {
 	ExperiencesProps,
-	ProjectsProps,
+	ProjectProps,
 	SkillGroupsProps,
-} from "#/interfaces/DataProps";
+	SocialLinksProps,
+} from "@/interfaces/DataProps";
 
 export const experiences: ExperiencesProps[] = [
 	{
@@ -87,7 +88,7 @@ export const skillGroups: SkillGroupsProps[] = [
 	},
 ];
 
-export const projects: ProjectsProps[] = [
+export const projects: ProjectProps[] = [
 	{
 		title: "ExoWorlds Explorer",
 		description:
@@ -142,5 +143,20 @@ export const projects: ProjectsProps[] = [
 		tags: ["Unity", "C#", "2D Graphics", "Game Physics"],
 		featured: false,
 		status: "EXPERIMENTAL",
+	},
+];
+
+export const SocialLinks: SocialLinksProps[] = [
+	{
+		name: "Github",
+		url: "https://github.com/Christio02/",
+	},
+	{
+		name: "Linkedin",
+		url: "https://www.linkedin.com/in/christopher-hoee/",
+	},
+	{
+		name: "Source",
+		url: "https://github.com/Christio02/portfolio",
 	},
 ];
