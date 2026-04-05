@@ -5,6 +5,13 @@ export interface ExperiencesProps {
 	bullets: string[];
 }
 
+export interface EducationProps {
+	degree: string;
+	institution: string;
+	period: string;
+	bullets: string[];
+}
+
 export interface SkillGroupsProps {
 	category: string;
 	items: string[];
@@ -18,6 +25,7 @@ export interface ProjectProps {
 	tags: string[];
 	featured: boolean;
 	status: "STABLE" | "PRODUCTION" | "EXPERIMENTAL";
+	index: number;
 }
 
 export interface SocialLinksProps {

@@ -67,11 +67,18 @@ const Hero = () => {
 	};
 
 	return (
-		<section className="min-h-screen flex items-center px-6">
+		<section className="min-h-screen flex items-center px-6 pt-26">
 			<div className="max-w-6xl mx-auto">
-				<span className="font-mono text-accent text-sm">[system.init()]</span>
+				<motion.span
+					className="font-mono text-accent text-sm"
+					initial={{ opacity: 0, y: 10 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ delay: 0.2, duration: 0.5 }}
+				>
+					[system.init()]
+				</motion.span>
 				<motion.h1
-					className="mt-6 mb-5 font-display text-6xl font-extrabold text-text-primary leading-none"
+					className="mt-6 mb-5 font-display text-4xl md:text-6xl font-extrabold text-text-primary leading-none"
 					variants={containerVariants}
 					initial="hidden"
 					animate="visible"
@@ -117,7 +124,12 @@ const Hero = () => {
 						</motion.span>
 					))}
 				</motion.h1>
-				<div className="mt-8 mb-10 font-mono text-text-muted uppercase">
+				<motion.div
+					className="mt-8 mb-10 font-mono text-text-muted uppercase"
+					initial={{ opacity: 0, y: 10 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ delay: 1, duration: 0.5 }}
+				>
 					{"> "}
 					{roles[roleIndex].substring(0, charIndex)}
 					<motion.span
@@ -130,24 +142,34 @@ const Hero = () => {
 					>
 						▊
 					</motion.span>
-				</div>
-				<div className="flex gap-4 mt-10">
-					<a
+				</motion.div>
+				<motion.div
+					className="flex flex-wrap gap-4 mt-10"
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ delay: 1.2, duration: 0.5 }}
+				>
+					<motion.a
 						href="#projects"
 						className="bg-accent text-bg font-mono text-sm font-bold px-7 py-3"
+						whileHover={{ scale: 1.03, y: -2 }}
+						whileTap={{ scale: 0.97 }}
 					>
 						View Projects
-					</a>
-					<a
+					</motion.a>
+					<motion.a
 						href="https://github.com/Christio02"
 						target="_blank"
-						rel="noopener noreferer"
-						className="border border-border text-text-primary font-mono text-sm px-7 py-3 flex gap-2"
+						rel="noopener noreferrer"
+						aria-label="View GitHub profile (opens in new tab)"
+						className="border border-border text-text-primary font-mono text-sm px-7 py-3 flex gap-2 items-center"
+						whileHover={{ scale: 1.03, y: -2 }}
+						whileTap={{ scale: 0.97 }}
 					>
 						Github
-						<MoveUpRight />
-					</a>
-				</div>
+						<MoveUpRight aria-hidden="true" />
+					</motion.a>
+				</motion.div>
 			</div>
 		</section>
 	);

@@ -1,4 +1,5 @@
 import type {
+	EducationProps,
 	ExperiencesProps,
 	ProjectProps,
 	SkillGroupsProps,
@@ -26,14 +27,27 @@ export const experiences: ExperiencesProps[] = [
 			"Course review platform with strong user adoption",
 		],
 	},
+];
+
+export const education: EducationProps[] = [
 	{
-		role: "CS Student",
-		company: "NTNU",
-		period: "2022 – present",
+		degree: "M.sc in Computer science",
+		institution: "NTNU",
+		period: "2025 - Present",
 		bullets: [
-			"Third-year Bachelor in Computer Science",
-			"Focus: distributed systems, AI/ML, data mining, web development",
+			"Focus: Math, Physics, Leadership, Distributed systems, Data mining, AI and Machine learning",
+			"Developed algorithms for data mining and AI",
+			"Switched to an engineering degree to gain experience in math and physics relevant for machine learning and data mining",
+		],
+	},
+	{
+		degree: "Bachelor in Informatics",
+		institution: "NTNU",
+		period: "2022 - 2025",
+		bullets: [
+			"Focus: Frontend, Backend, Databases, Operating systems and Security",
 			"Developed REST APIs in Java/C# and advanced web applications",
+			"Bachelor Project with Bouvet focusing on a Online Sheet music website, still working on it part-time",
 		],
 	},
 ];
@@ -104,6 +118,7 @@ export const projects: ProjectProps[] = [
 		],
 		featured: true,
 		status: "STABLE",
+		index: 1,
 	},
 	{
 		title: "Online Sheet Music Management",
@@ -120,6 +135,7 @@ export const projects: ProjectProps[] = [
 		],
 		featured: true,
 		status: "PRODUCTION",
+		index: 2,
 	},
 	{
 		title: "Dungeons and Developers",
@@ -135,6 +151,7 @@ export const projects: ProjectProps[] = [
 		],
 		featured: false,
 		status: "STABLE",
+		index: 3,
 	},
 	{
 		title: "Flappy Bird: Flight & Firepower",
@@ -143,6 +160,7 @@ export const projects: ProjectProps[] = [
 		tags: ["Unity", "C#", "2D Graphics", "Game Physics"],
 		featured: false,
 		status: "EXPERIMENTAL",
+		index: 4,
 	},
 ];
 

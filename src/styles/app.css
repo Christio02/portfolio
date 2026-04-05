@@ -2,112 +2,113 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-	/* typography */
-	--font-mono: "JetBrains Mono", monospace;
-	--font-display: "Syne", sans-serif;
-	--font-body: "DM Sans", sans-serif;
+  /* typography */
+  --font-mono: "JetBrains Mono", monospace;
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
 
-	/* color mapping */
-	--color-bg: var(--bg);
-	--color-surface: var(--surface);
-	--color-surface-low: var(--surface-low);
-	--color-surface-container: var(--surface-container);
-	--color-surface-high: var(--surface-high);
-	--color-surface-highest: var(--surface-highest);
+  /* color mapping */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-low: var(--surface-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-high: var(--surface-high);
+  --color-surface-highest: var(--surface-highest);
 
-	--color-border: var(--border);
-	--color-border-subtle: var(--border-subtle);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
 
-	--color-text-primary: var(--text-primary);
-	--color-text-muted: var(--text-muted);
-	--color-text-dim: var(--text-dim);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
 
-	--color-accent: var(--accent);
-	--color-accent-dim: var(--accent-dim);
-	--color-accent-warm: var(--accent-warm);
-	--color-accent-warm-dim: var(--accent-warm-dim);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-warm: var(--accent-warm);
+  --color-accent-warm-dim: var(--accent-warm-dim);
 
-	/* radius */
-	--radius-xs: 0px;
-	--radius-sm: 0px;
-	--radius-md: 0px;
-	--radius-lg: 0px;
-	--radius-xl: 0px;
-	--radius-2xl: 0px;
-	--radius-3xl: 0px;
-	--radius-full: 9999px;
+  /* radius */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 9999px;
 }
 
 :root {
-	--bg: #f5f2ed;
-	--surface: #ffffff;
-	--surface-low: #ece8e1;
-	--surface-container: #e8e4dd;
-	--surface-high: #ddd9d2;
-	--surface-highest: #d0ccc5;
-	--border: #c5bfb5;
-	--border-subtle: rgba(197, 191, 181, 0.4);
-	--text-primary: #111827;
-	--text-muted: #6b7280;
-	--text-dim: #9ca3af;
-	--accent: #0e7a6a;
-	--accent-dim: #0a5c50;
-	--accent-warm: #d97706;
-	--accent-warm-dim: #b45309;
+  --bg: #f5f2ed;
+  --surface: #ffffff;
+  --surface-low: #ece8e1;
+  --surface-container: #e8e4dd;
+  --surface-high: #ddd9d2;
+  --surface-highest: #d0ccc5;
+  --border: #c5bfb5;
+  --border-subtle: rgba(197, 191, 181, 0.4);
+  --text-primary: #111827;
+  --text-muted: #6b7280;
+  --text-dim: #9ca3af;
+  --accent: #0e7a6a;
+  --accent-dim: #0a5c50;
+  --accent-warm: #d97706;
+  --accent-warm-dim: #b45309;
 }
 
 :root[data-theme="dark"] {
-	--bg: #0a0e1a;
-	--surface: #0f131f;
-	--surface-low: #171b28;
-	--surface-container: #1b1f2c;
-	--surface-high: #262a37;
-	--surface-highest: #313442;
-	--border: #3b4a44;
-	--border-subtle: rgba(59, 74, 68, 0.2);
-	--text-primary: #dfe2f3;
-	--text-muted: #6b7a99;
-	--text-dim: #4a5568;
-	--accent: #46f1c5;
-	--accent-dim: #28dfb5;
-	--accent-warm: #ffb95f;
-	--accent-warm-dim: #ee9800;
+  --bg: #0a0e1a;
+  --surface: #0f131f;
+  --surface-low: #171b28;
+  --surface-container: #1b1f2c;
+  --surface-high: #262a37;
+  --surface-highest: #313442;
+  --border: #3b4a44;
+  --border-subtle: rgba(59, 74, 68, 0.2);
+  --text-primary: #dfe2f3;
+  --text-muted: #6b7a99;
+  --text-dim: #4a5568;
+  --accent: #46f1c5;
+  --accent-dim: #28dfb5;
+  --accent-warm: #ffb95f;
+  --accent-warm-dim: #ee9800;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-	margin: 0;
-	color: var(--text-primary);
-	font-family: var(--font-body);
-	background-color: var(--bg);
-	overflow-x: hidden;
-	-webkit-font-smoothing: antialiased;
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-	background-color: var(--accent);
-	color: var(--bg);
+  background-color: var(--accent);
+  color: var(--bg);
 }
 
 ::-webkit-scrollbar {
-	width: 6px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--bg);
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--border);
+  background: var(--border);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--accent);
+  background: var(--accent);
 }

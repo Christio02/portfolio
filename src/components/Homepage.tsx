@@ -1,51 +1,12 @@
-import { motion } from "motion/react";
 import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/projects/Projects";
 import Skills from "@/components/Skills";
-import { projects } from "@/data/data";
-
-interface FadeInViewProps {
-	children: React.ReactNode;
-	delay?: number;
-	direction?: "up" | "down" | "left" | "right" | "none";
-	className?: string;
-	style?: React.CSSProperties;
-}
-export const FadeInView = ({
-	children,
-	delay = 0,
-	direction = "up",
-	className = "",
-	style = {},
-}: FadeInViewProps) => {
-	const dirMap = {
-		up: { y: 40 },
-		down: { y: -40 },
-		left: { x: -40 },
-		right: { x: 40 },
-		none: {},
-	};
-	return (
-		<motion.div
-			className={className}
-			style={style}
-			initial={{ opacity: 0, ...dirMap[direction] }}
-			whileInView={{ opacity: 1, x: 0, y: 0 }}
-			viewport={{ once: true, margin: "-80px" }}
-			transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-		>
-			{children}
-		</motion.div>
-	);
-};
-
-interface SectionLabelProps {
-	index: string;
-	label: string;
-}
+import { education, experiences, projects } from "@/data/data";
+import type { SectionLabelProps } from "@/interfaces/ComponentProps";
 
 export const SectionLabel = ({ index, label }: SectionLabelProps) => {
 	return (
@@ -67,9 +28,10 @@ const Homepage = () => {
 			<Header />
 			<main>
 				<Hero />
-				<About />
+				<About experiences={experiences} education={education} />
 				<Skills />
 				<Projects projects={projects} />
+				<Contact />
 			</main>
 			<Footer />
 		</>
