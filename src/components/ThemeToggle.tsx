@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 type ThemeMode = "light" | "dark" | "auto";
 
 const iconVariants = {
-	initial: { opacity: 0, y: -20 },
-	animate: { opacity: 1, y: 0 },
-	exit: { opacity: 0, y: 20 },
+	initial: { opacity: 0, scale: 0.5, rotate: -45 },
+	animate: { opacity: 1, scale: 1, rotate: 0 },
+	exit: { opacity: 0, scale: 0.5, rotate: 45 },
 };
 
 interface ThemeToggleProps {
@@ -15,15 +15,11 @@ interface ThemeToggleProps {
 }
 
 function getInitialMode(): ThemeMode {
-	if (typeof window === "undefined") {
-		return "auto";
-	}
-
+	if (typeof window === "undefined") return "auto";
 	const stored = window.localStorage.getItem("theme");
 	if (stored === "light" || stored === "dark" || stored === "auto") {
 		return stored;
 	}
-
 	return "auto";
 }
 
@@ -34,18 +30,13 @@ function applyThemeMode(mode: ThemeMode) {
 	document.documentElement.classList.remove("light", "dark");
 	document.documentElement.classList.add(resolved);
 
-	if (mode === "auto") {
-		document.documentElement.removeAttribute("data-theme");
-	} else {
-		document.documentElement.setAttribute("data-theme", mode);
-	}
+	document.documentElement.setAttribute("data-theme", resolved);
 
 	document.documentElement.style.colorScheme = resolved;
 }
 
 export default function ThemeToggle({ isMobile }: ThemeToggleProps) {
 	const [mode, setMode] = useState<ThemeMode>("auto");
-	const [osDark, setOsDark] = useState<boolean>(false);
 
 	useEffect(() => {
 		const initialMode = getInitialMode();
@@ -54,21 +45,13 @@ export default function ThemeToggle({ isMobile }: ThemeToggleProps) {
 	}, []);
 
 	useEffect(() => {
-		if (mode !== "auto") {
-			return;
-		}
+		if (mode !== "auto") return;
 
 		const media = window.matchMedia("(prefers-color-scheme: dark)");
-		setOsDark(media.matches);
-		const onChange = (event: MediaQueryListEvent) => {
-			setOsDark(event.matches);
-			applyThemeMode("auto");
-		};
+		const onChange = () => applyThemeMode("auto");
 
 		media.addEventListener("change", onChange);
-		return () => {
-			media.removeEventListener("change", onChange);
-		};
+		return () => media.removeEventListener("change", onChange);
 	}, [mode]);
 
 	function toggleMode() {
@@ -84,143 +67,70 @@ export default function ThemeToggle({ isMobile }: ThemeToggleProps) {
 			? "Theme mode: auto (system). Click to switch to light mode."
 			: `Theme mode: ${mode}. Click to switch mode.`;
 
-	const isDark = mode === "dark" || (mode === "auto" && osDark);
+	// where knob should be on track
+	const alignment =
+		mode === "dark" ? "flex-start" : mode === "auto" ? "center" : "flex-end";
+
+	const renderIcon = () => {
+		if (mode === "auto")
+			return (
+				<Monitor
+					key="auto"
+					size={isMobile ? 14 : 16}
+					className="text-text-muted"
+				/>
+			);
+		if (mode === "dark")
+			return (
+				<Moon
+					key="dark"
+					size={isMobile ? 14 : 16}
+					className="text-text-primary"
+				/>
+			);
+		return (
+			<Sun key="sun" size={isMobile ? 14 : 16} className="text-accent-warm" />
+		);
+	};
 
 	return (
-		<>
-			{!isMobile ? (
-				<motion.div
-					className={`relative flex h-10 w-20 cursor-pointer items-center justify-start rounded-full p-1 transition-all duration-300 ${
-						isDark ? "bg-blue-950" : "bg-amber-500"
-					}`}
-					onClick={toggleMode}
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
-					role="button"
-					tabIndex={0}
-					aria-label={label}
-				>
+		<motion.div
+			className={`relative flex cursor-pointer items-center rounded-full p-1 transition-colors duration-300 bg-surface-container border border-border-subtle ${
+				isMobile ? "h-8 w-16" : "h-10 w-20"
+			}`}
+			style={{ justifyContent: alignment }}
+			onClick={toggleMode}
+			whileHover={{ scale: 1.05 }}
+			whileTap={{ scale: 0.95 }}
+			role="button"
+			tabIndex={0}
+			aria-label={label}
+		>
+			<motion.div
+				layout
+				transition={{
+					type: "spring",
+					stiffness: 500,
+					damping: 30,
+				}}
+				className={`flex items-center justify-center rounded-full bg-surface shadow-md border border-border-subtle ${
+					isMobile ? "h-6 w-6" : "h-8 w-8"
+				}`}
+			>
+				<AnimatePresence mode="wait" initial={false}>
 					<motion.div
-						className={`absolute h-8 w-8 rounded-full ${isDark ? "bg-white" : "bg-black"} shadow-md`}
-						layout
-						transition={{
-							type: "spring",
-							stiffness: 500,
-							damping: 30,
-						}}
-						style={{
-							left: isDark ? "calc(100% - 2rem - 0.25rem)" : "0.25rem",
-						}}
-					/>
-					<AnimatePresence mode="wait" initial={false}>
-						{mode === "auto" ? (
-							<motion.div
-								key="auto"
-								className="absolute inset-0 flex items-center justify-center"
-								variants={iconVariants}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-							>
-								<Monitor
-									size={16}
-									className={`${isDark ? "text-slate-100 opacity-90" : "text-zinc-800 opacity-90"} `}
-								/>
-							</motion.div>
-						) : mode === "dark" ? (
-							<motion.div
-								key="moon"
-								className="absolute left-2"
-								variants={iconVariants}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-							>
-								<Moon size={18} className="text-white" />
-							</motion.div>
-						) : (
-							<motion.div
-								key="sun"
-								className="absolute right-2"
-								variants={iconVariants}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-							>
-								<Sun size={18} className="text-black" />
-							</motion.div>
-						)}
-					</AnimatePresence>
-				</motion.div>
-			) : (
-				<motion.div
-					className={`relative flex h-8 w-14 cursor-pointer items-center justify-start rounded-full p-1 transition-all duration-300 ${
-						isDark ? "bg-blue-800" : "bg-amber-400"
-					}`}
-					onClick={toggleMode}
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
-					role="button"
-					tabIndex={0}
-					aria-label={label}
-				>
-					<motion.div
-						className={`absolute h-6 w-6 rounded-full ${isDark ? "bg-white" : "bg-black"} shadow-md`}
-						layout
-						transition={{
-							type: "spring",
-							stiffness: 500,
-							damping: 30,
-						}}
-						style={{
-							left: isDark ? "calc(100% - 1.75rem)" : "0.25rem",
-							top: "0.25rem",
-						}}
-					/>
-					<AnimatePresence mode="wait" initial={false}>
-						{mode === "auto" ? (
-							<motion.div
-								key="auto"
-								className="absolute inset-0 flex items-center justify-center"
-								variants={iconVariants}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-								layout
-							>
-								<Monitor
-									size={14}
-									className={`${isDark ? "text-slate-100 opacity-90" : "text-zinc-800 opacity-90"} `}
-								/>
-							</motion.div>
-						) : mode === "dark" ? (
-							<motion.div
-								key="moon"
-								className="absolute top-1/2 left-1.5 -translate-y-1/2"
-								variants={iconVariants}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-								layout
-							>
-								<Moon size={16} className="text-white" />
-							</motion.div>
-						) : (
-							<motion.div
-								key="sun"
-								className="absolute top-1/2 right-1.5 -translate-y-1/2"
-								variants={iconVariants}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-								layout
-							>
-								<Sun size={16} className="text-black" />
-							</motion.div>
-						)}
-					</AnimatePresence>
-				</motion.div>
-			)}
-		</>
+						key={mode}
+						variants={iconVariants}
+						initial="initial"
+						animate="animate"
+						exit="exit"
+						transition={{ duration: 0.15 }}
+						className="flex items-center justify-center"
+					>
+						{renderIcon()}
+					</motion.div>
+				</AnimatePresence>
+			</motion.div>
+		</motion.div>
 	);
 }
