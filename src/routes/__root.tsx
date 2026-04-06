@@ -17,9 +17,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 	{
 		head: () => ({
 			meta: [
-				{
-					charSet: "utf-8",
-				},
+				{ title: "Christopher Gulbrandsen Høe | Portfolio", charSet: "utf-8" },
 				{
 					name: "viewport",
 					content: "width=device-width, initial-scale=1",
@@ -30,25 +28,59 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 						"Christopher Gulbrandsen Høe's portfolio made with Tanstack Start",
 				}),
 			],
+			scripts: [
+				{
+					type: "application/ld+json",
+					children: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "Person",
+						name: "Christopher Gulbrandsen Høe",
+						url: "https://christophergulhoe.dev",
+						jobTitle: "Software Engineer",
+						alumniOf: {
+							"@type": "CollegeOrUniversity",
+							name: "Norwegian University of Science and Technology (NTNU)",
+							url: "https://www.ntnu.edu",
+							department: "Computer Science",
+						},
+						affiliation: {
+							"@type": "CollegeOrUniversity",
+							name: "Norwegian University of Science and Technology (NTNU)",
+							url: "https://www.ntnu.edu",
+						},
+						knowsAbout: ["React", "TypeScript", "Distributed systems", ".NET"],
+						description:
+							"Computer Science student at NTNU and Software Engineer at Hoggorm Design, specializing in full-stack web development, distributed systems, and data mining/ML. Building production-grade applications with React, TypeScript, .NET, and CI/CD.",
+						sameAs: [
+							"https://github.com/Christio02",
+							"https://www.linkedin.com/in/christopher-gulbrandsen-høe",
+						],
+					}),
+				},
+			],
 			links: [
 				{ rel: "stylesheet", href: appCss },
+				{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
 				{
 					rel: "apple-touch-icon",
 					sizes: "180x180",
-					href: "/apple-touch-icon.png",
+					href: "/apple-touch-icon.png?v=2",
 				},
 				{
 					rel: "icon",
 					type: "image/png",
 					sizes: "32x32",
-					href: "/favicon-32x32.png",
+					href: "/favicon-dark.png?v=3",
+					media: "(prefers-color-scheme: dark)",
 				},
 				{
 					rel: "icon",
 					type: "image/png",
-					sizes: "16x16",
-					href: "/favicon-16x16.png",
+					sizes: "32x32",
+					href: "/favicon-32x32.png?v=3",
+					media: "(prefers-color-scheme: light)",
 				},
+
 				{
 					rel: "preconnect",
 					href: "https://fonts.googleapis.com",
@@ -63,8 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 					href: "https://fonts.googleapis.com/css2?family=Syne:wght@800&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@400;500&display=swap",
 				},
 
-				{ rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
-				{ rel: "icon", href: "/favicon.ico" },
+				{ rel: "manifest", href: "/manifest.json?v=2", color: "#fffff" },
 			],
 		}),
 		errorComponent: (props) => {

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    :root {
+      --primary: #115E4D;
+      --secondary: #C67E14;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #57EFB4;
+        --secondary: #FCBD4E;
+      }
+    }
+    .p { fill: var(--primary); }
+    .s { fill: var(--secondary); }
+  </style>
+  
+  <path class="p" d="M16 3l11.3 6.5v13L16 29 4.7 22.5v-13L16 3zm0 2.3L7 10.5v11l9 5.2 9-5.2v-11l-9-5.2z"/>
+  <rect class="p" x="14.5" y="1.5" width="3" height="3" rx="0.5"/>
+  <rect class="p" x="14.5" y="27.5" width="3" height="3" rx="0.5"/>
+  <rect class="p" x="3" y="7.5" width="3" height="3" rx="0.5"/>
+  <rect class="p" x="3" y="21.5" width="3" height="3" rx="0.5"/>
+  <rect class="p" x="26" y="7.5" width="3" height="3" rx="0.5"/>
+  <rect class="p" x="26" y="21.5" width="3" height="3" rx="0.5"/>
+
+  <path class="p" d="M15 11h-2c-2.8 0-5 2.2-5 5s2.2 5 5 5h2v-2h-2c-1.7 0-3-1.3-3-3s1.3-3 3-3h2v-2z"/>
+  
+  <path class="s" d="M18 11h2v4h4v-4h2v10h-2v-4h-4v4h-2V11z"/>
+  
+  <circle class="s" cx="16" cy="16" r="1.5"/>
+  <path class="s" d="M15 16h-3.5M20 16h-2.5" stroke="var(--secondary)" stroke-width="1"/>
+</svg>

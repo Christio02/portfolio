@@ -91,7 +91,7 @@ export default function Header() {
 				</nav>
 
 				<div className="flex items-center gap-4">
-					<ThemeToggle />
+					<ThemeToggle isMobile={false} />
 					{/* You might want a mobile menu trigger here later! */}
 					<button
 						className="md:hidden font-mono text-text-muted"
@@ -128,6 +128,7 @@ export default function Header() {
 								{link}
 							</a>
 						))}
+						<ThemeToggle isMobile={true} />
 					</motion.nav>
 				</AnimatePresence>
 			)}
