@@ -15,7 +15,7 @@ const Projects = ({ projects }: ProjectsProps) => {
 					<SectionLabel index="03" label="PROJECTS" />
 				</FadeInView>
 				<FadeInView>
-					<h2 className="font-display text-5xl text-text-primary mb-12">
+					<h2 className="font-display text-3xl md:text-5xl text-text-primary mb-12">
 						SELECTED
 						<br />
 						WORKS.
@@ -31,6 +31,8 @@ const Projects = ({ projects }: ProjectsProps) => {
 								featured={project.featured}
 								status={project.status}
 								index={index}
+								githubUrl={project.githubUrl}
+								collaborators={project.collaborators}
 							/>
 						</FadeInView>
 					))}

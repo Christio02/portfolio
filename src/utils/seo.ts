@@ -1,33 +1,33 @@
 export const seo = ({
-	title,
-	description,
-	keywords,
-	image,
+  title,
+  description,
+  image,
+  url,
 }: {
-	title: string;
-	description?: string;
-	image?: string;
-	keywords?: string;
+  title: string;
+  description?: string;
+  image?: string;
+  url?: string;
 }) => {
-	const tags = [
-		{ title },
-		{ name: "description", content: description },
-		{ name: "keywords", content: keywords },
-		{ name: "twitter:title", content: title },
-		{ name: "twitter:description", content: description },
-		{ name: "twitter:creator", content: "@tannerlinsley" },
-		{ name: "twitter:site", content: "@tannerlinsley" },
-		{ name: "og:type", content: "website" },
-		{ name: "og:title", content: title },
-		{ name: "og:description", content: description },
-		...(image
-			? [
-					{ name: "twitter:image", content: image },
-					{ name: "twitter:card", content: "summary_large_image" },
-					{ name: "og:image", content: image },
-				]
-			: []),
-	];
-
-	return tags;
+  const tags = [
+    { title },
+    ...(description ? [{ name: "description", content: description }] : []),
+    { property: "og:type", content: "website" },
+    { property: "og:title", content: title },
+    ...(description
+      ? [{ property: "og:description", content: description }]
+      : []),
+    ...(url ? [{ property: "og:url", content: url }] : []),
+    ...(image ? [{ property: "og:image", content: image }] : []),
+    {
+      name: "twitter:card",
+      content: image ? "summary_large_image" : "summary",
+    },
+    { name: "twitter:title", content: title },
+    ...(description
+      ? [{ name: "twitter:description", content: description }]
+      : []),
+    ...(image ? [{ name: "twitter:image", content: image }] : []),
+  ];
+  return tags;
 };

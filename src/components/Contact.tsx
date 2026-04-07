@@ -55,7 +55,7 @@ const Contact = () => {
 					<SectionLabel index="04" label="CONTACT" />
 				</FadeInView>
 				<FadeInView>
-					<h2 className="text-4xl md:text-6xl font-display text-text-primary">
+					<h2 className="text-3xl md:text-5xl font-display text-text-primary">
 						LET'S BUILD <br /> SOMETHING
 					</h2>
 				</FadeInView>

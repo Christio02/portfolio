@@ -14,7 +14,7 @@ const About = ({ experiences, education }: AboutProps) => {
 				<div className="grid grid-cols-1 gap-16 sm:grid-cols-2 ">
 					<FadeInView direction="left">
 						<article>
-							<h2 className="font-display text-text-primary text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+							<h2 className="font-display text-text-primary text-3xl md:text-5xl font-extrabold leading-tight mb-6">
 								BUILDING
 								<br />
 								THE FUTURE.
@@ -66,7 +66,9 @@ const About = ({ experiences, education }: AboutProps) => {
 
 										<div className="text-text-primary">{exp.role}</div>
 										<div className="text-accent">{exp.company}</div>
-										<time className="text-text-dim block" dateTime={exp.period}>{exp.period}</time>
+										<time className="text-text-dim block" dateTime={exp.period}>
+											{exp.period}
+										</time>
 
 										{exp.bullets.map((bullet) => (
 											<div
@@ -114,7 +116,10 @@ const About = ({ experiences, education }: AboutProps) => {
 										<div className="font-mono text-accent-warm">
 											{education.institution}
 										</div>
-										<time className="font-mono text-text-dim text-xs block" dateTime={education.period}>
+										<time
+											className="font-mono text-text-dim text-xs block"
+											dateTime={education.period}
+										>
 											{education.period}
 										</time>
 										{education.bullets.map((bullet) => (

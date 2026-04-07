@@ -1,3 +1,4 @@
+import { BrainCog, Database, Wallpaper, Workflow } from "lucide-react";
 import type {
 	EducationProps,
 	ExperiencesProps,
@@ -63,7 +64,7 @@ export const skillGroups: SkillGroupsProps[] = [
 			"TanStack Query",
 			"GraphQL",
 		],
-		icon: "⌘",
+		icon: Wallpaper,
 		accent: "primary",
 	},
 	{
@@ -78,7 +79,7 @@ export const skillGroups: SkillGroupsProps[] = [
 			"REST",
 			"GraphQL",
 		],
-		icon: "◈",
+		icon: Database,
 		accent: "secondary",
 	},
 	{
@@ -91,13 +92,13 @@ export const skillGroups: SkillGroupsProps[] = [
 			"PostgreSQL",
 			"MongoDB",
 		],
-		icon: "◎",
+		icon: BrainCog,
 		accent: "primary",
 	},
 	{
 		category: "infrastructure",
 		items: ["Docker", "Azure", "CI/CD", "Git", "Linux"],
-		icon: "△",
+		icon: Workflow,
 		accent: "secondary",
 	},
 ];
@@ -119,11 +120,12 @@ export const projects: ProjectProps[] = [
 		featured: true,
 		status: "STABLE",
 		index: 1,
+		githubUrl: "https://github.com/Christio02/exo-worlds.git",
 	},
 	{
 		title: "Online Sheet Music Management",
 		description:
-			"A web-based system to simplify how bands manage, organize, and distribute sheet music. Developed for Heimdal Storband in collaboration with Bouvet ASA.",
+			"My Bachelor project, which I worked on with 6 others. The solution was developed for Heimdal Storband in collaboration with Bouvet ASA. It is a web-based system to simplify how bands manage, organize, and distribute sheet music.",
 		tags: [
 			"React",
 			"TypeScript",
@@ -136,11 +138,12 @@ export const projects: ProjectProps[] = [
 		featured: true,
 		status: "PRODUCTION",
 		index: 2,
+		githubUrl: "https://github.com/Christio02/bachelor-ompa.git",
 	},
 	{
 		title: "Dungeons and Developers",
 		description:
-			"Explore D&D mechanics: build characters, browse classes, monsters, races, and ability scores with a full GraphQL backend.",
+			"Explore D&D mechanics: build characters, browse classes, monsters, races, and ability scores with a full GraphQL backend. Developed with my good friends",
 		tags: [
 			"React",
 			"TypeScript",
@@ -152,15 +155,34 @@ export const projects: ProjectProps[] = [
 		featured: false,
 		status: "STABLE",
 		index: 3,
+		githubUrl: "https://github.com/Christio02/dungeons-and-developers.git",
+		collaborators: [
+			{
+				name: "Eirik Engen Kvam",
+				githubUrl: "https://github.com/eirikek",
+				linkedInUrl: "https://www.linkedin.com/in/eirik-engen-kvam",
+			},
+			{
+				name: "Mats Kvanvik",
+				githubUrl: "https://github.com/Matkva",
+				linkedInUrl: "https://www.linkedin.com/in/mats-kvanvik",
+			},
+			{
+				name: "August Solli Middelkoop",
+				githubUrl: "https://github.com/amiddelkoop",
+				linkedInUrl: "https://www.linkedin.com/in/august-solli-middelkoop",
+			},
+		],
 	},
 	{
 		title: "Flappy Bird: Flight & Firepower",
 		description:
-			"An experimental twist on Flappy Bird where players blast pipes apart to carve their own path. Built in Unity with procedural audio.",
+			"An experimental twist on Flappy Bird where players blast pipes apart to carve their own path. Built in Unity.",
 		tags: ["Unity", "C#", "2D Graphics", "Game Physics"],
 		featured: false,
 		status: "EXPERIMENTAL",
 		index: 4,
+		githubUrl: "https://github.com/Christio02/flappy.git",
 	},
 ];
 

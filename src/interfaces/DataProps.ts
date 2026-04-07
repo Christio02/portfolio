@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 export interface ExperiencesProps {
 	role: string;
 	company: string;
@@ -15,7 +17,7 @@ export interface EducationProps {
 export interface SkillGroupsProps {
 	category: string;
 	items: string[];
-	icon: string;
+	icon: LucideIcon;
 	accent: string;
 }
 
@@ -26,6 +28,14 @@ export interface ProjectProps {
 	featured: boolean;
 	status: "STABLE" | "PRODUCTION" | "EXPERIMENTAL";
 	index: number;
+	githubUrl?: string;
+	collaborators?: Collaborator[];
+}
+
+interface Collaborator {
+	name: string;
+	linkedInUrl?: string;
+	githubUrl?: string;
 }
 
 export interface SocialLinksProps {

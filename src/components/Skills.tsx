@@ -23,7 +23,7 @@ const Skills = () => {
 				</FadeInView>
 				<FadeInView>
 					<div className="flex flex-wrap content-end gap-6 justify-between items-end mb-12">
-						<h2 className="text-5xl font-display text-text-primary">
+						<h2 className="text-3xl md:text-5xl font-display text-text-primary">
 							TECHNICAL
 							<br />
 							CAPABILITIES.
@@ -54,7 +54,7 @@ const Skills = () => {
 											{group.category}
 										</h3>
 										<span className="text-xl text-text-dim opacity-[0.5]">
-											{group.icon}
+											<group.icon />
 										</span>
 									</div>
 									<motion.div
@@ -69,7 +69,9 @@ const Skills = () => {
 												key={skill}
 												variants={itemV}
 												whileHover={{
-													borderColor: isPrimary ? "var(--accent)" : "var(--accent-warm)",
+													borderColor: isPrimary
+														? "var(--accent)"
+														: "var(--accent-warm)",
 													scale: 1.04,
 												}}
 												className={`px-3 py-1 bg-surface-highest font-mono text-[11px] border border-border ${accent}`}
