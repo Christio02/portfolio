@@ -8,12 +8,12 @@
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build",
-    "preview": "pnpm run build && wrangler dev",
+    "preview": "vite build && wrangler dev",
     "test": "vitest run",
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check",
-    "deploy": "pnpm run build && wrangler deploy",
+    "deploy": "vite build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
