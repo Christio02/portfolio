@@ -9,7 +9,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "routes": [
     {
-      "pattern": "chrishoee.dev/*",
+      "pattern": "chrishoee.dev",
       "custom_domain": true,
     },
   ],
