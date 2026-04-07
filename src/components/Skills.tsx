@@ -106,11 +106,18 @@ const Skills = () => {
 								const d = new Date(raw);
 								const pad = (n: number) => String(n).padStart(2, "0");
 
-								return `LAST_DEPLOYED: ${d.getUTCFullYear()}.${pad(
-									d.getUTCMonth() + 1,
-								)}.${pad(d.getUTCDate())}_${pad(d.getUTCHours())}:${pad(
-									d.getUTCMinutes(),
-								)}_UTC`;
+								// get timezone
+								const tzName =
+									Intl.DateTimeFormat("en-US", { timeZoneName: "short" })
+										.formatToParts(d)
+										.find((part) => part.type === "timeZoneName")?.value ||
+									"LOCAL";
+
+								return `LAST_DEPLOYED: ${d.getFullYear()}.${pad(
+									d.getMonth() + 1,
+								)}.${pad(d.getDate())}_${pad(d.getHours())}:${pad(
+									d.getMinutes(),
+								)}_${tzName}`;
 							})()}
 						</span>
 					</div>
