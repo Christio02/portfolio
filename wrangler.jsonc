@@ -3,10 +3,14 @@
   "name": "portfolio",
   "compatibility_date": "2026-04-07",
   "observability": {
-    "enabled": true
+    "enabled": true,
   },
   "main": "@tanstack/react-start/server-entry",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    {
+      "pattern": "chrishoee.dev/*",
+      "custom_domain": true,
+    },
+  ],
 }
