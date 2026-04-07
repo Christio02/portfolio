@@ -7,13 +7,13 @@
   },
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "vite build",
+    "build": "VITE_DEPLOYED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ) vite build",
     "preview": "vite build && wrangler dev",
     "test": "vitest run",
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check",
-    "deploy": "VITE_DEPLOYED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ) vite build && wrangler deploy",
+    "deploy": "vite build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
