@@ -57,7 +57,7 @@ const ProjectCard = ({
 					</li>
 				))}
 			</ul>
-			{collaboratorsUrl && githubUrl && (
+			{(collaboratorsUrl || githubUrl) && (
 				<>
 					<hr className="border-t border-border pt-4 mt-4" />
 					<div className="mt-auto flex flex-col gap-3">

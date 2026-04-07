@@ -23,7 +23,7 @@ const config = defineConfig({
 			},
 			sitemap: {
 				enabled: true,
-				host: "", // fix later
+				host: "example.com", // fix later
 			},
 		}),
 		viteReact({

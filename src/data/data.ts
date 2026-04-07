@@ -125,7 +125,7 @@ export const projects: ProjectProps[] = [
 	{
 		title: "Online Sheet Music Management",
 		description:
-			"My Bachelor project, which I worked on with 6 others. The solution was developed for Heimdal Storband in collaboration with Bouvet ASA. It is a web-based system to simplify how bands manage, organize, and distribute sheet music.",
+			"My Bachelor project, which I worked on with 6 others. The solution was developed for Heimdal Storband in collaboration with Bouvet ASA. It is a web-based system to simplify how bands manage, organize, and distribute sheet music. Still contributing when I have time, nearly ready for production.",
 		tags: [
 			"React",
 			"TypeScript",
@@ -136,14 +136,14 @@ export const projects: ProjectProps[] = [
 			"Docker",
 		],
 		featured: true,
-		status: "PRODUCTION",
+		status: "STABLE",
 		index: 2,
 		githubUrl: "https://github.com/Christio02/bachelor-ompa.git",
 	},
 	{
 		title: "Dungeons and Developers",
 		description:
-			"Explore D&D mechanics: build characters, browse classes, monsters, races, and ability scores with a full GraphQL backend. Developed with my good friends",
+			"Explore D&D mechanics: build characters, browse classes, monsters, races, and ability scores with a full GraphQL backend. Developed with my good friends. We received grade A, the feedback was: The platform is highly user-friendly with an intuitive navigation system and a seamless login process. The professor highlighted the effective implementation of filtering, sorting, and search with query suggestions, as well as the 'My Character' section for its high-quality functionality and helpful informational cues.",
 		tags: [
 			"React",
 			"TypeScript",

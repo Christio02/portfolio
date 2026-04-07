@@ -60,7 +60,7 @@ const Contact = () => {
 					</h2>
 				</FadeInView>
 				<FadeInView>
-					<p className="text-text-muted font-body">
+					<p className="text-text-muted font-body mt-3">
 						Have a project in mind? Send me a message and I'll get back to you
 						soon.
 					</p>
