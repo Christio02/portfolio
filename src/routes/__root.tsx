@@ -24,8 +24,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 					title: "Christopher Gulbrandsen Høe | Portfolio",
 					description:
 						"Christopher Gulbrandsen Høe's portfolio made with Tanstack Start",
-					image: "/og-image.png",
-					url: "example.com", // domain url
+					image: "https://portfolio.christopher-hoee.workers.dev/og-image.png",
+					url: "https://portfolio.christopher-hoee.workers.dev/",
 				}),
 			],
 			scripts: [
@@ -35,7 +35,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 						"@context": "https://schema.org",
 						"@type": "Person",
 						name: "Christopher Gulbrandsen Høe",
-						url: "",
+						url: "https://christopherhoe.dev",
 						jobTitle: "Software Engineer",
 						alumniOf: {
 							"@type": "CollegeOrUniversity",
