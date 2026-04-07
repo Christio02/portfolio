@@ -24,8 +24,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 					title: "Christopher Gulbrandsen Høe | Portfolio",
 					description:
 						"Christopher Gulbrandsen Høe's portfolio made with Tanstack Start",
-					image: "https://portfolio.christopher-hoee.workers.dev/og-image.png",
-					url: "https://portfolio.christopher-hoee.workers.dev/",
+					image: "https://chrishoee.dev/og-image.png",
+					url: "https://chrishoee.dev/",
 				}),
 			],
 			scripts: [

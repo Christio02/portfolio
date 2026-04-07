@@ -25,7 +25,7 @@ const config = defineConfig({
 			},
 			sitemap: {
 				enabled: true,
-				host: "https://portfolio.christopher-hoee.workers.dev", // fix later
+				host: "https://chrishoee.dev",
 			},
 		}),
 		viteReact({
