@@ -1,4 +1,4 @@
-import { MoveUpRight } from "lucide-react";
+import { MoveUpRight, TextCursor } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
@@ -133,6 +133,8 @@ const Hero = () => {
 					{"> "}
 					{roles[roleIndex].substring(0, charIndex)}
 					<motion.span
+						aria-hidden="true"
+						className="inline-flex align-middle -translate-y-[0.08em]"
 						animate={{ opacity: [1, 0] }}
 						transition={{
 							duration: 0.6,
@@ -140,7 +142,7 @@ const Hero = () => {
 							repeatType: "reverse",
 						}}
 					>
-						▊
+						<TextCursor size={16} />
 					</motion.span>
 				</motion.div>
 				<motion.div

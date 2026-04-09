@@ -1,6 +1,6 @@
 import FadeInView from "@/components/animation/FadeInView";
-import { SectionLabel } from "@/components/Homepage";
 import ProjectCard from "@/components/projects/ProjectCard";
+import SectionLabel from "@/ui/SectionLabel";
 import type { ProjectProps } from "../../interfaces/DataProps";
 
 type ProjectsProps = {

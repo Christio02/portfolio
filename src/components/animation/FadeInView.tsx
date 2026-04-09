@@ -1,12 +1,5 @@
 import { motion } from "motion/react";
-
-interface FadeInViewProps {
-	children: React.ReactNode;
-	delay?: number;
-	direction?: "up" | "down" | "left" | "right" | "none";
-	className?: string;
-	style?: React.CSSProperties;
-}
+import type { FadeInViewProps } from "@/interfaces/ComponentProps";
 
 const FadeInView = ({
 	children,

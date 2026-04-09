@@ -22,7 +22,11 @@ const TextArea = ({ label }: { label: string }) => {
 				aria-invalid={
 					field.state.meta.isTouched && field.state.meta.errors.length > 0
 				}
-				aria-describedby={`${field.name}-error`}
+				aria-describedby={
+					field.state.meta.isTouched && field.state.meta.errors.length > 0
+						? `${field.name}-error`
+						: undefined
+				}
 				className={`w-full resize-none bg-transparent border-b outline-none font-mono py-2 text-text-primary transition-colors duration-200 ${
 					field.state.meta.isTouched && field.state.meta.errors.length > 0
 						? "border-red-500 focus:border-red-400"

@@ -2,8 +2,8 @@ import emailjs from "@emailjs/browser";
 import { motion } from "motion/react";
 import { z } from "zod";
 import FadeInView from "@/components/animation/FadeInView";
-import { SectionLabel } from "@/components/Homepage";
 import { useAppForm } from "@/lib/form";
+import SectionLabel from "@/ui/SectionLabel";
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;

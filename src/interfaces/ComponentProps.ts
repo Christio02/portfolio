@@ -8,3 +8,11 @@ export interface AboutProps {
 	experiences: ExperiencesProps[];
 	education: EducationProps[];
 }
+
+export interface FadeInViewProps {
+	children: React.ReactNode;
+	delay?: number;
+	direction?: "up" | "down" | "left" | "right" | "none";
+	className?: string;
+	style?: React.CSSProperties;
+}

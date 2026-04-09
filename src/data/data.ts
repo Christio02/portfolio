@@ -11,21 +11,32 @@ export const experiences: ExperiencesProps[] = [
 	{
 		role: "Software Engineer",
 		company: "Hoggorm Design A/S",
-		period: "2023 – present",
+		period: "2023 - present",
 		bullets: [
-			"Developing scalable web apps with React, Next.js, TypeScript, and Sanity CMS",
-			"Reduced bandwidth usage 80% via image optimization and lazy loading",
-			"Implemented secure deployment pipelines and performance monitoring",
+			"Built scalable web applications using React, Next.js, TypeScript, and Sanity CMS",
+			"Helped reduce bandwidth by 80% for a project",
+			"Established secure CI/CD pipeline and auto-sync script for datasets",
+		],
+	},
+	{
+		role: "Full-stack Developer",
+		company: "Cogito",
+		period: "Autumn 2025",
+		bullets: [
+			"Engineered a dynamic event calendar system for the Cogito website",
+			"Developed frontend with Next.js and backend services using Go",
 		],
 	},
 	{
 		role: "Developer",
 		company: "Studentmediene i Trondheim",
-		period: "2023 – 2024",
+		period: "2023 - 2025",
 		bullets: [
-			"Built dynamic apps with React & TypeScript in an agile team",
-			"Shipped a GDPR-compliant privacy consent system (full-stack)",
-			"Course review platform with strong user adoption",
+			"Continued working on emnr.no, a course review platform",
+			"Implemented changes to the review form based",
+			"Implemented a GDPR-compliant privacy consent system end-to-end",
+			"The website is accessed by 100+ students each semester",
+			"React-based frontend with a Django backend",
 		],
 	},
 ];

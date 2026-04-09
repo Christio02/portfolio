@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import FadeInView from "@/components/animation/FadeInView";
 import type { AboutProps } from "@/interfaces/ComponentProps";
 import type { ExperiencesProps } from "@/interfaces/DataProps";
-import { SectionLabel } from "./Homepage";
+import SectionLabel from "@/ui/SectionLabel";
 
 const About = ({ experiences, education }: AboutProps) => {
 	return (
