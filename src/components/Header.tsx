@@ -91,8 +91,6 @@ export default function Header() {
 				</nav>
 
 				<div className="flex items-center gap-4">
-					<ThemeToggle isMobile={false} />
-					{/* You might want a mobile menu trigger here later! */}
 					<button
 						className="md:hidden font-mono text-text-muted"
 						type="button"
