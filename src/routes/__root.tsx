@@ -23,10 +23,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				...seo({
 					title: "Christopher Gulbrandsen Høe | Portfolio",
 					description:
-						"Christopher Gulbrandsen Høe's portfolio made with Tanstack Start",
+						"Portfolio of Christopher Gulbrandsen Høe (Christopher Høe / Christopher Hoe / Christopher Gulbrandsen Hoe) — Software Engineer and Computer Science student at NTNU.",
 					image: "https://chrishoee.dev/og-image.png",
 					url: "https://chrishoee.dev/",
 				}),
+				{
+					name: "keywords",
+					content:
+						"Christopher Høe, Christopher Hoe, Christopher Gulbrandsen, Christopher Gulbrandsen Høe, Christopher Gulbrandsen Hoe, Christopher Gulbrandsen Hoee",
+				},
 			],
 			scripts: [
 				{
@@ -35,7 +40,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 						"@context": "https://schema.org",
 						"@type": "Person",
 						name: "Christopher Gulbrandsen Høe",
-						url: "https://christopherhoe.dev",
+						alternateName: [
+							"Christopher Høe",
+							"Christopher Gulbrandsen",
+							"Christopher Hoee",
+							"Christopher Gulbrandsen Hoee",
+							"Christopher Hoe",
+							"Christopher Gulbrandsen Hoe",
+						],
+						url: "https://chrishoee.dev",
 						jobTitle: "Software Engineer",
 						alumniOf: {
 							"@type": "CollegeOrUniversity",
@@ -53,7 +66,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 							"Computer Science student at NTNU and Software Engineer at Hoggorm Design, specializing in full-stack web development, distributed systems, and data mining/ML. Building production-grade applications with React, TypeScript, .NET, and CI/CD.",
 						sameAs: [
 							"https://github.com/Christio02",
-							"https://www.linkedin.com/in/christopher-gulbrandsen-høe",
+							"https://www.linkedin.com/in/christopher-hoee/",
 						],
 					}),
 				},
