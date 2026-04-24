@@ -9,6 +9,17 @@ updates:
         patterns:
           - "*"
 
+  - package-ecosystem: "npm"
+    directories:
+      - "/studio"
+      - "/frontend"
+    schedule:
+      interval: "weekly"
+    groups:
+      studio-and-frontend:
+        patterns:
+          - "*"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
