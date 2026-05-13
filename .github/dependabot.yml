@@ -4,16 +4,26 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    # ⏱️ Native cooldown matches your pnpm minimum-release-age (7 days)
+    # This prevents Dependabot from creating PRs that your CI will just block.
+    cooldown:
+      default-days: 7
     groups:
-      npm-dependencies:
-        patterns:
-          - "*"
+      # 📦 Bundle lower-risk devDependencies (linters, test runners, etc.)
+      dev-dependencies:
+        dependency-type: "development"
+      # Production dependencies are deliberately left ungrouped.
+      # They will generate individual PRs so you can review their release notes carefully!
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+    # ⏱️ Applying the same 7-day cooldown here protects you from compromised actions
+    cooldown:
+      default-days: 7
     groups:
+      # 🛠️ GitHub actions are generally safe to bundle together
       github-actions:
         patterns:
           - "*"
