@@ -1,27 +1,9 @@
-import emailjs from "@emailjs/browser";
 import { motion } from "motion/react";
-import { z } from "zod";
+import { contactSchema } from "#/interfaces/contactSchema.ts";
 import FadeInView from "@/components/animation/FadeInView";
+import { submitContactFormFn } from "@/hooks/contactHook";
 import { useAppForm } from "@/lib/form";
 import SectionLabel from "@/ui/SectionLabel";
-
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
-
-const contactSchema = z.object({
-	name: z.string().min(4, "Name must be at least 4 characters"),
-	email: z.email("Invalid email address"),
-	message: z
-		.string()
-		.trim()
-		.min(20, "Message must be at least 20 characters")
-		.max(1000, "Message must be less than 1000 characters")
-		.refine(
-			(value) => value.replace(/\s/g, "").length >= 20,
-			"Message must contain at least 20 non-space characters",
-		),
-});
 
 const Contact = () => {
 	const form = useAppForm({
@@ -31,17 +13,7 @@ const Contact = () => {
 			message: "",
 		},
 		onSubmit: async ({ value }) => {
-			await emailjs.send(
-				SERVICE_ID,
-				TEMPLATE_ID,
-				{
-					name: value.name,
-					email: value.email,
-					message: value.message,
-					time: Date().toLocaleLowerCase(),
-				},
-				PUBLIC_KEY,
-			);
+			await submitContactFormFn({ data: value });
 		},
 		validators: {
 			onChange: contactSchema,
@@ -89,7 +61,7 @@ const Contact = () => {
 								<motion.button
 									type="submit"
 									disabled={!state.canSubmit || state.isSubmitting}
-									className="bg-accent text-bg font-mono text-sm font-bold px-7 py-3 cursor-pointer mt-8 disabled:opacity-50 disabled:cursor-not-allowed "
+									className="bg-accent text-bg font-mono text-sm font-bold px-7 py-3 cursor-pointer mt-8 disabled:opacity-50 disabled:cursor-not-allowed"
 									whileHover={{ scale: 1.03, y: -2 }}
 									whileTap={{ scale: 0.97 }}
 								>
