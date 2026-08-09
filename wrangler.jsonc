@@ -5,24 +5,12 @@
   "observability": {
     "enabled": true,
   },
-  "main": "./dist/server/entry.mjs",
+  "main": "@tanstack/react-start/server-entry",
   "compatibility_flags": ["nodejs_compat"],
   "routes": [
     {
       "pattern": "chrishoee.dev",
-      "custom_domain": true,
-    },
-  ],
-  // Security headers applied via Cloudflare
-  "env": {
-    "production": {
-      "routes": [
-        {
-          "pattern": "chrishoee.dev",
-          "custom_domain": true,
-          "zone_id": "", // Add your zone ID
-        },
-      ],
-    },
-  },
+      "custom_domain": true
+    }
+  ]
 }

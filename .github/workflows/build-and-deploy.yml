@@ -50,16 +50,14 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Deploy to Cloudflare Pages
-        if: ${{ secrets.CF_PAGES_API_TOKEN != '' && secrets.CF_ACCOUNT_ID != '' && secrets.CF_PAGES_PROJECT_NAME != '' }}
-        uses: cloudflare/pages-action@v1
+      - name: Deploy to Cloudflare Workers
+        if: ${{ github.event_name == 'push' && (secrets.CLOUDFLARE_API_TOKEN != '' || secrets.CF_PAGES_API_TOKEN != '') }}
+        uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: ${{ secrets.CF_PAGES_PROJECT_NAME }}
-          directory: ./dist
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN || secrets.CF_PAGES_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || secrets.CF_ACCOUNT_ID }}
 
       - name: Skip deploy notice
-        if: ${{ !(secrets.CF_PAGES_API_TOKEN != '' && secrets.CF_ACCOUNT_ID != '' && secrets.CF_PAGES_PROJECT_NAME != '') }}
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' && secrets.CF_PAGES_API_TOKEN == '' }}
         run: |
-          echo "CF Pages secrets not provided; build completed but deploy skipped."
+          echo "Cloudflare API token secret (CLOUDFLARE_API_TOKEN or CF_PAGES_API_TOKEN) not provided; build completed successfully."

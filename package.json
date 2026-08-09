@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "VITE_DEPLOYED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ) vite build",
+    "build": "vite build",
     "preview": "vite build && wrangler dev",
     "test": "vitest run",
     "format": "biome format",

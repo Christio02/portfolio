@@ -38,7 +38,9 @@ const Skills = () => {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-1 bg-border-subtle">
 					{skillGroups.map((group: SkillGroupsProps, gi: number) => {
 						const isPrimary = group.accent === "primary";
-						const accent = isPrimary ? "text-accent-dim" : "text-accent-warm-dim";
+						const accent = isPrimary
+							? "text-accent-dim"
+							: "text-accent-warm-dim";
 
 						return (
 							<FadeInView key={group.category} delay={gi * 0.08}>
