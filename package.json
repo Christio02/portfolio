@@ -14,7 +14,8 @@
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check",
-    "deploy": "vite build && wrangler deploy",
+    "deploy": "echo \"Skipping wrangler deploy in Pages build. Use 'pnpm run wrangler:deploy' locally.\"",
+    "wrangler:deploy": "vite build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
