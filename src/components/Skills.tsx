@@ -11,113 +11,100 @@ const Skills = () => {
 	};
 
 	const itemV = {
-		hidden: { opacity: 0, y: 12 },
-		visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+		hidden: { opacity: 0, y: 8 },
+		visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
 	};
 
 	return (
-		<section id="skills" className="py-24 px-6">
+		<section id="skills" className="py-24 px-6 relative z-10">
 			<div className="max-w-6xl mx-auto">
 				<FadeInView>
-					<SectionLabel index="02" label="SKILLS" />
+					<SectionLabel index="02" label="Capabilities" />
 				</FadeInView>
 				<FadeInView>
-					<div className="flex flex-wrap content-end gap-6 justify-between items-end mb-12">
-						<h2 className="text-3xl md:text-5xl font-display text-text-primary">
-							TECHNICAL
-							<br />
-							CAPABILITIES.
-						</h2>
-						<p className="text-text-muted font-sans text-lg">
-							A non-exhaustive briefing of the technologies and paradigms
-							utilized in the engineering of high-stakes sovereign intelligence
-							systems.
+					<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+						<div>
+							<h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-text-primary tracking-tight">
+								Technical Stack
+							</h2>
+						</div>
+						<p className="text-text-muted font-body text-base max-w-lg leading-relaxed">
+							Technologies and frameworks I work with across distributed
+							systems, full-stack web development, data mining, and machine
+							learning.
 						</p>
 					</div>
 				</FadeInView>
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-1 bg-border-subtle">
+
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					{skillGroups.map((group: SkillGroupsProps, gi: number) => {
 						const isPrimary = group.accent === "primary";
-						const accent = isPrimary ? "text-accent-dim" : "text-accent-warm-dim";
+						const IconComponent = group.icon;
 
 						return (
 							<FadeInView key={group.category} delay={gi * 0.08}>
-								<motion.div
-									className={`bg-surface-low px-8 py-10 border-l-4 ${isPrimary ? "border-accent" : "border-accent-warm"} cursor-default min-h-48 transition-colors duration-300`}
-									whileHover={{
-										backgroundColor: "var(--surface-container)",
-									}}
-								>
-									<div className="flex justify-between items-start mb-6">
-										<h3 className={`font-mono text-lg ${accent}`}>
-											{"//"}
-											{group.category}
-										</h3>
-										<span className="text-xl text-text-dim opacity-[0.5]">
-											<group.icon />
-										</span>
-									</div>
-									<motion.div
-										variants={containerV}
-										initial="hidden"
-										whileInView="visible"
-										viewport={{ once: true }}
-										className="flex flex-wrap gap-2.5"
-									>
-										{group.items.map((skill) => (
-											<motion.span
-												key={skill}
-												variants={itemV}
-												whileHover={{
-													borderColor: isPrimary
-														? "var(--accent)"
-														: "var(--accent-warm)",
-													scale: 1.04,
-												}}
-												className={`px-3 py-1 bg-surface-highest font-mono text-[11px] border border-border ${accent}`}
+								<div className="p-8 rounded-2xl bg-surface border border-border hover:border-accent/40 transition-all shadow-sm h-full flex flex-col justify-between group">
+									<div>
+										<div className="flex justify-between items-center mb-6">
+											<h3 className="font-display text-xl font-bold text-text-primary capitalize flex items-center gap-2">
+												{group.category.replace("_", " ")}
+											</h3>
+											<div
+												className={`p-2.5 rounded-xl ${isPrimary ? "bg-accent/10 text-accent" : "bg-accent-warm/10 text-accent-warm"}`}
 											>
-												{skill}
-											</motion.span>
-										))}
-									</motion.div>
-								</motion.div>
+												<IconComponent size={20} />
+											</div>
+										</div>
+										<motion.div
+											variants={containerV}
+											initial="hidden"
+											whileInView="visible"
+											viewport={{ once: true }}
+											className="flex flex-wrap gap-2"
+										>
+											{group.items.map((skill) => (
+												<motion.span
+													key={skill}
+													variants={itemV}
+													whileHover={{ y: -2 }}
+													className="px-3 py-1.5 rounded-lg bg-surface-low text-text-primary font-body text-xs font-medium border border-border-subtle hover:border-accent/30 transition-all"
+												>
+													{skill}
+												</motion.span>
+											))}
+										</motion.div>
+									</div>
+								</div>
 							</FadeInView>
 						);
 					})}
 				</div>
+
 				<FadeInView delay={0.3}>
-					<div className="mt-12 border border-border-subtle px-5 py-6 flex justify-between items-center bg-bg flex-wrap gap-4">
-						<div className="flex items-center gap-3">
-							<motion.div
-								aria-hidden="true"
-								className="w-2.5 h-2.5 bg-accent"
-								animate={{ opacity: [1, 0.3, 1] }}
-								transition={{ duration: 2, repeat: Infinity }}
-							/>
-							<span className="font-mono text-xs text-text-muted">
-								SYSTEM_READY: CONTINUOUS_INTEGRATION_ACTIVE
-							</span>
+					<div className="mt-8 px-6 py-4 rounded-xl border border-border-subtle bg-surface-low flex justify-between items-center flex-wrap gap-4 text-xs font-mono">
+						<div className="flex items-center gap-2.5 text-text-muted">
+							<span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+							<span>Continuous Integration Active</span>
 						</div>
-						<span className="font-mono text-xs text-accent">
+						<span className="text-text-dim">
 							{(() => {
 								const raw = import.meta.env.VITE_DEPLOYED_AT;
-								if (!raw) return "LAST_DEPLOYED: UNKNOWN";
+								if (!raw) return "Last Deployed: Unknown";
 
 								const d = new Date(raw);
 								const pad = (n: number) => String(n).padStart(2, "0");
 
-								// get timezone
 								const tzName =
 									Intl.DateTimeFormat("en-US", { timeZoneName: "short" })
 										.formatToParts(d)
 										.find((part) => part.type === "timeZoneName")?.value ||
 									"LOCAL";
 
-								return `LAST_DEPLOYED: ${d.getFullYear()}.${pad(
+								return `Last Deployed: ${d.getFullYear()}.${pad(
 									d.getMonth() + 1,
-								)}.${pad(d.getDate())}_${pad(d.getHours())}:${pad(
+								)}.${pad(d.getDate())} ${pad(d.getHours())}:${pad(
 									d.getMinutes(),
-								)}_${tzName}`;
+								)} (${tzName})`;
 							})()}
 						</span>
 					</div>

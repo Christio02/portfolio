@@ -1,0 +1,11 @@
+packages:
+  - "."
+
+onlyBuiltDependencies:
+  - esbuild
+  - workerd
+  - core-js
+allowBuilds:
+  esbuild: true
+  workerd: true
+  core-js: true

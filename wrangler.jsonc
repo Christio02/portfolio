@@ -10,19 +10,7 @@
   "routes": [
     {
       "pattern": "chrishoee.dev",
-      "custom_domain": true,
-    },
-  ],
-  // Security headers applied via Cloudflare
-  "env": {
-    "production": {
-      "routes": [
-        {
-          "pattern": "chrishoee.dev",
-          "custom_domain": true,
-          "zone_id": "", // Add your zone ID
-        },
-      ],
-    },
-  },
+      "custom_domain": true
+    }
+  ]
 }

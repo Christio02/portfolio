@@ -19,7 +19,7 @@ const sanitizeInput = (str: string): string => {
 export const submitContactFormFn = createServerFn({
 	method: "POST",
 })
-	.inputValidator(contactSchema)
+	.validator(contactSchema)
 	.handler(async ({ data }) => {
 		// Sanitize all inputs to prevent injection attacks
 		const sanitizedName = sanitizeInput(data.name);

@@ -1,4 +1,5 @@
 import { BrainCog, Database, Wallpaper, Workflow } from "lucide-react";
+
 import type {
 	EducationProps,
 	ExperiencesProps,
@@ -11,11 +12,22 @@ export const experiences: ExperiencesProps[] = [
 	{
 		role: "Software Engineer",
 		company: "Hoggorm Design A/S",
-		period: "2023 - present",
+		period: "Aug 2023 - present",
 		bullets: [
 			"Built scalable web applications using React, Next.js, TypeScript, and Sanity CMS",
 			"Helped reduce bandwidth by 80% for a project",
 			"Established secure CI/CD pipeline and auto-sync script for datasets",
+		],
+	},
+	{
+		role: "AI/ML Engineer",
+		company: "Kongsberg Defence & Aerospace",
+		period: "June 2026 - Aug 2026",
+		bullets: [
+			"Researched and implemented ML pipelines for anomaly detection in manufacturing using computer vision",
+			"Worked with real-world industrial datasets, gaining hands-on experience with data quality challenges in production environments",
+			"Built and evaluated models using PyTorch, OpenCV, and NumPy",
+			"Presented findings to an audience of 200+ engineers and stakeholders",
 		],
 	},
 	{
@@ -30,7 +42,7 @@ export const experiences: ExperiencesProps[] = [
 	{
 		role: "Developer",
 		company: "Studentmediene i Trondheim",
-		period: "2023 - 2025",
+		period: "Aug 2023 - Aug 2025",
 		bullets: [
 			"Continued working on emnr.no, a course review platform",
 			"Implemented changes to the review form based",

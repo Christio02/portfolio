@@ -4,15 +4,15 @@ const TextField = ({ label }: { label: string }) => {
 	const field = useFieldContext<string>();
 
 	return (
-		<div>
+		<div className="space-y-2">
 			<label
 				htmlFor={field.name}
-				className="font-mono text-xs text-text-muted uppercase tracking-widest"
+				className="block font-body text-sm font-medium text-text-primary"
 			>
 				{label}
 			</label>
 			<input
-				type="text"
+				type={field.name === "email" ? "email" : "text"}
 				id={field.name}
 				name={field.name}
 				value={field.state.value}
@@ -26,16 +26,16 @@ const TextField = ({ label }: { label: string }) => {
 						? `${field.name}-error`
 						: undefined
 				}
-				className={`w-full resize-none bg-transparent border-b outline-none font-mono py-2 text-text-primary transition-colors duration-200 ${
+				className={`w-full bg-surface border rounded-xl px-4 py-3 text-text-primary font-body text-sm outline-none transition-all ${
 					field.state.meta.isTouched && field.state.meta.errors.length > 0
-						? "border-red-500 focus:border-red-400"
-						: "border-border focus:border-accent"
+						? "border-red-500 focus:ring-2 focus:ring-red-500/20"
+						: "border-border focus:border-accent focus:ring-2 focus:ring-accent/20"
 				}`}
 			/>
 			{field.state.meta.isTouched && field.state.meta.errors.length > 0 && (
 				<ul
 					id={`${field.name}-error`}
-					className="mt-1 space-y-1 text-xs font-mono text-red-400"
+					className="mt-1 space-y-1 text-xs font-mono text-red-500"
 				>
 					{field.state.meta.errors.map((error) => (
 						<li key={`${field.name}-${error?.message ?? "error"}`}>
