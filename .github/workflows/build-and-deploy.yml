@@ -1,0 +1,65 @@
+name: Build and (optionally) Deploy
+
+on:
+  push:
+    branches: [main, update-packages]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Volta
+        run: curl https://get.volta.sh | bash -s -- -y
+
+      - name: Add Volta to PATH
+        run: echo "$HOME/.volta/bin" >> $GITHUB_PATH
+
+      - name: Pin Node and pnpm
+        run: |
+          volta install node@24
+          volta install pnpm@11
+
+      - name: Verify pnpm
+        run: pnpm --version
+
+      - name: Approve pnpm build scripts (non-interactive)
+        run: pnpm approve-builds --all || true
+
+      - name: Commit approvals if present
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(ci): approve pnpm build scripts"
+            git push
+          else
+            echo "No approvals generated"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Deploy to Cloudflare Pages
+        if: ${{ secrets.CF_PAGES_API_TOKEN != '' && secrets.CF_ACCOUNT_ID != '' && secrets.CF_PAGES_PROJECT_NAME != '' }}
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ secrets.CF_PAGES_PROJECT_NAME }}
+          directory: ./dist
+
+      - name: Skip deploy notice
+        if: ${{ !(secrets.CF_PAGES_API_TOKEN != '' && secrets.CF_ACCOUNT_ID != '' && secrets.CF_PAGES_PROJECT_NAME != '') }}
+        run: |
+          echo "CF Pages secrets not provided; build completed but deploy skipped."
