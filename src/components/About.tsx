@@ -6,131 +6,129 @@ import SectionLabel from "@/ui/SectionLabel";
 
 const About = ({ experiences, education }: AboutProps) => {
 	return (
-		<section id="about" className="py-24 px-6 relative z-1">
+		<section id="about" className="py-24 px-6 relative z-10">
 			<div className="max-w-6xl mx-auto">
 				<FadeInView>
-					<SectionLabel index="01" label="ABOUT" />
+					<SectionLabel index="01" label="About Me" />
 				</FadeInView>
-				<div className="grid grid-cols-1 gap-16 sm:grid-cols-2 ">
-					<FadeInView direction="left">
-						<article>
-							<h2 className="font-display text-text-primary text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-								BUILDING
-								<br />
-								THE FUTURE.
+
+				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+					<FadeInView direction="left" className="lg:col-span-5">
+						<article className="sticky top-28">
+							<h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-6">
+								Engineering software with technical rigor &amp; user focus.
 							</h2>
-							<div className="flex flex-col gap-6">
-								<p className="font-body text-text-muted leading-relaxed">
-									I'm a third-year Computer Science student at NTNU with a
-									passion for building software that matters. From distributed
-									systems to data mining and machine learning pipelines, I enjoy
-									tackling complex problems with clean, maintainable code.
+							<div className="flex flex-col gap-5 text-text-muted font-body leading-relaxed text-base">
+								<p>
+									I'm a Computer Science student at NTNU with a passion for
+									building software that matters. From distributed systems to
+									machine learning pipelines, I enjoy tackling complex problems
+									with clean, maintainable code.
 								</p>
-								<p className="font-body text-text-muted leading-relaxed">
+								<p>
 									Currently engineering scalable web applications at Hoggorm
-									Design, where I've shipped production systems that handle real
-									traffic and real users. I believe great software is equal
-									parts technical rigor and human empathy.
+									Design, shipping production systems that handle real traffic
+									and real users. I believe great software combines technical
+									depth with thoughtful design.
 								</p>
 							</div>
 						</article>
 					</FadeInView>
-					<FadeInView direction="right" delay={0.15}>
+
+					<FadeInView
+						direction="right"
+						delay={0.15}
+						className="lg:col-span-7 flex flex-col gap-12"
+					>
 						<div>
-							<h3 className="font-mono text-sm text-accent mb-7 uppercase">
-								{"//"} experiences.log
+							<h3 className="font-display text-lg font-bold text-text-primary mb-6 flex items-center gap-2">
+								<span className="w-2 h-2 rounded-full bg-accent" />
+								Work Experience
 							</h3>
-							<div className="flex flex-col">
+							<div className="flex flex-col gap-4">
 								{experiences.map((exp: ExperiencesProps, i: number) => (
 									<motion.article
 										key={`${exp.company}-${exp.role}-${exp.period}`}
-										initial={{ opacity: 0, x: 20 }}
-										whileInView={{ opacity: 1, x: 0 }}
+										initial={{ opacity: 0, y: 16 }}
+										whileInView={{ opacity: 1, y: 0 }}
 										viewport={{ once: true }}
-										transition={{ delay: i * 0.1, duration: 0.5 }}
-										className={`border-l-2 pl-6 relative ${i === 0 ? "border-accent" : "border-border"} pb-8 last:pb-0`}
+										transition={{ delay: i * 0.08, duration: 0.4 }}
+										className="p-6 rounded-2xl bg-surface border border-border hover:border-accent/40 transition-all shadow-sm group"
 									>
-										<div
-											aria-hidden="true"
-											style={{
-												position: "absolute",
-												left: -5,
-												top: 4,
-												width: 8,
-												height: 8,
-												background:
-													i === 0 ? "var(--accent)" : "var(--surface-highest)",
-												border: `2px solid ${i === 0 ? "var(--accent)" : "var(--border)"}`,
-											}}
-										/>
-
-										<div className="text-text-primary">{exp.role}</div>
-										<div className="text-accent">{exp.company}</div>
-										<time className="text-text-dim block" dateTime={exp.period}>
-											{exp.period}
-										</time>
-
-										{exp.bullets.map((bullet) => (
-											<div
-												key={`${exp.company}-${exp.role}-${exp.period}-${bullet}`}
-												className="relative pl-3 text-sm leading-relaxed text-text-muted"
+										<div className="flex flex-wrap justify-between items-baseline gap-2 mb-2">
+											<h4 className="font-display font-semibold text-lg text-text-primary group-hover:text-accent transition-colors">
+												{exp.role}
+											</h4>
+											<time
+												className="font-mono text-xs text-text-dim px-2.5 py-0.5 rounded-full bg-surface-low border border-border-subtle"
+												dateTime={exp.period}
 											>
-												<span className="absolute left-0 text-text-dim">-</span>
-												{bullet}
-											</div>
-										))}
+												{exp.period}
+											</time>
+										</div>
+										<div className="text-accent font-medium text-sm mb-4">
+											{exp.company}
+										</div>
+
+										<ul className="flex flex-col gap-2">
+											{exp.bullets.map((bullet) => (
+												<li
+													key={`${exp.company}-${exp.role}-${bullet}`}
+													className="text-sm text-text-muted leading-relaxed flex items-start gap-2"
+												>
+													<span className="text-accent shrink-0 mt-1">•</span>
+													<span>{bullet}</span>
+												</li>
+											))}
+										</ul>
 									</motion.article>
 								))}
 							</div>
 						</div>
-						<div className="mt-8">
-							<h3 className="font-mono text-sm text-accent-warm mb-7 uppercase">
-								{"//"} education.log
+
+						<div>
+							<h3 className="font-display text-lg font-bold text-text-primary mb-6 flex items-center gap-2">
+								<span className="w-2 h-2 rounded-full bg-accent-warm" />
+								Education
 							</h3>
-							<div className="flex flex-col">
-								{education.map((education, i) => (
+							<div className="flex flex-col gap-4">
+								{education.map((edu, i) => (
 									<motion.article
-										key={education.degree}
-										className=" border-l-2 border-accent-warm px-6 py-5 pl-6 relative flex flex-col pb-8 last:pb-0"
-										initial={{ opacity: 0, x: 20 }}
-										whileInView={{ opacity: 1, x: 0 }}
+										key={edu.degree}
+										initial={{ opacity: 0, y: 16 }}
+										whileInView={{ opacity: 1, y: 0 }}
 										viewport={{ once: true }}
-										transition={{ delay: i * 0.1, duration: 0.5 }}
+										transition={{ delay: i * 0.08, duration: 0.4 }}
+										className="p-6 rounded-2xl bg-surface border border-border hover:border-accent-warm/40 transition-all shadow-sm group"
 									>
-										<div
-											aria-hidden="true"
-											style={{
-												position: "absolute",
-												left: -5,
-												top: 4,
-												width: 8,
-												height: 8,
-												background:
-													i === 0
-														? "var(--accent-warm)"
-														: "var(--surface-highest)",
-												border: `2px solid ${i === 0 ? "var(--accent-warm)" : "var(--border)"}`,
-											}}
-										/>
-										<div className="font-display">{education.degree}</div>
-										<div className="font-mono text-accent-warm">
-											{education.institution}
-										</div>
-										<time
-											className="font-mono text-text-dim text-xs block"
-											dateTime={education.period}
-										>
-											{education.period}
-										</time>
-										{education.bullets.map((bullet) => (
-											<div
-												key={bullet}
-												className="relative pl-3 text-sm leading-relaxed text-text-muted"
+										<div className="flex flex-wrap justify-between items-baseline gap-2 mb-2">
+											<h4 className="font-display font-semibold text-lg text-text-primary group-hover:text-accent-warm transition-colors">
+												{edu.degree}
+											</h4>
+											<time
+												className="font-mono text-xs text-text-dim px-2.5 py-0.5 rounded-full bg-surface-low border border-border-subtle"
+												dateTime={edu.period}
 											>
-												<span className="absolute left-0 text-text-dim">-</span>
-												{bullet}
-											</div>
-										))}
+												{edu.period}
+											</time>
+										</div>
+										<div className="text-accent-warm font-medium text-sm mb-4">
+											{edu.institution}
+										</div>
+
+										<ul className="flex flex-col gap-2">
+											{edu.bullets.map((bullet) => (
+												<li
+													key={bullet}
+													className="text-sm text-text-muted leading-relaxed flex items-start gap-2"
+												>
+													<span className="text-accent-warm shrink-0 mt-1">
+														•
+													</span>
+													<span>{bullet}</span>
+												</li>
+											))}
+										</ul>
 									</motion.article>
 								))}
 							</div>

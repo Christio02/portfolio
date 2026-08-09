@@ -4,8 +4,8 @@
 @theme {
 	/* typography */
 	--font-mono: "JetBrains Mono", monospace;
-	--font-display: "Syne", sans-serif;
-	--font-body: "DM Sans", sans-serif;
+	--font-display: "Outfit", sans-serif;
+	--font-body: "Plus Jakarta Sans", sans-serif;
 
 	/* color mapping */
 	--color-bg: var(--bg);
@@ -28,50 +28,50 @@
 	--color-accent-warm-dim: var(--accent-warm-dim);
 
 	/* radius */
-	--radius-xs: 0px;
-	--radius-sm: 0px;
-	--radius-md: 0px;
-	--radius-lg: 0px;
-	--radius-xl: 0px;
-	--radius-2xl: 0px;
-	--radius-3xl: 0px;
+	--radius-xs: 4px;
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
+	--radius-xl: 24px;
+	--radius-2xl: 32px;
+	--radius-3xl: 40px;
 	--radius-full: 9999px;
 }
 
 :root {
-	--bg: #f5f2ed;
+	--bg: #f8fafc;
 	--surface: #ffffff;
-	--surface-low: #ece8e1;
-	--surface-container: #e8e4dd;
-	--surface-high: #ddd9d2;
-	--surface-highest: #d0ccc5;
-	--border: #c5bfb5;
-	--border-subtle: rgba(197, 191, 181, 0.4);
-	--text-primary: #111827;
-	--text-muted: #5c6370;
-	--text-dim: #575f6d;
-	--accent: #096355;
-	--accent-dim: #085044;
-	--accent-warm: #8a5204;
-	--accent-warm-dim: #6d4203;
+	--surface-low: #f1f5f9;
+	--surface-container: #e2e8f0;
+	--surface-high: #cbd5e1;
+	--surface-highest: #94a3b8;
+	--border: #e2e8f0;
+	--border-subtle: rgba(226, 232, 240, 0.8);
+	--text-primary: #0f172a;
+	--text-muted: #475569;
+	--text-dim: #64748b;
+	--accent: #4f46e5;
+	--accent-dim: #4338ca;
+	--accent-warm: #059669;
+	--accent-warm-dim: #047857;
 }
 
 :root[data-theme="dark"] {
-	--bg: #0a0e1a;
-	--surface: #0f131f;
-	--surface-low: #171b28;
-	--surface-container: #1b1f2c;
-	--surface-high: #262a37;
-	--surface-highest: #313442;
-	--border: #3b4a44;
-	--border-subtle: rgba(59, 74, 68, 0.2);
-	--text-primary: #dfe2f3;
-	--text-muted: #8090ae;
-	--text-dim: #7e8daa;
-	--accent: #46f1c5;
-	--accent-dim: #28dfb5;
-	--accent-warm: #ffb95f;
-	--accent-warm-dim: #ee9800;
+	--bg: #0b0f17;
+	--surface: #121824;
+	--surface-low: #182030;
+	--surface-container: #1e293b;
+	--surface-high: #334155;
+	--surface-highest: #475569;
+	--border: #1e293b;
+	--border-subtle: rgba(255, 255, 255, 0.08);
+	--text-primary: #f8fafc;
+	--text-muted: #94a3b8;
+	--text-dim: #64748b;
+	--accent: #6366f1;
+	--accent-dim: #818cf8;
+	--accent-warm: #10b981;
+	--accent-warm-dim: #34d399;
 }
 
 * {
@@ -94,11 +94,11 @@ body {
 
 ::selection {
 	background-color: var(--accent);
-	color: var(--bg);
+	color: #ffffff;
 }
 
 ::-webkit-scrollbar {
-	width: 6px;
+	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -106,7 +106,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--border);
+	background: var(--surface-high);
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

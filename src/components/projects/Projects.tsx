@@ -9,19 +9,25 @@ type ProjectsProps = {
 
 const Projects = ({ projects }: ProjectsProps) => {
 	return (
-		<section id="projects" className="py-24 px-6 relative z-1">
+		<section id="projects" className="py-24 px-6 relative z-10">
 			<div className="max-w-6xl mx-auto">
 				<FadeInView>
-					<SectionLabel index="03" label="PROJECTS" />
+					<SectionLabel index="03" label="Projects" />
 				</FadeInView>
 				<FadeInView>
-					<h2 className="font-display text-3xl md:text-5xl text-text-primary mb-12">
-						SELECTED
-						<br />
-						WORKS.
-					</h2>
+					<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+						<div>
+							<h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary tracking-tight">
+								Featured Projects
+							</h2>
+						</div>
+						<p className="text-text-muted font-body text-base max-w-lg leading-relaxed">
+							A selection of full-stack web applications, open-source projects,
+							and engineering experiments.
+						</p>
+					</div>
 				</FadeInView>
-				<div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+				<div className="grid gap-6 grid-cols-1 md:grid-cols-2">
 					{projects.map((project, index) => (
 						<FadeInView key={project.title} direction="up" delay={index * 0.1}>
 							<ProjectCard
