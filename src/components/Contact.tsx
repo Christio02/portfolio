@@ -34,7 +34,7 @@ const Contact = () => {
 						</h2>
 						<p className="text-text-muted font-body text-base max-w-lg leading-relaxed">
 							Have a project in mind or want to talk about software engineering,
-							distributed systems, or AI? Send me a message below.
+							information retrieval, or AI? Send me a message below.
 						</p>
 					</div>
 				</FadeInView>

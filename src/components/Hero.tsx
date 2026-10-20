@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 const roles = [
-	"distributed systems",
+	"information retrieval",
 	"data mining & ML",
 	"full-stack web apps",
 	"backend architecture",
