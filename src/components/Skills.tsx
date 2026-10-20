@@ -29,8 +29,8 @@ const Skills = () => {
 							</h2>
 						</div>
 						<p className="text-text-muted font-body text-base max-w-lg leading-relaxed">
-							Technologies and frameworks I work with across distributed
-							systems, full-stack web development, data mining, and machine
+							Technologies and frameworks I work with across full-stack web
+							development, information retrieval, data mining, and machine
 							learning.
 						</p>
 					</div>

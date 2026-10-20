@@ -61,9 +61,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 							name: "Norwegian University of Science and Technology (NTNU)",
 							url: "https://www.ntnu.edu",
 						},
-						knowsAbout: ["React", "TypeScript", "Distributed systems", ".NET"],
+						knowsAbout: ["React", "TypeScript", "Machine learning", "Information retrieval", ".NET"],
 						description:
-							"Computer Science student at NTNU and Software Engineer at Hoggorm Design, specializing in full-stack web development, distributed systems, and data mining/ML. Building production-grade applications with React, TypeScript, .NET, and CI/CD.",
+							"Computer Science student at NTNU and Software Engineer at Hoggorm Design, specializing in full-stack web development, information retrieval, and data mining/ML. Building production-grade applications with React, TypeScript, .NET, and CI/CD.",
 						sameAs: [
 							"https://github.com/Christio02",
 							"https://www.linkedin.com/in/christopher-hoee/",
