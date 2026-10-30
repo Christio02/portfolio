@@ -36,8 +36,8 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.15",
-    "@cloudflare/vite-plugin": "^1.64.0",
+    "@biomejs/biome": "2.6.2",
+    "@cloudflare/vite-plugin": "^1.65.0",
     "@rsbuild/core": "^2.2.14",
     "@tailwindcss/typography": "^0.5.20",
     "@tanstack/devtools-vite": "0.8.5",
@@ -47,8 +47,8 @@
     "@vitejs/plugin-react": "^6.1.2",
     "babel-plugin-react-compiler": "^1.0.0",
     "typescript": "^7.0.2",
-    "vite": "^8.3.4",
+    "vite": "^8.3.5",
     "vite-tsconfig-paths": "^6.1.1",
-    "wrangler": "^4.151.1"
+    "wrangler": "^4.152.0"
   }
 }
