@@ -61,7 +61,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 							name: "Norwegian University of Science and Technology (NTNU)",
 							url: "https://www.ntnu.edu",
 						},
-						knowsAbout: ["React", "TypeScript", "Machine learning", "Information retrieval", ".NET"],
+						knowsAbout: [
+							"React",
+							"TypeScript",
+							"Machine learning",
+							"Information retrieval",
+							".NET",
+						],
 						description:
 							"Computer Science student at NTNU and Software Engineer at Hoggorm Design, specializing in full-stack web development, information retrieval, and data mining/ML. Building production-grade applications with React, TypeScript, .NET, and CI/CD.",
 						sameAs: [
@@ -69,6 +75,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 							"https://www.linkedin.com/in/christopher-hoee/",
 						],
 					}),
+				},
+				{
+					children: `(function(){try{var s=localStorage.getItem("theme");var m=(s==="light"||s==="dark"||s==="auto")?s:"auto";var d=window.matchMedia("(prefers-color-scheme: dark)").matches;var r=m==="auto"?(d?"dark":"light"):m;var el=document.documentElement;el.classList.remove("light","dark");el.classList.add(r);el.setAttribute("data-theme",r);el.style.colorScheme=r;}catch(e){}})();`,
 				},
 			],
 			links: [
@@ -105,7 +114,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				},
 				{
 					rel: "stylesheet",
-					href: "https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap",
+					href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap",
 				},
 
 				{ rel: "manifest", href: "/manifest.json?v=2", color: "#fffff" },
@@ -133,7 +142,7 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				<HeadContent />
 			</head>

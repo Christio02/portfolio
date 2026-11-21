@@ -2,14 +2,12 @@ import type { SectionLabelProps } from "@/interfaces/ComponentProps";
 
 const SectionLabel = ({ index, label }: SectionLabelProps) => {
 	return (
-		<div className="flex items-center gap-3 mb-8">
-			<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-low border border-border-subtle text-xs font-mono">
-				<span className="text-accent font-semibold">{index}</span>
-				<span className="text-text-muted uppercase tracking-wider font-medium">
-					{label}
-				</span>
+		<div className="flex items-center gap-4 mb-10">
+			<div className="inline-flex items-center gap-2.5 shrink-0 font-mono text-sm tracking-wider uppercase">
+				<span className="text-accent font-semibold tabular-nums">{index}</span>
+				<span className="text-text-primary font-semibold">{label}</span>
 			</div>
-			<div className="flex-1 h-px bg-border-subtle opacity-70" />
+			<div className="flex-1 h-px bg-border" />
 		</div>
 	);
 };

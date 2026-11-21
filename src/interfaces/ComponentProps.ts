@@ -1,4 +1,5 @@
 import type { EducationProps, ExperiencesProps } from "@/interfaces/DataProps";
+
 export interface SectionLabelProps {
 	index: string;
 	label: string;

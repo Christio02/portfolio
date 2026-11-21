@@ -1,11 +1,12 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
 	/* typography */
-	--font-mono: "JetBrains Mono", monospace;
-	--font-display: "Outfit", sans-serif;
-	--font-body: "Plus Jakarta Sans", sans-serif;
+	--font-mono: "IBM Plex Mono", monospace;
+	--font-display: "Space Grotesk", sans-serif;
+	--font-body: "IBM Plex Sans", sans-serif;
 
 	/* color mapping */
 	--color-bg: var(--bg);
@@ -24,17 +25,17 @@
 
 	--color-accent: var(--accent);
 	--color-accent-dim: var(--accent-dim);
+	--color-accent-fg: var(--accent-fg);
 	--color-accent-warm: var(--accent-warm);
 	--color-accent-warm-dim: var(--accent-warm-dim);
 
 	/* radius */
-	--radius-xs: 4px;
-	--radius-sm: 8px;
-	--radius-md: 12px;
-	--radius-lg: 16px;
-	--radius-xl: 24px;
-	--radius-2xl: 32px;
-	--radius-3xl: 40px;
+	--radius-xs: 2px;
+	--radius-sm: 4px;
+	--radius-md: 6px;
+	--radius-lg: 10px;
+	--radius-xl: 16px;
+	--radius-2xl: 24px;
 	--radius-full: 9999px;
 }
 
@@ -46,32 +47,34 @@
 	--surface-high: #cbd5e1;
 	--surface-highest: #94a3b8;
 	--border: #e2e8f0;
-	--border-subtle: rgba(226, 232, 240, 0.8);
+	--border-subtle: rgba(15, 23, 42, 0.08);
 	--text-primary: #0f172a;
 	--text-muted: #475569;
 	--text-dim: #64748b;
-	--accent: #4f46e5;
-	--accent-dim: #4338ca;
-	--accent-warm: #059669;
-	--accent-warm-dim: #047857;
+	--accent: #0284c7;
+	--accent-dim: #0369a1;
+	--accent-fg: #ffffff;
+	--accent-warm: #f59e0b;
+	--accent-warm-dim: #b45309;
 }
 
 :root[data-theme="dark"] {
-	--bg: #0b0f17;
-	--surface: #121824;
-	--surface-low: #182030;
-	--surface-container: #1e293b;
-	--surface-high: #334155;
-	--surface-highest: #475569;
-	--border: #1e293b;
-	--border-subtle: rgba(255, 255, 255, 0.08);
-	--text-primary: #f8fafc;
-	--text-muted: #94a3b8;
-	--text-dim: #64748b;
-	--accent: #6366f1;
-	--accent-dim: #818cf8;
-	--accent-warm: #10b981;
-	--accent-warm-dim: #34d399;
+	--bg: #110c1d;
+	--surface: #181229;
+	--surface-low: #1f1735;
+	--surface-container: #281f42;
+	--surface-high: #372c57;
+	--surface-highest: #4e4078;
+	--border: #2b2246;
+	--border-subtle: rgba(243, 240, 255, 0.09);
+	--text-primary: #f3f0ff;
+	--text-muted: #b8b0d3;
+	--text-dim: #847aa6;
+	--accent: #38bdf8;
+	--accent-dim: #7dd3fc;
+	--accent-fg: #0f172a;
+	--accent-warm: #34d399;
+	--accent-warm-dim: #6ee7b7;
 }
 
 * {
@@ -90,11 +93,12 @@ body {
 	background-color: var(--bg);
 	overflow-x: hidden;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
 	background-color: var(--accent);
-	color: #ffffff;
+	color: var(--accent-fg);
 }
 
 ::-webkit-scrollbar {
@@ -107,9 +111,43 @@ body {
 
 ::-webkit-scrollbar-thumb {
 	background: var(--surface-high);
-	border-radius: 4px;
+	border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--accent);
+}
+
+.tabular-nums {
+	font-variant-numeric: tabular-nums;
+}
+
+/* Subtle architectural corner registration marks */
+.corner-ticks {
+	position: relative;
+}
+
+.corner-ticks::before,
+.corner-ticks::after {
+	content: "";
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	pointer-events: none;
+	border-color: var(--accent);
+	opacity: 0.6;
+}
+
+.corner-ticks::before {
+	top: -1px;
+	left: -1px;
+	border-top: 1.5px solid var(--accent);
+	border-left: 1.5px solid var(--accent);
+}
+
+.corner-ticks::after {
+	bottom: -1px;
+	right: -1px;
+	border-bottom: 1.5px solid var(--accent);
+	border-right: 1.5px solid var(--accent);
 }

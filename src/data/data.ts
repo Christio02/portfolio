@@ -68,7 +68,7 @@ export const education: EducationProps[] = [
     bullets: [
       "Focus: Math, Physics, Leadership, Distributed systems, Data mining, AI and Machine learning",
       "Developed algorithms for data mining and AI",
-      "Switched to an engineering degree to gain experience in math and physics relevant for machine learning and data mining",
+      "Switched to an engineering degree to gain experience in math and physics relevant for machine learning",
     ],
   },
   {
@@ -78,7 +78,7 @@ export const education: EducationProps[] = [
     bullets: [
       "Focus: Frontend, Backend, Databases, Operating systems and Security",
       "Developed REST APIs in Java/C# and advanced web applications",
-      "Bachelor project with Bouvet focusing on an online sheet music website, still working on it part-time",
+      "Bachelor project with Bouvet focusing on an online sheet music website",
     ],
   },
 ];

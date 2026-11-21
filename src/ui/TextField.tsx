@@ -2,6 +2,8 @@ import { useFieldContext } from "@/lib/form";
 
 const TextField = ({ label }: { label: string }) => {
 	const field = useFieldContext<string>();
+	const hasError =
+		field.state.meta.isTouched && field.state.meta.errors.length > 0;
 
 	return (
 		<div className="space-y-2">
@@ -18,21 +20,15 @@ const TextField = ({ label }: { label: string }) => {
 				value={field.state.value}
 				onChange={(e) => field.handleChange(e.target.value)}
 				onBlur={field.handleBlur}
-				aria-invalid={
-					field.state.meta.isTouched && field.state.meta.errors.length > 0
-				}
-				aria-describedby={
-					field.state.meta.isTouched && field.state.meta.errors.length > 0
-						? `${field.name}-error`
-						: undefined
-				}
-				className={`w-full bg-surface border rounded-xl px-4 py-3 text-text-primary font-body text-sm outline-none transition-all ${
-					field.state.meta.isTouched && field.state.meta.errors.length > 0
-						? "border-red-500 focus:ring-2 focus:ring-red-500/20"
+				aria-invalid={hasError}
+				aria-describedby={hasError ? `${field.name}-error` : undefined}
+				className={`w-full bg-surface-low/60 border rounded-md px-4 py-3 text-text-primary font-body text-base outline-none transition-colors ${
+					hasError
+						? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
 						: "border-border focus:border-accent focus:ring-2 focus:ring-accent/20"
 				}`}
 			/>
-			{field.state.meta.isTouched && field.state.meta.errors.length > 0 && (
+			{hasError && (
 				<ul
 					id={`${field.name}-error`}
 					className="mt-1 space-y-1 text-xs font-mono text-red-500"
